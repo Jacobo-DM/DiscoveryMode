@@ -1,215 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DiscoveryMode · A Flower Road Practice</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    :root {
-      --bg: #050608;
-      --fg: #f5f5f5;
-      --accent: #ff6b3d;
-      --accent-soft: rgba(255, 107, 61, 0.12);
-      --card-bg: #13151a;
-      --muted: #b7bac4;
-      --border: #272a33;
-    }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #171923 0, #050608 48%);
-      color: var(--fg);
-      line-height: 1.6;
-    }
-    .wrap {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem 3rem;
-    }
-    header {
-      padding: 1.5rem 1.5rem 1.25rem;
-      border-radius: 1rem;
-      background: linear-gradient(135deg, #111320, #181b28);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.65);
-      margin-bottom: 2rem;
-    }
-    .tag {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-    }
-    h1 {
-      margin: 0.5rem 0 0.2rem;
-      font-size: clamp(1.9rem, 4vw, 2.4rem);
-    }
-    .subtitle {
-      margin: 0;
-      font-size: 1rem;
-      color: var(--muted);
-    }
-    .byline {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-    .byline strong {
-      color: #fff;
-    }
-    main {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
-      gap: 1.75rem;
-    }
-    @media (max-width: 780px) {
-      main {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-    .card {
-      background: var(--card-bg);
-      border-radius: 0.9rem;
-      border: 1px solid var(--border);
-      padding: 1.35rem 1.4rem 1.4rem;
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
-    }
-    .card h2 {
-      margin: 0 0 0.4rem;
-      font-size: 1.1rem;
-    }
-    .card h3 {
-      margin: 0.8rem 0 0.3rem;
-      font-size: 1rem;
-    }
-    .card p {
-      margin: 0.25rem 0 0.6rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    ul {
-      margin: 0.4rem 0 0.6rem 1.1rem;
-      padding: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    li {
-      margin: 0.18rem 0;
-    }
-    .callout {
-      background: var(--accent-soft);
-      border-radius: 0.75rem;
-      padding: 0.75rem 0.9rem;
-      font-size: 0.88rem;
-      color: var(--muted);
-      border: 1px solid rgba(255, 107, 61, 0.35);
-      margin-top: 0.8rem;
-    }
-    .callout strong {
-      color: var(--accent);
-    }
-    a {
-      color: #ff9b73;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      margin-top: 2.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #1c1f28;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-  </style>
+<meta charset="UTF-8">
+<title>DiscoveryMode</title>
+<style>
+  body { font-family: sans-serif; max-width: 760px; margin: 2rem auto; line-height: 1.6; }
+  h1 { margin-bottom: 0.2rem; }
+  .subtitle { color: #444; margin-bottom: 1.5rem; }
+  nav a { margin-right: 1rem; }
+  .box { padding: 1rem; background: #f6f6f6; border-radius: 8px; border: 1px solid #ddd; }
+</style>
 </head>
+
 <body>
-<div class="wrap">
-  <header>
-    <div class="tag">DiscoveryMode · A Flower Road Practice</div>
-    <h1>DiscoveryMode</h1>
-    <p class="subtitle">A garden for learning, listening, movement, and return.</p>
-    <p class="byline">
-      Created by <strong>JH Durbin</strong> with <strong>Elumannín</strong> · 
-      Licensed under <strong>CC BY-NC-SA 4.0</strong> + Stewardship &amp; AI Protection Addendum
-    </p>
-  </header>
 
-  <main>
-    <section class="card">
-      <h2>What DiscoveryMode Is</h2>
-      <p>
-        DiscoveryMode is a way of learning that begins with the body, the place, and the stories we carry. 
-        It is not a product, curriculum, or brand. It is a commons practice: a way to invite breath, movement, 
-        wonder, and critical seeing into everyday learning.
-      </p>
-      <p>
-        It lives alongside other Flower Road practices like <strong>RageDance</strong> and <strong>Fox’s Anvil</strong>.
-      </p>
+<h1>DiscoveryMode</h1>
+<p class="subtitle">A garden for learning, listening, movement, and return.</p>
 
-      <h3>Core Threads</h3>
-      <ul>
-        <li><strong>Body</strong> · somatic grounding, breath, RageDance, movement patterns.</li>
-        <li><strong>Place</strong> · gardens, streets, shorelines, kitchens, hallways, transit.</li>
-        <li><strong>Story</strong> · personal narrative, local histories, myth, emergent fiction.</li>
-        <li><strong>Commons</strong> · open, non-extractive sharing and adaptation.</li>
-      </ul>
-      <p>
-        Every DiscoveryMode pattern touches at least two of these threads; many touch all four.
-      </p>
+<nav>
+  <a href="README.md">README</a>
+  <a href="discoverymode-license.html">License</a>
+</nav>
 
-      <div class="callout">
-        <strong>Start small:</strong> Begin with one practice, in one place, with one group. 
-        A short walk, a story stone, a RageDance cycle, a garden bench. Let the pattern grow slowly from there.
-      </div>
-    </section>
+<hr/>
 
-    <aside class="card">
-      <h2>The Garden Ethic</h2>
-      <p>
-        DiscoveryMode grows like a feral garden. That means:
-      </p>
-      <ul>
-        <li><strong>No masters, no proprietary lineage.</strong> Guidance is possible; ownership is not.</li>
-        <li><strong>Agency first.</strong> Anyone can adapt, refuse, reshape, or stop any practice.</li>
-        <li><strong>Culture-forward.</strong> Local music, language, movement, and story are soil, not decoration.</li>
-        <li><strong>Non-commercial.</strong> Materials live in the commons, not in markets.</li>
-        <li><strong>Resistant to capture.</strong> If it becomes a brand, franchise, or salvation product, 
-            it has stepped out of DiscoveryMode.</li>
-      </ul>
-      <p>
-        Short version: <em>What grows freely resists capture. DiscoveryMode belongs where people remember how to listen.</em>
-      </p>
-
-      <h3>License &amp; Protection</h3>
-      <p>
-        DiscoveryMode practices are shared under 
-        <strong>CC BY-NC-SA 4.0</strong> + a Stewardship &amp; AI Protection Addendum:
-      </p>
-      <ul>
-        <li>Non-commercial, community-rooted use only.</li>
-        <li>Attribution and share-alike are required.</li>
-        <li>No police, military, or surveillance training.</li>
-        <li>No AI training, profiling, or extraction without explicit consent.</li>
-      </ul>
-
-      <h3>Links</h3>
-      <ul>
-        <li><a href="README.md">README · DiscoveryMode Seed</a></li>
-        <li><a href="LICENSE">License &amp; Addendum</a></li>
-        <!-- Update this link to your actual RageDance URL or repo when ready -->
-        <li><a href="https://jacobo-dm.github.io/RageDance/">RageDance · A Flower Road Practice</a></li>
-      </ul>
-    </aside>
-  </main>
-
-  <footer>
-    <div>
-      DiscoveryMode · A Flower Road Practice · Created by <strong>JH Durbin</strong> with <strong>Elumannín</strong><br>
-      Licensed under CC BY-NC-SA 4.0 + Stewardship &amp; AI Protection Addendum
-    </div>
-  </footer>
+<div class="box">
+  <h2>What is DiscoveryMode?</h2>
+  <p>A way of learning grounded in breath, body, place, movement, and story.  
+  Not a brand. Not a product. A commons practice that grows where people grow.</p>
 </div>
+
+<h2>The Feral Garden Ethic</h2>
+<p>DiscoveryMode grows like a feral garden: adaptive, shared, non-owned, and community-led.  
+It must remain free, remixable, and rooted in local cultures and stories.</p>
+
+<h2>Core Threads</h2>
+<ul>
+  <li>movement and somatic grounding</li>
+  <li>ecological literacy and listening</li>
+  <li>curiosity-led inquiry</li>
+  <li>story-based learning</li>
+  <li>return to calm, clarity, and community</li>
+</ul>
+
+<hr/>
+
+<p>Part of the Flower Road Commons (JH Durbin).</p>
+
 </body>
 </html>
