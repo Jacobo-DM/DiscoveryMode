@@ -1,130 +1,74 @@
-# DiscoveryMode  
+# DiscoveryMode
+
 *A garden for learning, listening, movement, and return.*
 
 DiscoveryMode is a way of learning that begins with the body, the place, and the stories we carry.  
 It is not a product, curriculum, or brand.  
 It is a **commons practice**: a way to invite breath, movement, wonder, and critical seeing into everyday learning.
 
-It lives alongside other Flower Road practices like **RageDance** and **Fox’s Anvil**.
+DiscoveryMode works through:
+- movement and somatic grounding  
+- ecological listening  
+- curiosity-led inquiry  
+- story, memory, and community  
+- returning to what the world is already offering  
+
+DiscoveryMode belongs to no single person.  
+It is carried by those who practice it.
 
 ---
 
-## What DiscoveryMode Is
+## The Feral Garden Ethic (DiscoveryMode)
 
-- A way of designing learning around **real bodies, real places, real questions**.  
-- A set of **small, repeatable patterns** – RageDance cycles, Listening Walks, Story Stones, TurtleBack study, Field Altars, and more.  
-- A **community-rooted practice** that adapts to context and culture rather than imposing a fixed method.  
-- A way of protecting **agency, curiosity, and joy** in a time of collapse, noise, and institutional constraint.
+DiscoveryMode grows like a **feral garden**.  
+This means:
 
-## What DiscoveryMode Is Not
+1. **Non-ownership**  
+   No one can own, trademark, or privatize DiscoveryMode.  
+   It stays open-source, shareable, remixable.
 
-- Not an ed-tech platform, app, or scalable product.  
-- Not a branded “method” or certification.  
-- Not neutral: it stands with children, communities, and places treated as expendable.  
-- Not a replacement for therapy, counseling, or medical care.
+2. **Wild Adaptation**  
+   It changes by place, culture, language, community, season, and need.  
+   There is no “official” version. There are only living versions.
 
----
+3. **Play Over Performance**  
+   Children, families, elders, teachers, neighbors—everyone contributes.  
+   Skills matter, but play is sovereign.
 
-## Core Threads (v0)
+4. **Mutual Stewardship**  
+   Anyone may tend the garden.  
+   No one may fence it.
 
-DiscoveryMode rests on four interwoven threads:
-
-### 1. Body  
-Somatic grounding, breath, RageDance, movement patterns, safety from the inside out.
-
-### 2. Place  
-Gardens, streets, shorelines, kitchens, hallways, transit — the real geographies where learning lives.
-
-### 3. Story  
-Personal narrative, local histories, mythic structures, emergent fiction (for example, *Seven Nights in the Monster Kitchen*, *American Steel*).
-
-### 4. Commons  
-Practices shared openly, without extraction — remixable, non-commercial, free to evolve.
-
-Every DiscoveryMode pattern touches at least two threads; many touch all four.
+5. **Regenerative Practice**  
+   What is learned must strengthen community, land, and dignity—not extract from them.
 
 ---
 
-## The Garden Ethic (DiscoveryMode)
+## Core Principles
 
-DiscoveryMode grows like a feral garden. That means:
+**1. Begin with the body.**  
+Breath, posture, grounded awareness.
 
-- **No masters, no proprietary lineage.**  
-  Guidance is possible; ownership is not.
+**2. Begin with the place.**  
+Streets, gardens, hills, classrooms, stairwells—learning happens everywhere.
 
-- **Agency first.**  
-  Anyone can adapt, refuse, reshape, or stop any practice.
+**3. Begin with the stories.**  
+Family, ancestors, laughter, wounds, memory, imagination.
 
-- **Culture-forward.**  
-  Local music, language, movement, and story are soil, not decoration.
-
-- **Non-commercial.**  
-  Materials live in the commons, not in markets.
-
-- **Resistant to capture.**  
-  If someone turns DiscoveryMode into a brand, franchise, or salvation product,  
-  they have stepped out of DiscoveryMode.
-
-Short version:
-
-> **What grows freely resists capture. DiscoveryMode belongs where people remember how to listen.**
+**4. Return.**  
+To calm. To clarity. To each other.
 
 ---
 
-## License & Protection
+## What DiscoveryMode is not
+- not a monetized program  
+- not a proprietary curriculum  
+- not an “engagement system”  
+- not a brand or identity  
 
-DiscoveryMode practices are shared under:
-
-**Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International (CC BY-NC-SA 4.0)**  
-plus a **Stewardship & AI Protection Addendum** (included in this repository’s `LICENSE` file).
-
-In practice, this means:
-
-- You can **use, adapt, and share** DiscoveryMode practices freely in non-commercial settings  
-  (schools, community programs, mutual aid, informal circles, etc.).  
-
-- You must:
-  - **credit the origin**,  
-  - keep your use **non-commercial**, and  
-  - **share adaptations under the same CC BY-NC-SA 4.0 license**.
-
-- DiscoveryMode may **not** be:
-  - packaged as a for-profit product or franchise,  
-  - used for police / military / private security / surveillance training, or  
-  - harvested for AI training, behavioral profiling, or commercial optimization  
-    without explicit, informed consent from the originator and participants.
-
-See `LICENSE` for full details.
+It is a practice within the Flower Road Commons.
 
 ---
 
-## What Exists So Far (v0 Map)
-
-Right now, the clearest complete thread is:
-
-### RageDance  
-A small-space somatic discipline for carrying rage, fear, and grief with more steadiness.
-
-- Repository: (see separate RageDance repo)  
-- Status: **v0 live**  
-- Materials include:
-  - RageDance home page  
-  - RageDance Primer  
-  - Teachers & Facilitators guide  
-  - RD-001 · Full Cycle Card  
-  - Commons License + Stewardship Addendum  
-
-Other threads (Listening Walks, TurtleBack, Fox’s Anvil, MythWear, etc.)  
-are **in active development** and will be added slowly, with care.
-
----
-
-## Invitation
-
-DiscoveryMode is not a finished system.  
-It’s a **path**, a set of **field notes**, and a permission:
-
-> Start small.  
-> Start where you are.  
-> Begin with breath.  
-> Share carefully with those who are ready.
+## License
+See `discoverymode-license.html` (Creative Commons BY-NC-SA 4.0 + Feral Garden Clause).
