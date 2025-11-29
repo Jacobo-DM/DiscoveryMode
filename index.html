@@ -1,51 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>DiscoveryMode</title>
-<style>
-  body { font-family: sans-serif; max-width: 760px; margin: 2rem auto; line-height: 1.6; }
-  h1 { margin-bottom: 0.2rem; }
-  .subtitle { color: #444; margin-bottom: 1.5rem; }
-  nav a { margin-right: 1rem; }
-  .box { padding: 1rem; background: #f6f6f6; border-radius: 8px; border: 1px solid #ddd; }
-</style>
+  <meta charset="UTF-8" />
+  <title>DiscoveryMode · A Flower Road Practice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #050608;
+      --fg: #f5f5f5;
+      --accent: #ff6b3d;
+      --accent-soft: rgba(255, 107, 61, 0.12);
+      --card-bg: #13151a;
+      --muted: #7b7ac4;
+      --border: #272a33;
+      --shadow: rgba(0, 0, 0, 0.25);
+      --radius: 12px;
+      --max-width: 760px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font);
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+    }
+
+    main {
+      width: 100%;
+      max-width: var(--max-width);
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    h2 {
+      margin-top: 2.5rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    p {
+      margin: 1rem 0;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.4rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px var(--shadow);
+      margin-top: 2rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 107, 61, 0.4);
+    }
+
+    a:hover {
+      color: #ffa080;
+      border-bottom-color: #ffa080;
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+    }
+
+  </style>
 </head>
 
 <body>
+  <main>
 
-<h1>DiscoveryMode</h1>
-<p class="subtitle">A garden for learning, listening, movement, and return.</p>
+    <h1>DiscoveryMode</h1>
+    <p><em>A garden for learning, listening, movement, and return.</em></p>
 
-<nav>
-  <a href="README.md">README</a>
-  <a href="discoverymode-license.html">License</a>
-</nav>
+    <p>
+      DiscoveryMode is a way of learning that begins with the body, the place, and the stories we carry.
+      It is a commons practice — not a brand, not a product, not a market.
+    </p>
 
-<hr/>
+    <p>
+      Full README:  
+      <a href="README.md">View README.md</a>
+    </p>
 
-<div class="box">
-  <h2>What is DiscoveryMode?</h2>
-  <p>A way of learning grounded in breath, body, place, movement, and story.  
-  Not a brand. Not a product. A commons practice that grows where people grow.</p>
-</div>
+    <h2>The Feral Garden Ethic</h2>
+    <div class="card">
+      <p>
+        DiscoveryMode grows like a garden that refuses fences.
+        It spreads through invitation, not ownership.
+      </p>
+      <ul>
+        <li>Anyone may tend it.</li>
+        <li>No one may claim it.</li>
+        <li>Every community adapts it to its climate, culture, and needs.</li>
+      </ul>
+      <p>
+        Its strength is diversity. Its purpose is remembering what learning feels like
+        when breath, body, wonder, and place are allowed to guide us.
+      </p>
+    </div>
 
-<h2>The Feral Garden Ethic</h2>
-<p>DiscoveryMode grows like a feral garden: adaptive, shared, non-owned, and community-led.  
-It must remain free, remixable, and rooted in local cultures and stories.</p>
+    <h2>License & Commons Protection</h2>
+    <p>
+      This practice belongs in the commons.  
+      <a href="discoverymode-license.html">View the DiscoveryMode Commons License</a>
+    </p>
 
-<h2>Core Threads</h2>
-<ul>
-  <li>movement and somatic grounding</li>
-  <li>ecological literacy and listening</li>
-  <li>curiosity-led inquiry</li>
-  <li>story-based learning</li>
-  <li>return to calm, clarity, and community</li>
-</ul>
-
-<hr/>
-
-<p>Part of the Flower Road Commons (JH Durbin).</p>
-
+  </main>
 </body>
 </html>
