@@ -1,125 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>DiscoveryMode · A Flower Road Practice</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="UTF-8">
+  <title>DiscoveryMode | Field Guide for Living Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --bg: #050608;
-      --fg: #f5f5f5;
-      --accent: #ff6b3d;
-      --accent-soft: rgba(255, 107, 61, 0.12);
-      --card-bg: #13151a;
-      --muted: #7b7ac4;
-      --border: #272a33;
-      --shadow: rgba(0, 0, 0, 0.25);
-      --radius: 12px;
-      --max-width: 760px;
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --bg: #05070b;
+      --bg-soft: #10131a;
+      --bg-softer: #171c24;
+      --text: #f5f5f5;
+      --muted: #b7beca;
+      --border-soft: #2d3440;
+      --accent: #f4c06b;
+      --accent-soft: #fbe4b6;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       padding: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: var(--font);
-      line-height: 1.6;
-      display: flex;
-      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a2233 0, #05070b 52%, #020309 100%);
+      color: var(--text);
+      line-height: 1.65;
     }
 
-    main {
-      width: 100%;
-      max-width: var(--max-width);
-      padding: 2rem 1.25rem 4rem;
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      background: radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.13) 0, rgba(16, 19, 26, 0.96) 55%);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.5rem 1.3rem;
+      border: 1px solid rgba(244, 192, 107, 0.4);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.32) 0, transparent 54%),
+        radial-gradient(circle at 100% 0, rgba(251, 228, 182, 0.22) 0, transparent 58%);
+      opacity: 0.14;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo-orb {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      border: 2px solid rgba(244, 192, 107, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #fdf5e3 0, #f4c06b 34%, #4d2e14 84%);
+      box-shadow: 0 0 0 3px rgba(5, 7, 11, 0.9);
+      font-size: 1.4rem;
     }
 
     h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
+      margin: 0;
+      font-size: clamp(2rem, 3.2vw, 2.4rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    h2 {
-      margin-top: 2.5rem;
+    .subtitle {
+      margin-top: 0.35rem;
       color: var(--muted);
-      font-weight: 500;
+      font-size: 0.98rem;
+      max-width: 44rem;
     }
 
-    p {
-      margin: 1rem 0;
+    .label-row {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .label-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(244, 192, 107, 0.55);
+      padding: 0.25rem 0.7rem;
+      background: rgba(5, 7, 11, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .label-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .nav-links {
+      margin-top: 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--accent-soft);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 192, 107, 0.45);
+      background: rgba(5, 7, 11, 0.75);
+      backdrop-filter: blur(6px);
+      transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .nav-links a:hover {
+      background: rgba(244, 192, 107, 0.08);
+      transform: translateY(-1px);
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 860px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     .card {
-      background: var(--card-bg);
-      padding: 1.4rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 12px var(--shadow);
-      margin-top: 2rem;
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.3rem 1.25rem 1.5rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    a {
-      color: var(--accent);
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 0.45rem;
+      font-size: 1.32rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.35rem;
+      font-size: 1.02rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      margin-top: 0.15rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.96rem;
+      color: var(--muted);
+    }
+
+    p {
+      margin-top: 0.25rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.97rem;
+    }
+
+    .soft-divider {
+      margin: 0.9rem 0 0.7rem;
+      border: 0;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 192, 107, 0.7);
+      font-size: 0.84rem;
       text-decoration: none;
-      border-bottom: 1px solid rgba(255, 107, 61, 0.4);
+      color: var(--accent-soft);
+      background: rgba(5, 7, 11, 0.85);
+      transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
     }
 
-    a:hover {
-      color: #ffa080;
-      border-bottom-color: #ffa080;
+    .pill-link:hover {
+      background: rgba(244, 192, 107, 0.12);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
     }
 
-    ul {
+    .pill-link span {
+      font-size: 0.9rem;
+    }
+
+    .list-tight {
+      padding-left: 1.1rem;
+      margin-top: 0.2rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.95rem;
+    }
+
+    .list-tight li + li {
+      margin-top: 0.2rem;
+    }
+
+    .note {
+      border-left: 3px solid rgba(244, 192, 107, 0.8);
+      padding-left: 0.7rem;
+      margin: 0.8rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .sidebar-highlight {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.18) 0, transparent 58%),
+        radial-gradient(circle at 100% 100%, rgba(116, 134, 176, 0.18) 0, transparent 60%);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .sidebar-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge-list {
       margin-top: 0.5rem;
-      padding-left: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.8rem;
     }
 
+    .badge {
+      border-radius: 999px;
+      padding: 0.18rem 0.6rem;
+      border: 1px solid rgba(244, 192, 107, 0.6);
+      background: rgba(5, 7, 11, 0.85);
+    }
+
+    .ascii-map {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      padding: 0.7rem 0.8rem;
+      border-radius: 12px;
+      background: var(--bg-softer);
+      border: 1px dashed rgba(255, 255, 255, 0.12);
+      overflow-x: auto;
+      white-space: pre;
+      margin-bottom: 0.8rem;
+    }
+
+    footer {
+      margin-top: 2.4rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer span {
+      opacity: 0.9;
+    }
   </style>
 </head>
-
 <body>
-  <main>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="title-row">
+          <div class="logo-orb" aria-hidden="true">DM</div>
+          <div>
+            <h1>DiscoveryMode</h1>
+            <p class="subtitle">
+              A field guide for living learning — where movement, story, food, and place
+              help bodies and communities remember their pulse.
+            </p>
+          </div>
+        </div>
 
-    <h1>DiscoveryMode</h1>
-    <p><em>A garden for learning, listening, movement, and return.</em></p>
+        <div class="label-row">
+          <span class="label-pill">
+            <span class="label-dot"></span>
+            <span>Project 5 · DiscoveryMode</span>
+          </span>
+          <span class="label-pill">Movement · Food · Connection · Repair</span>
+        </div>
 
-    <p>
-      DiscoveryMode is a way of learning that begins with the body, the place, and the stories we carry.
-      It is a commons practice — not a brand, not a product, not a market.
-    </p>
+        <nav class="nav-links" aria-label="Site navigation">
+          <a href="index.html">Home</a>
+          <a href="dm_pulse.html">Pulse Theory · The Loom of Return</a>
+          <!-- You can swap these external URLs when your folder structure is final -->
+          <!-- <a href="../RageDance/index.html">RageDance</a> -->
+          <!-- <a href="../gofu_commons/index.html">Gofu Commons</a> -->
+        </nav>
+      </div>
+    </header>
 
-    <p>
-      Full README:  
-      <a href="README.md">View README.md</a>
-    </p>
+    <main>
+      <!-- MAIN COLUMN -->
+      <section class="card">
+        <h2>What is DiscoveryMode?</h2>
+        <p class="tagline">
+          DiscoveryMode is not a curriculum. It is a way of arranging time and space so that
+          pulse can return — to bodies, to classrooms, to communities, and to the land.
+        </p>
 
-    <h2>The Garden Ethic</h2>
-    <div class="card">
-      <p>
-        DiscoveryMode grows like a garden that refuses fences.
-        It spreads through invitation, not ownership.
-      </p>
-      <ul>
-        <li>Anyone may tend it.</li>
-        <li>No one may claim it.</li>
-        <li>Every community adapts it to its climate, culture, and needs.</li>
-      </ul>
-      <p>
-        Its strength is diversity. Its purpose is remembering what learning feels like
-        when breath, body, wonder, and place are allowed to guide us.
-      </p>
-    </div>
+        <hr class="soft-divider">
 
-    <h2>License & Commons Protection</h2>
-    <p>
-      This practice belongs in the commons.  
-      <a href="discoverymode-license.html">View the DiscoveryMode Commons License</a>
-    </p>
+        <p>
+          In most systems, learning is treated as information transfer.
+          DiscoveryMode starts somewhere else:
+          with <strong>movement, breath, food, story, and place</strong>.
+          When these come into rhythm, attention softens, curiosity wakes up,
+          and people remember that they are not alone.
+        </p>
 
-  </main>
+        <p class="section-label">Three anchors</p>
+        <ul class="list-tight">
+          <li><strong>Movement:</strong> practices like RageDance that turn trapped heat into direction.</li>
+          <li><strong>Nourishment:</strong> simple, sustaining food that steadies the gut’s lantern.</li>
+          <li><strong>Belonging:</strong> patterns of connection where no one’s pulse is asked to disappear.</li>
+        </ul>
+
+        <div class="note">
+          DiscoveryMode is <strong>not</strong> a wellness program and <strong>not</strong> a spiritual brand.
+          It is a practical, place-aware way of working with the real conditions of modern life —
+          distraction, exhaustion, hunger, grief — and helping people meet them without losing themselves.
+        </div>
+
+        <h3>Start Here: The Loom of Return</h3>
+        <p>
+          The Loom of Return is the backbone of DiscoveryMode. It describes how pulse
+          moves through eleven threads — from stagnation and craving all the way to
+          community and belonging. You don’t have to memorize it; you can feel it.
+        </p>
+
+        <a class="pill-link" href="dm_pulse.html">
+          <span>↠ Open “The Loom of Return”</span>
+        </a>
+
+        <p style="margin-top:0.8rem;font-size:0.9rem;color:var(--muted);">
+          Recommended for: teachers, facilitators, caretakers, and anyone
+          designing spaces where people arrive tired, wired, or carrying more than they can say.
+        </p>
+      </section>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <section class="card">
+          <div class="sidebar-highlight"></div>
+          <div class="sidebar-inner">
+            <h3>How the Threads Move</h3>
+            <p class="tagline">
+              A simple map of how DiscoveryMode connects to other parts of the work.
+            </p>
+
+            <div class="ascii-map" aria-label="DiscoveryMode connection map">
+Body Pulse    →   RageDance (movement returns the pulse)
+Gut Lantern   →   Gofu Commons (nourishment steadies the pulse)
+Story Pulse   →   Discovery questions (connection carries the pulse)
+Place Memory  →   Flower Road & Angel Island (belonging completes the pulse)
+            </div>
+
+            <p class="section-label">Working statements</p>
+            <ul class="list-tight">
+              <li><strong>RageDance:</strong> Movement returns the pulse.</li>
+              <li><strong>Gofu / Food Commons:</strong> Nourishment steadies the pulse.</li>
+              <li><strong>DiscoveryMode:</strong> Connection carries the pulse.</li>
+              <li><strong>The Flower Road:</strong> Belonging completes the pulse.</li>
+            </ul>
+
+            <p class="section-label">For future modules</p>
+            <p style="font-size:0.9rem;">
+              This homepage can later link out to:
+            </p>
+            <ul class="list-tight">
+              <li>Field practices (classroom & outdoor prompts)</li>
+              <li>RageDance warmups & safety notes</li>
+              <li>Food & gut-health commons (with Gofu)</li>
+              <li>Place-based journeys (Angel Island, gardens, streets)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="sidebar-inner">
+            <h3>How to Use DiscoveryMode</h3>
+            <p class="tagline">
+              You can step in as lightly or as deeply as you wish.
+            </p>
+
+            <p class="section-label">If you are a teacher or facilitator</p>
+            <ul class="list-tight">
+              <li>Use the Loom of Return as a planning lens for your day or unit.</li>
+              <li>Begin with a few minutes of movement and breath before any heavy content.</li>
+              <li>Weave in simple food / body questions: <em>What did we eat? How do we feel?</em></li>
+              <li>Make space for story and place: where are we, and who else shares this ground?</li>
+            </ul>
+
+            <p class="section-label">If you are a student or traveler</p>
+            <ul class="list-tight">
+              <li>Notice where your pulse feels missing or flat.</li>
+              <li>Choose one small movement, one small nourishing thing, or one honest connection.</li>
+              <li>Remember: you are not supposed to do this alone. Community is part of the design.</li>
+            </ul>
+
+            <div class="badge-list">
+              <span class="badge">Field-tested</span>
+              <span class="badge">Trauma-aware</span>
+              <span class="badge">Addiction-aware</span>
+              <span class="badge">Place-rooted</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>DiscoveryMode · Project 5 of the Flower Road · Pulse is how we remember we are alive together.</span>
+    </footer>
+  </div>
 </body>
 </html>
