@@ -18,9 +18,7 @@
       --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -31,12 +29,9 @@
       line-height: 1.65;
     }
 
-    .page {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
-    }
+    .page { max-width: 1040px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
 
+    /* HEADER */
     header {
       background: radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.13) 0, rgba(16, 19, 26, 0.96) 55%);
       border-radius: var(--radius-lg);
@@ -59,91 +54,66 @@
       pointer-events: none;
     }
 
-    .header-inner {
-      position: relative;
-      z-index: 1;
-    }
+    .header-inner { position: relative; z-index: 1; }
 
     .title-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
     }
 
     .logo-orb {
-      width: 56px;
-      height: 56px;
-      border-radius: 999px;
+      width: 56px; height: 56px; border-radius: 999px;
       border: 2px solid rgba(244, 192, 107, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       background: radial-gradient(circle at 30% 20%, #fdf5e3 0, #f4c06b 34%, #4d2e14 84%);
       box-shadow: 0 0 0 3px rgba(5, 7, 11, 0.9);
       font-size: 1.4rem;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(2rem, 3.2vw, 2.4rem);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      margin: 0; font-size: clamp(2rem, 3.2vw, 2.4rem);
+      letter-spacing: 0.12em; text-transform: uppercase;
     }
 
     .subtitle {
-      margin-top: 0.35rem;
-      color: var(--muted);
-      font-size: 0.98rem;
+      margin-top: 0.35rem; color: var(--muted); font-size: 0.98rem;
       max-width: 44rem;
     }
 
-    .label-row {
-      margin-top: 0.9rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+    /* QUIET HEARTLINE */
+    .heartline {
+      margin-top: 0.65rem;
+      font-size: 0.85rem;
       color: var(--muted);
+      opacity: 0.85;
+      font-style: italic;
+    }
+
+    /* NAV AND LABELS */
+    .label-row {
+      margin-top: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.5rem;
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted);
     }
 
     .label-pill {
-      border-radius: 999px;
-      border: 1px solid rgba(244, 192, 107, 0.55);
+      border-radius: 999px; border: 1px solid rgba(244, 192, 107, 0.55);
       padding: 0.25rem 0.7rem;
       background: rgba(5, 7, 11, 0.8);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+      display: inline-flex; align-items: center; gap: 0.35rem;
     }
 
-    .label-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
+    .label-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 
     .nav-links {
-      margin-top: 1.1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
+      margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.65rem;
       font-size: 0.86rem;
     }
 
     .nav-links a {
-      text-decoration: none;
-      color: var(--accent-soft);
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
+      text-decoration: none; color: var(--accent-soft);
+      padding: 0.35rem 0.8rem; border-radius: 999px;
       border: 1px solid rgba(244, 192, 107, 0.45);
       background: rgba(5, 7, 11, 0.75);
-      backdrop-filter: blur(6px);
       transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     }
 
     .nav-links a:hover {
@@ -152,75 +122,57 @@
       box-shadow: 0 7px 18px rgba(0, 0, 0, 0.5);
     }
 
+    /* LAYOUT */
     main {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.1fr);
+      display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2.1fr);
       gap: 1.5rem;
     }
 
     @media (max-width: 860px) {
-      main {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      main { grid-template-columns: minmax(0, 1fr); }
     }
 
+    /* CARDS */
     .card {
       background: var(--bg-soft);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
       padding: 1.3rem 1.25rem 1.5rem;
-      position: relative;
-      overflow: hidden;
     }
 
     .card h2 {
-      margin-top: 0;
-      margin-bottom: 0.45rem;
-      font-size: 1.32rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      margin-top: 0; margin-bottom: 0.45rem;
+      font-size: 1.32rem; letter-spacing: 0.06em; text-transform: uppercase;
     }
 
     .card h3 {
-      margin-top: 1rem;
-      margin-bottom: 0.35rem;
-      font-size: 1.02rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      margin-top: 1rem; margin-bottom: 0.35rem;
+      font-size: 1.02rem; letter-spacing: 0.05em; text-transform: uppercase;
     }
 
-    .tagline {
-      margin-top: 0.15rem;
-      margin-bottom: 0.9rem;
-      font-size: 0.96rem;
-      color: var(--muted);
-    }
-
-    p {
-      margin-top: 0.25rem;
-      margin-bottom: 0.7rem;
-      font-size: 0.97rem;
-    }
+    .tagline { color: var(--muted); font-size: 0.96rem; margin-bottom: 0.9rem; }
 
     .soft-divider {
       margin: 0.9rem 0 0.7rem;
-      border: 0;
-      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      border: 0; border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .note {
+      border-left: 3px solid rgba(244, 192, 107, 0.8);
+      padding-left: 0.7rem;
+      margin: 0.8rem 0;
+      font-size: 0.9rem; color: var(--muted);
     }
 
     .pill-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-      padding: 0.35rem 0.8rem;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.35rem 0.8rem; margin-top: 0.4rem;
       border-radius: 999px;
       border: 1px solid rgba(244, 192, 107, 0.7);
-      font-size: 0.84rem;
-      text-decoration: none;
-      color: var(--accent-soft);
+      font-size: 0.84rem; color: var(--accent-soft);
       background: rgba(5, 7, 11, 0.85);
+      text-decoration: none;
       transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
     }
 
@@ -230,49 +182,24 @@
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
     }
 
-    .pill-link span {
-      font-size: 0.9rem;
-    }
+    .list-tight { padding-left: 1.1rem; }
+    .list-tight li + li { margin-top: 0.2rem; }
 
-    .list-tight {
-      padding-left: 1.1rem;
-      margin-top: 0.2rem;
-      margin-bottom: 0.7rem;
-      font-size: 0.95rem;
-    }
-
-    .list-tight li + li {
-      margin-top: 0.2rem;
-    }
-
-    .note {
-      border-left: 3px solid rgba(244, 192, 107, 0.8);
-      padding-left: 0.7rem;
-      margin: 0.8rem 0;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .sidebar-highlight {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.18) 0, transparent 58%),
-        radial-gradient(circle at 100% 100%, rgba(116, 134, 176, 0.18) 0, transparent 60%);
-      opacity: 0.45;
-      pointer-events: none;
-    }
-
-    .sidebar-inner {
-      position: relative;
-      z-index: 1;
+    /* ASCII MAP & BADGES */
+    .ascii-map {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8rem; line-height: 1.5;
+      background: var(--bg-softer);
+      border: 1px dashed rgba(255, 255, 255, 0.12);
+      padding: 0.75rem 0.8rem;
+      border-radius: 12px;
+      white-space: pre;
+      overflow-x: auto;
+      margin-bottom: 0.8rem;
     }
 
     .badge-list {
-      margin-top: 0.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
+      margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem;
       font-size: 0.8rem;
     }
 
@@ -283,187 +210,172 @@
       background: rgba(5, 7, 11, 0.85);
     }
 
-    .ascii-map {
-      font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 0.8rem;
-      line-height: 1.5;
-      padding: 0.7rem 0.8rem;
-      border-radius: 12px;
-      background: var(--bg-softer);
-      border: 1px dashed rgba(255, 255, 255, 0.12);
-      overflow-x: auto;
-      white-space: pre;
-      margin-bottom: 0.8rem;
-    }
-
+    /* FOOTER */
     footer {
-      margin-top: 2.4rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    footer span {
-      opacity: 0.9;
+      margin-top: 2.4rem; text-align: center;
+      font-size: 0.82rem; color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="header-inner">
-        <div class="title-row">
-          <div class="logo-orb" aria-hidden="true">DM</div>
-          <div>
-            <h1>DiscoveryMode</h1>
-            <p class="subtitle">
-              A field guide for living learning — where movement, story, food, and place
-              help bodies and communities remember their pulse.
-            </p>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="title-row">
+        <div class="logo-orb">DM</div>
+        <div>
+          <h1>DiscoveryMode</h1>
+          <p class="subtitle">
+            A field guide for living learning — where movement, story, food, and place
+            help bodies and communities remember their pulse.
+          </p>
+
+          <p class="heartline">
+            Pulse returns where people feel safe enough to move, nourished enough to notice,
+            and connected enough to stay.
+          </p>
+        </div>
+      </div>
+
+      <div class="label-row">
+        <span class="label-pill"><span class="label-dot"></span> Project 5 · DiscoveryMode</span>
+        <span class="label-pill">Movement · Food · Connection · Repair</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dm_pulse.html">Pulse Theory · The Loom of Return</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE BODY -->
+  <main>
+    <!-- MAIN COLUMN -->
+    <section class="card">
+      <h2>What is DiscoveryMode?</h2>
+      <p class="tagline">
+        DiscoveryMode is not a curriculum. It is a way of arranging time and space
+        so that pulse can return — to bodies, classrooms, communities, and the land.
+      </p>
+
+      <p>
+        Instead of beginning with information transfer, we begin with
+        <strong>movement, breath, food, story, and place</strong>.
+        When these come into rhythm, attention softens, curiosity wakes up,
+        and people remember they are not alone.
+      </p>
+
+      <h3>The Three Doors</h3>
+      <ul class="list-tight">
+        <li><strong>Move for two minutes.</strong> Restore circulation, not performance.</li>
+        <li><strong>Name what the body is carrying.</strong> Food, sleep, worry, joy — the honest ground.</li>
+        <li><strong>Orient to the room.</strong> Who is here? Where are we? What pulse is present?</li>
+      </ul>
+
+      <div class="note">
+        These doors can be used at the start of any class, meeting,
+        or gathering. They require no training and no materials.
+      </div>
+
+      <h3>Start Here: The Loom of Return</h3>
+      <p>
+        The Loom of Return is the backbone of DiscoveryMode — eleven threads that describe
+        how pulse moves from stagnation and craving all the way to connection, community, and belonging.
+      </p>
+
+      <a href="dm_pulse.html" class="pill-link">↠ Open “The Loom of Return”</a>
+
+      <p class="tagline" style="margin-top:0.8rem;">
+        For teachers, facilitators, caretakers, and anyone designing spaces where people
+        arrive tired, wired, hungry, or carrying more than they can say.
+      </p>
+
+      <hr class="soft-divider">
+
+      <h3>The Loom Navigation Skeleton</h3>
+      <p class="tagline">
+        The future modules of DiscoveryMode — already taking shape beneath the surface.
+      </p>
+
+      <div class="ascii-map">
+Movement            → RageDance Fundamentals  
+Food & Gut Lantern  → Gofu / Simple Nourishing Practices  
+Connection          → Field Prompts & Social Resonance  
+Place               → Gardens, Angel Island, Walkabouts  
+Repair              → Conflict Navigation & Restoring Pulse  
+Belonging           → Community Rhythms, Voice, Return  
+      </div>
+
+    </section>
+
+    <!-- SIDEBAR -->
+    <aside>
+
+      <section class="card">
+        <div class="sidebar-highlight"></div>
+        <div class="sidebar-inner">
+          <h3>How the Threads Move</h3>
+          <p class="tagline">
+            A simple map of how DiscoveryMode interweaves with the wider ecosystem.
+          </p>
+
+          <div class="ascii-map">
+Body Pulse    → RageDance (movement returns the pulse)
+Gut Lantern   → Gofu (nourishment steadies the pulse)
+Story Pulse   → Discovery questions (connection carries the pulse)
+Place Memory  → Flower Road (belonging completes the pulse)
+          </div>
+
+          <h3>Working Statements</h3>
+          <ul class="list-tight">
+            <li><strong>RageDance:</strong> Movement returns the pulse.</li>
+            <li><strong>Gofu / Food Commons:</strong> Nourishment steadies the pulse.</li>
+            <li><strong>DiscoveryMode:</strong> Connection carries the pulse.</li>
+            <li><strong>The Flower Road:</strong> Belonging completes the pulse.</li>
+          </ul>
+
+          <div class="badge-list">
+            <span class="badge">Field-tested</span>
+            <span class="badge">Trauma-aware</span>
+            <span class="badge">Addiction-aware</span>
+            <span class="badge">Place-rooted</span>
           </div>
         </div>
-
-        <div class="label-row">
-          <span class="label-pill">
-            <span class="label-dot"></span>
-            <span>Project 5 · DiscoveryMode</span>
-          </span>
-          <span class="label-pill">Movement · Food · Connection · Repair</span>
-        </div>
-
-        <nav class="nav-links" aria-label="Site navigation">
-          <a href="index.html">Home</a>
-          <a href="dm_pulse.html">Pulse Theory · The Loom of Return</a>
-          <!-- You can swap these external URLs when your folder structure is final -->
-          <!-- <a href="../RageDance/index.html">RageDance</a> -->
-          <!-- <a href="../gofu_commons/index.html">Gofu Commons</a> -->
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- MAIN COLUMN -->
-      <section class="card">
-        <h2>What is DiscoveryMode?</h2>
-        <p class="tagline">
-          DiscoveryMode is not a curriculum. It is a way of arranging time and space so that
-          pulse can return — to bodies, to classrooms, to communities, and to the land.
-        </p>
-
-        <hr class="soft-divider">
-
-        <p>
-          In most systems, learning is treated as information transfer.
-          DiscoveryMode starts somewhere else:
-          with <strong>movement, breath, food, story, and place</strong>.
-          When these come into rhythm, attention softens, curiosity wakes up,
-          and people remember that they are not alone.
-        </p>
-
-        <p class="section-label">Three anchors</p>
-        <ul class="list-tight">
-          <li><strong>Movement:</strong> practices like RageDance that turn trapped heat into direction.</li>
-          <li><strong>Nourishment:</strong> simple, sustaining food that steadies the gut’s lantern.</li>
-          <li><strong>Belonging:</strong> patterns of connection where no one’s pulse is asked to disappear.</li>
-        </ul>
-
-        <div class="note">
-          DiscoveryMode is <strong>not</strong> a wellness program and <strong>not</strong> a spiritual brand.
-          It is a practical, place-aware way of working with the real conditions of modern life —
-          distraction, exhaustion, hunger, grief — and helping people meet them without losing themselves.
-        </div>
-
-        <h3>Start Here: The Loom of Return</h3>
-        <p>
-          The Loom of Return is the backbone of DiscoveryMode. It describes how pulse
-          moves through eleven threads — from stagnation and craving all the way to
-          community and belonging. You don’t have to memorize it; you can feel it.
-        </p>
-
-        <a class="pill-link" href="dm_pulse.html">
-          <span>↠ Open “The Loom of Return”</span>
-        </a>
-
-        <p style="margin-top:0.8rem;font-size:0.9rem;color:var(--muted);">
-          Recommended for: teachers, facilitators, caretakers, and anyone
-          designing spaces where people arrive tired, wired, or carrying more than they can say.
-        </p>
       </section>
 
-      <!-- SIDEBAR -->
-      <aside>
-        <section class="card">
-          <div class="sidebar-highlight"></div>
-          <div class="sidebar-inner">
-            <h3>How the Threads Move</h3>
-            <p class="tagline">
-              A simple map of how DiscoveryMode connects to other parts of the work.
-            </p>
+      <section class="card">
+        <div class="sidebar-inner">
+          <h3>How to Use DiscoveryMode</h3>
+          <p class="tagline">Enter lightly, deepen slowly, return often.</p>
 
-            <div class="ascii-map" aria-label="DiscoveryMode connection map">
-Body Pulse    →   RageDance (movement returns the pulse)
-Gut Lantern   →   Gofu Commons (nourishment steadies the pulse)
-Story Pulse   →   Discovery questions (connection carries the pulse)
-Place Memory  →   Flower Road & Angel Island (belonging completes the pulse)
-            </div>
+          <h3>If you are a teacher or facilitator</h3>
+          <ul class="list-tight">
+            <li>Begin with the Three Doors.</li>
+            <li>Use the Loom of Return as a planning lens.</li>
+            <li>Integrate simple nourishment checks — “How are we arriving today?”</li>
+            <li>Let place become part of the classroom.</li>
+          </ul>
 
-            <p class="section-label">Working statements</p>
-            <ul class="list-tight">
-              <li><strong>RageDance:</strong> Movement returns the pulse.</li>
-              <li><strong>Gofu / Food Commons:</strong> Nourishment steadies the pulse.</li>
-              <li><strong>DiscoveryMode:</strong> Connection carries the pulse.</li>
-              <li><strong>The Flower Road:</strong> Belonging completes the pulse.</li>
-            </ul>
+          <h3>If you are a student or traveler</h3>
+          <ul class="list-tight">
+            <li>Notice where your pulse feels missing.</li>
+            <li>Choose one small movement, one small nourishment, or one honest connection.</li>
+            <li>Remember: you do not do this alone. Community is part of the design.</li>
+          </ul>
 
-            <p class="section-label">For future modules</p>
-            <p style="font-size:0.9rem;">
-              This homepage can later link out to:
-            </p>
-            <ul class="list-tight">
-              <li>Field practices (classroom & outdoor prompts)</li>
-              <li>RageDance warmups & safety notes</li>
-              <li>Food & gut-health commons (with Gofu)</li>
-              <li>Place-based journeys (Angel Island, gardens, streets)</li>
-            </ul>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="card">
-          <div class="sidebar-inner">
-            <h3>How to Use DiscoveryMode</h3>
-            <p class="tagline">
-              You can step in as lightly or as deeply as you wish.
-            </p>
+    </aside>
+  </main>
 
-            <p class="section-label">If you are a teacher or facilitator</p>
-            <ul class="list-tight">
-              <li>Use the Loom of Return as a planning lens for your day or unit.</li>
-              <li>Begin with a few minutes of movement and breath before any heavy content.</li>
-              <li>Weave in simple food / body questions: <em>What did we eat? How do we feel?</em></li>
-              <li>Make space for story and place: where are we, and who else shares this ground?</li>
-            </ul>
+  <footer>
+    DiscoveryMode · Project 5 of the Flower Road · Pulse is how we remember we are alive together.
+  </footer>
 
-            <p class="section-label">If you are a student or traveler</p>
-            <ul class="list-tight">
-              <li>Notice where your pulse feels missing or flat.</li>
-              <li>Choose one small movement, one small nourishing thing, or one honest connection.</li>
-              <li>Remember: you are not supposed to do this alone. Community is part of the design.</li>
-            </ul>
-
-            <div class="badge-list">
-              <span class="badge">Field-tested</span>
-              <span class="badge">Trauma-aware</span>
-              <span class="badge">Addiction-aware</span>
-              <span class="badge">Place-rooted</span>
-            </div>
-          </div>
-        </section>
-      </aside>
-    </main>
-
-    <footer>
-      <span>DiscoveryMode · Project 5 of the Flower Road · Pulse is how we remember we are alive together.</span>
-    </footer>
-  </div>
+</div>
 </body>
 </html>
