@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Field Practice #1 | The Two-Minute Return · DiscoveryMode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #05070b;
+      --bg-soft: #10131a;
+      --bg-softer: #171c24;
+      --text: #f5f5f5;
+      --muted: #b7beca;
+      --border-soft: #2d3440;
+      --accent: #f4c06b;
+      --accent-soft: #fbe4b6;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a2233 0, #05070b 52%, #020309 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page { max-width: 1040px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+
+    header {
+      background: radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.13) 0, rgba(16, 19, 26, 0.96) 55%);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.5rem 1.3rem;
+      border: 1px solid rgba(244, 192, 107, 0.4);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.32) 0, transparent 54%),
+        radial-gradient(circle at 100% 0, rgba(251, 228, 182, 0.22) 0, transparent 58%);
+      opacity: 0.14;
+      pointer-events: none;
+    }
+
+    .header-inner { position: relative; z-index: 1; }
+
+    .title-row {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+
+    .logo-orb {
+      width: 56px; height: 56px;
+      border-radius: 999px;
+      border: 2px solid rgba(244, 192, 107, 0.8);
+      display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #fdf5e3 0, #f4c06b 34%, #4d2e14 84%);
+      box-shadow: 0 0 0 3px rgba(5, 7, 11, 0.9);
+      font-size: 1.3rem;
+    }
+
+    h1 {
+      margin: 0; font-size: clamp(1.9rem, 3vw, 2.3rem);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    .subtitle {
+      margin-top: 0.35rem; color: var(--muted);
+      font-size: 0.96rem; max-width: 42rem;
+    }
+
+    .label-row {
+      margin-top: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.5rem;
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted);
+    }
+
+    .label-pill {
+      border-radius: 999px; border: 1px solid rgba(244, 192, 107, 0.55);
+      padding: 0.25rem 0.7rem; background: rgba(5, 7, 11, 0.8);
+      display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+
+    .label-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+    .nav-links {
+      margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.65rem;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      text-decoration: none; color: var(--accent-soft);
+      padding: 0.35rem 0.8rem; border-radius: 999px;
+      border: 1px solid rgba(244, 192, 107, 0.45);
+      background: rgba(5, 7, 11, 0.75);
+      transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(244, 192, 107, 0.08);
+      transform: translateY(-1px);
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    main {
+      display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2.1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 860px) {
+      main { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.3rem 1.25rem 1.5rem;
+    }
+
+    .card h2 {
+      margin-top: 0; margin-bottom: 0.45rem;
+      font-size: 1.32rem; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    .card h3 {
+      margin-top: 1rem; margin-bottom: 0.35rem;
+      font-size: 1.02rem; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+
+    .tagline { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.9rem; }
+
+    p { margin-top: 0.25rem; margin-bottom: 0.7rem; font-size: 0.96rem; }
+
+    .soft-divider {
+      margin: 0.9rem 0 0.7rem;
+      border: 0; border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .note {
+      border-left: 3px solid rgba(244, 192, 107, 0.8);
+      padding-left: 0.7rem;
+      margin: 0.8rem 0;
+      font-size: 0.9rem; color: var(--muted);
+    }
+
+    .list-tight { padding-left: 1.1rem; font-size: 0.95rem; }
+    .list-tight li + li { margin-top: 0.2rem; }
+
+    .step {
+      margin-bottom: 0.7rem;
+      padding: 0.45rem 0.6rem;
+      border-radius: 10px;
+      background: rgba(23, 28, 36, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.95rem;
+    }
+
+    .step-title {
+      font-weight: 600; font-size: 0.9rem; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .ascii-map {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8rem; line-height: 1.5;
+      background: var(--bg-softer);
+      border: 1px dashed rgba(255, 255, 255, 0.12);
+      padding: 0.7rem 0.8rem;
+      border-radius: 12px;
+      white-space: pre;
+      overflow-x: auto;
+      margin-bottom: 0.8rem;
+    }
+
+    .badge-list {
+      margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 0.18rem 0.6rem;
+      border: 1px solid rgba(244, 192, 107, 0.6);
+      background: rgba(5, 7, 11, 0.85);
+    }
+
+    footer {
+      margin-top: 2.4rem; text-align: center;
+      font-size: 0.82rem; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="header-inner">
+      <div class="title-row">
+        <div class="logo-orb" aria-hidden="true">F1</div>
+        <div>
+          <h1>The Two-Minute Return</h1>
+          <p class="subtitle">
+            Field Practice #1 · A simple, universal reset for classrooms, gatherings, and moments
+            when the room feels scattered or heavy.
+          </p>
+        </div>
+      </div>
+
+      <div class="label-row">
+        <span class="label-pill"><span class="label-dot"></span> DiscoveryMode · Field Practice</span>
+        <span class="label-pill">Movement · Safety · Attention Reset</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">← Back to DiscoveryMode Home</a>
+        <a href="dm_pulse.html">Pulse Theory · The Loom of Return</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- MAIN COLUMN -->
+    <section class="card">
+      <h2>Overview</h2>
+      <p class="tagline">
+        The Two-Minute Return is a quick, low-stakes movement sequence you can use
+        at the start of class, during transitions, or whenever the room feels stuck.
+        It requires no equipment, no special clothes, and no explanation beyond
+        “let’s reset together for a moment.”
+      </p>
+
+      <hr class="soft-divider">
+
+      <h3>Why It Works</h3>
+      <ul class="list-tight">
+        <li><strong>Breath + movement</strong> wake up circulation and gently engage the vagus nerve.</li>
+        <li><strong>Short, predictable steps</strong> reduce anxiety while still shifting state.</li>
+        <li><strong>Whole-room participation</strong> removes spotlight and performance pressure.</li>
+        <li><strong>Trauma-aware pacing</strong> keeps everything optional and modifiable.</li>
+      </ul>
+
+      <div class="note">
+        You do not need to call this “practice” or “mindfulness.” It can simply be:
+        <em>“Let’s take two minutes to reset so our brains and bodies are awake.”</em>
+      </div>
+
+      <h3>The Sequence (Standing Version · ~2 minutes)</h3>
+      <p class="tagline">
+        Invite everyone to find a little space around them. You can do this beside desks or chairs.
+        Model the movements slowly. Speak calmly, with no rush.
+      </p>
+
+      <div class="step">
+        <div class="step-title">0:00 – 0:30 · Arrival Breath</div>
+        <p>
+          Stand with feet about hip-width. Soften knees. Let arms hang comfortably.
+          Inhale gently through the nose, exhale slowly through the mouth, as if fogging a window.
+          Three or four easy breaths, not forced.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-title">0:30 – 1:00 · Shoulder Roll & Shake</div>
+        <p>
+          Roll shoulders slowly up, back, and down a few times. Then let the arms loosen
+          and gently shake out hands and wrists by your sides — just enough to feel the edges
+          of tension. Encourage students to keep jaws soft.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-title">1:00 – 1:30 · Spine Wave</div>
+        <p>
+          With knees slightly bent, imagine the top of the head moving in a small, slow circle
+          or figure-eight. Let the motion travel down the spine like a gentle wave.
+          This can be very minimal — just enough to unstick the back and neck.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-title">1:30 – 2:00 · Ground & Look Around</div>
+        <p>
+          Press feet into the floor for one full breath. Notice the contact.
+          Then invite everyone to slowly look around the room — left, right, up, and down —
+          to remember where they are and who is with them. One last easy inhale and exhale.
+        </p>
+      </div>
+
+      <div class="note">
+        Close simply: <em>“Okay. Notice how you feel now, even if it’s just 5% different.
+        Let’s bring that into what we’re about to do.”</em>
+      </div>
+
+      <h3>Seated Version (for tight classrooms / low energy)</h3>
+      <ul class="list-tight">
+        <li>Feet flat on the floor, or as close as comfortable.</li>
+        <li>Same sequence: three easy breaths · shoulder roll / hand shake · small spine wave while seated · ground and look around.</li>
+        <li>Emphasize <strong>comfort over posture</strong>; this is about loosening, not “sitting up straight.”</li>
+      </ul>
+
+      <h3>Low-Mobility / Neurodivergent-Friendly Notes</h3>
+      <ul class="list-tight">
+        <li>All movements are <strong>optional</strong>. Offer: “You can also just imagine the movement while breathing.”</li>
+        <li>For students sensitive to eye contact, invite them to focus on an object or the floor during “look around.”</li>
+        <li>Noise-sensitive groups can do this silently, or with very soft counting instead of talking.</li>
+      </ul>
+
+      <hr class="soft-divider">
+
+      <h3>Suggested Teacher / Facilitator Script</h3>
+      <p class="tagline">Three simple ways to introduce it, depending on your context.</p>
+
+      <p><strong>Option A — Practical / No-Frills</strong></p>
+      <p>
+        “Before we dive in, let’s give our brains and bodies a quick reset.
+        It’ll take about two minutes; you don’t have to do anything that feels weird.
+        Just follow along in your own way.”
+      </p>
+
+      <p><strong>Option B — Science-Friendly</strong></p>
+      <p>
+        “Most of us didn’t walk in here relaxed. Our nervous systems bring everything
+        from the hallway and from home. These two minutes help our brains focus by
+        moving blood, loosening muscles, and telling the body it’s not in danger.”
+      </p>
+
+      <p><strong>Option C — Gentle / Story-Based</strong></p>
+      <p>
+        “Think of this as a way of saying hello to your body before we ask it to work.
+        We’re just going to move a little, breathe, and remember that we’re not alone in the room.”
+      </p>
+
+    </section>
+
+    <!-- SIDEBAR -->
+    <aside>
+      <section class="card">
+        <h3>Pulse Map</h3>
+        <p class="tagline">
+          Where this practice sits inside the Loom of Return.
+        </p>
+
+        <div class="ascii-map">
+Stagnation      →   Body feels tight, jumpy, or numb.
+Movement        →   Two minutes of gentle breath + motion.
+Connection      →   Whole room does it together; no one singled out.
+Return          →   Slightly softer pulse, clearer attention, easier next step.
+        </div>
+
+        <h3>When to Use It</h3>
+        <ul class="list-tight">
+          <li>First 5 minutes of class or a meeting.</li>
+          <li>After a test, fire drill, or disruptive event.</li>
+          <li>Before writing, group work, or difficult conversations.</li>
+          <li>Anytime you feel the room has “left its body.”</li>
+        </ul>
+
+        <div class="badge-list">
+          <span class="badge">No equipment</span>
+          <span class="badge">All ages</span>
+          <span class="badge">Trauma-aware</span>
+          <span class="badge">Addiction-aware</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Bridge Notes</h3>
+        <p class="tagline">
+          How this connects to other DiscoveryMode pieces.
+        </p>
+
+        <ul class="list-tight">
+          <li><strong>RageDance:</strong> This practice uses some of the same ideas (breath, circles, grounding) in a very soft form. It can be a prelude to deeper work.</li>
+          <li><strong>Gofu / Gut Lantern:</strong> Afterwards, you can briefly ask, “How did you eat / sleep?” to connect movement with nourishment.</li>
+          <li><strong>Place:</strong> In outdoor settings, you can add: “Notice one sound and one smell around you.”</li>
+        </ul>
+
+        <div class="note">
+          The goal is not to create a performance, but to restore enough pulse that real learning,
+          listening, or repair can begin.
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    DiscoveryMode · Field Practice #1 · The Two-Minute Return.
+  </footer>
+</div>
+</body>
+</html>
