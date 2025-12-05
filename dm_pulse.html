@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Loom of Return | DiscoveryMode Pulse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #05070b;
+      --bg-soft: #10131a;
+      --bg-softer: #171c24;
+      --text: #f5f5f5;
+      --muted: #b7beca;
+      --border-soft: #2d3440;
+      --accent: #f4c06b;
+      --accent-soft: #fbe4b6;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a2233 0, #05070b 52%, #020309 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      background: radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.12) 0, rgba(16, 19, 26, 0.96) 55%);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.5rem 1.3rem;
+      border: 1px solid rgba(244, 192, 107, 0.4);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.33) 0, transparent 54%),
+        radial-gradient(circle at 100% 0, rgba(251, 228, 182, 0.22) 0, transparent 58%);
+      opacity: 0.14;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .pulse-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      border: 2px solid rgba(244, 192, 107, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #fdf5e3 0, #f4c06b 30%, #4d2e14 82%);
+      box-shadow: 0 0 0 3px rgba(5, 7, 11, 0.9);
+      font-size: 1.4rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 3vw, 2.3rem);
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 42rem;
+    }
+
+    .label-row {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .label-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(244, 192, 107, 0.55);
+      padding: 0.25rem 0.7rem;
+      background: rgba(5, 7, 11, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .label-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .nav-links {
+      margin-top: 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--accent-soft);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 192, 107, 0.45);
+      background: rgba(5, 7, 11, 0.75);
+      backdrop-filter: blur(6px);
+      transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .nav-links a:hover {
+      background: rgba(244, 192, 107, 0.08);
+      transform: translateY(-1px);
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 860px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.3rem 1.25rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 0.45rem;
+      font-size: 1.32rem;
+      letter-spacing: 0.04em;
+    }
+
+    .card h3 {
+      margin-top: 1.1rem;
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      margin-top: 0.15rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.96rem;
+      color: var(--muted);
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin: 0.75rem 0 0.35rem;
+    }
+
+    p {
+      margin-top: 0.25rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.97rem;
+    }
+
+    .soft-divider {
+      margin: 0.9rem 0 0.7rem;
+      border: 0;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .note {
+      border-left: 3px solid rgba(244, 192, 107, 0.8);
+      padding-left: 0.7rem;
+      margin: 0.8rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .thread-block {
+      padding: 0.7rem 0.3rem 0.4rem;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .thread-block:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .thread-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 0.96rem;
+    }
+
+    .thread-keyline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .thread-body {
+      font-size: 0.94rem;
+    }
+
+    .sidebar-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sidebar-highlight {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0 0, rgba(244, 192, 107, 0.16) 0, transparent 58%),
+        radial-gradient(circle at 100% 100%, rgba(116, 134, 176, 0.18) 0, transparent 60%);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .ascii-map {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      padding: 0.75rem 0.8rem;
+      border-radius: 12px;
+      background: var(--bg-softer);
+      border: 1px dashed rgba(255, 255, 255, 0.12);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .badge-list {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 0.18rem 0.6rem;
+      border: 1px solid rgba(244, 192, 107, 0.6);
+      background: rgba(5, 7, 11, 0.85);
+    }
+
+    footer {
+      margin-top: 2.4rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer span {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="title-row">
+          <div class="pulse-icon" aria-hidden="true">∞</div>
+          <div>
+            <h1>The Loom of Return</h1>
+            <p class="subtitle">
+              A woven map of pulse, hunger, and belonging inside DiscoveryMode —
+              where movement, food, and quiet medicines all speak the same language.
+            </p>
+          </div>
+        </div>
+
+        <div class="label-row">
+          <span class="label-pill">
+            <span class="label-dot"></span>
+            <span>DiscoveryMode • Pulse Theory</span>
+          </span>
+          <span class="label-pill">Movement · Food · Connection · Repair</span>
+        </div>
+
+        <nav class="nav-links" aria-label="Site navigation">
+          <a href="index.html">← Back to DiscoveryMode</a>
+          <a href="#threads">The Eleven Threads</a>
+          <a href="#map">Pulse Map</a>
+          <a href="#bridges">Bridges to RageDance · Gofu · Flower Road</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- MAIN CONTENT -->
+      <section class="card" id="threads">
+        <h2>The Loom of Return</h2>
+        <p class="tagline">
+          This is not a theory to memorize, but a pattern to feel:
+          how pulse returns to bodies, classrooms, and communities that have gone still.
+        </p>
+
+        <hr class="soft-divider">
+
+        <div class="thread-block">
+          <div class="thread-title">1. The First Thread — Pulse</div>
+          <div class="thread-keyline">
+            Every being is born with a pulse.
+          </div>
+          <p class="thread-body">
+            Not only the heartbeat, but the shimmering rhythm that says:
+            <em>I am here. I am moving. I am becoming.</em><br>
+            When this rhythm grows faint, systems wither. When it returns, worlds reopen.
+          </p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">2. The Second Thread — Stagnation</div>
+          <div class="thread-keyline">
+            Where the pulse falters, three shadows gather.
+          </div>
+          <p class="thread-body">
+            <strong>Decay</strong> — information no longer circulates.<br>
+            <strong>Craving</strong> — the body reaches for false fire.<br>
+            <strong>Isolation</strong> — the self forgets its shape.<br><br>
+            Stagnation is not wickedness. It is a garden without water.
+          </p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">3. The Third Thread — The Gut’s Lantern</div>
+          <div class="thread-keyline">
+            Deep in the belly sits a lantern older than thought.
+          </div>
+          <p class="thread-body">
+            When the lantern dims, emotions pool without flow, cravings rise as compensation,
+            and the world narrows to threat and noise. To restore the lantern is to restore the path.<br><br>
+            This is where food, breath, and movement begin the healing the mind cannot start alone.
+          </p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">4. The Fourth Thread — RageDance</div>
+          <div class="thread-keyline">
+            RageDance is the wind returning to still air.
+          </div>
+          <p class="thread-body">
+            It says: move the places that cannot speak; breathe into the rooms that forgot you;
+            circle until the trapped heat becomes direction.<br><br>
+            RageDance is not aggression. It is the restoration of <strong>flow</strong>
+            where stagnation took root. When the body moves again, the pulse remembers its song.
+          </p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">5. The Fifth Thread — Kudzu</div>
+          <div class="thread-keyline">
+            Kudzu is the plant that gives you one more moment.
+          </div>
+          <p class="thread-body">
+            Not salvation. Not force. A pause.<br>
+            A softening in the loop between urge and action, so the self has time to turn toward breath,
+            toward movement, toward a different future.<br><br>
+            Kudzu does not carry you — it lets you carry yourself.</p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">6. The Sixth Thread — Connection</div>
+          <div class="thread-keyline">
+            When pulse returns to the body, pulse returns to the space between bodies.
+          </div>
+          <p class="thread-body">
+            Someone looks at you and the vagus nerve loosens. Someone listens and the gut unwinds.
+            Someone laughs and the chest remembers its expansion.<br><br>
+            Connection is how a garden learns it is not alone.
+          </p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">7. The Seventh Thread — Resonance</div>
+          <div class="thread-keyline">
+            Two pulses can meet without consuming each other.
+          </div>
+          <p class="thread-body">
+            This is where Flow teaching lives, where RageDance teaches boundaries without violence,
+            where DiscoveryMode teaches presence without hierarchy.<br><br>
+            Resonance is the shared breath that allows repair.
+          </p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">8. The Eighth Thread — Repair</div>
+          <div class="thread-keyline">
+            Repair is a return of circulation.
+          </div>
+          <p class="thread-body">
+            Not erasing harm. Not pretending nothing happened.<br>
+            Repair is movement where the pulse collapsed:
+          </p>
+          <p class="thread-body">
+            a conversation that clears the air · an offering laid at Angel Island · a boundary spoken without heat ·
+            a loaf given without pity · a dance that shakes loose the old soil.<br><br>
+            Repair is how the garden begins to breathe.
+          </p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">9. The Ninth Thread — Community</div>
+          <div class="thread-keyline">
+            Community is many pulses learning the rhythm of one body.
+          </div>
+          <p class="thread-body">
+            It metabolizes grief, joy, conflict, hunger, celebration, and return.
+            No one pulse carries the weight alone. This is the ecology of healing.
+          </p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">10. The Tenth Thread — Belonging</div>
+          <div class="thread-keyline">
+            Belonging is the quiet revolution.
+          </div>
+          <p class="thread-body">
+            <em>I move here, and nothing breaks. I rest here, and nothing withholds warmth.
+            My pulse strengthens others. Their pulse strengthens mine.</em><br><br>
+            Belonging is not granted from above. It ripens from within the woven field.
+          </p>
+        </div>
+
+        <div class="thread-block">
+          <div class="thread-title">11. The Eleventh Thread — The Garden Emerges</div>
+          <div class="thread-keyline">
+            When all ten pulses weave together, the garden remembers itself.
+          </div>
+          <p class="thread-body">
+            Movement returns. Craving loosens. Connection thickens. Repair becomes natural.
+            Community breathes. Belonging roots. The world remembers itself.<br><br>
+            The loom is simple: <strong>pulse → movement → connection → return</strong>,
+            over and over, season after season.
+          </p>
+        </div>
+
+        <div class="note">
+          In DiscoveryMode, this loom is not a rubric or a test. It is a
+          <strong>way of noticing</strong> where pulse is missing, and a gentle guide for how it might return —
+          in a classroom, a home, a street corner, a garden, or a body.
+        </div>
+      </section>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <section class="card" id="map">
+          <div class="sidebar-highlight"></div>
+          <div class="sidebar-inner">
+            <h3>Pulse Map (Text Version)</h3>
+            <p class="tagline">
+              A simple, screen-safe diagram of how the Loom of Return moves through the work.
+            </p>
+
+            <div class="ascii-map" aria-label="Pulse map diagram">
+Pulse                  Movement                  Connection                 Return
+-----                  --------                  ----------                 ------
+Body pulse     →   RageDance / Motion   →   Shared breath / trust   →   Repair & belonging
+Gut lantern    →   Nourishing food      →   Conversation / presence →   Community that holds
+Place memory   →   Ritual / offering    →   Witnessing / listening  →   Land tended again
+Story pulse    →   Discovery questions  →   Co-creation / dialogue  →   New patterns lived
+            </div>
+
+            <p class="section-label">Four working anchors</p>
+            <ul>
+              <li><strong>RageDance:</strong> Movement returns the pulse.</li>
+              <li><strong>Gofu / Food Commons:</strong> Nourishment steadies the pulse.</li>
+              <li><strong>DiscoveryMode:</strong> Connection carries the pulse.</li>
+              <li><strong>The Flower Road:</strong> Belonging completes the pulse.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card" id="bridges">
+          <div class="sidebar-inner">
+            <h3>Bridges to Other Projects</h3>
+            <p class="tagline">
+              The Loom of Return is a shared backbone. Each project carries one strand of the same song.
+            </p>
+
+            <div class="badge-list">
+              <span class="badge">Project 1 · Gofu Commons</span>
+              <span class="badge">Project 2 · Flower Road</span>
+              <span class="badge">Project 5 · DiscoveryMode</span>
+              <span class="badge">Project 6 · RageDance</span>
+              <span class="badge">MythWear · Resonant Tools</span>
+            </div>
+
+            <p class="section-label">How to use this page</p>
+            <p>
+              For teachers and facilitators, this page can serve as:
+            </p>
+            <ul>
+              <li>a planning lens for designing days and journeys,</li>
+              <li>a reflection tool after a difficult class or encounter,</li>
+              <li>a shared language for students exploring stress, craving, or conflict,</li>
+              <li>a reminder that movement, food, and belonging are not separate topics.</li>
+            </ul>
+
+            <p class="section-label">For students and travelers</p>
+            <p>
+              You do not have to remember every thread. Instead, ask:
+            </p>
+            <ul>
+              <li><em>Where is the pulse missing right now?</em></li>
+              <li><em>What small movement could help it return?</em></li>
+              <li><em>Who can I connect with, so I do not carry this alone?</em></li>
+            </ul>
+            <p>
+              Any honest answer is already part of the Loom of Return.
+            </p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>DiscoveryMode • The Loom of Return · Pulse is how we remember we are alive together.</span>
+    </footer>
+  </div>
+</body>
+</html>
