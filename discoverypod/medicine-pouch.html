@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medicine Pouch Threshold • DiscoveryPods</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card-bg: #ffffff;
+      --accent: #2f6f6f;
+      --accent-soft: #e0f0ec;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --border-soft: #dddddd;
+      --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --max-width: 880px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f0f7f5, #f8f5f2 40%, #f4f2f0);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 16px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 12px 0 24px;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .top-nav a {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      text-decoration: none;
+    }
+
+    .top-nav a span {
+      margin-left: 6px;
+    }
+
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .title-block {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(47,111,111,0.08);
+    }
+
+    h1 {
+      margin: 4px 0 6px;
+      font-size: 1.9rem;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .card h3 {
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-size: 1.02rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 6px 0 10px 1.1rem;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .inline-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 8px 10px;
+      border-radius: var(--radius-md);
+      background: #faf8f5;
+      border: 1px dashed rgba(0,0,0,0.06);
+      margin-top: 4px;
+    }
+
+    .footer-note {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 960px) {
+      .page {
+        padding-top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <div class="top-nav">
+        <a href="../index.html">
+          <span>←</span><span>Back to DiscoveryMode</span>
+        </a>
+        <a href="./charter.html">
+          <span>⭯</span><span>DiscoveryPod Charter</span>
+        </a>
+        <a href="./weather-deck.html">
+          <span>☁︎</span><span>Living Weather Deck</span>
+        </a>
+        <a href="./elephant-circle.html">
+          <span>🐘</span><span>Elephant Circle</span>
+        </a>
+        <a href="./medicinewheel.html">
+          <span>🌀</span><span>MedicineWheel</span>
+        </a>
+      </div>
+
+      <div class="title-block">
+        <div class="pill-label">DiscoveryPods • Threshold of Care</div>
+        <h1>The Medicine Pouch Threshold</h1>
+        <p class="subtitle">
+          When a child chooses to carry care for the circle.
+        </p>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="card">
+        <div class="section-label">Overview</div>
+        <h2>What is the Medicine Pouch?</h2>
+        <p>
+          The Medicine Pouch is a small, portable container for care. It usually holds a simple first aid kit
+          plus one or more symbolic items chosen by the Pod.
+        </p>
+        <p>
+          The Pouch represents a <strong>threshold of responsibility</strong>. When a child asks to carry it,
+          it signals a shift from being primarily cared for to also helping care for others.
+        </p>
+        <p class="inline-note">
+          The Pouch is not about heroics or toughness. It is about presence, gentleness, and steady attention.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">1</div>
+        <h2>What the Pouch Contains</h2>
+        <p>The exact contents will vary by community, but typically include:</p>
+        <ul>
+          <li>basic first aid items (bandages, wipes, small cloth)</li>
+          <li>a clean cloth or small wrap</li>
+          <li>a symbolic object (feather, stone, seed, bead, small carving)</li>
+          <li>optionally, a Weather card from the current or previous carrier</li>
+        </ul>
+        <p>
+          The Pouch should feel slightly heavy in the hand or on the shoulder, to reflect the weight of the
+          responsibility without overwhelming the child.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">2</div>
+        <h2>Who Carries the Pouch?</h2>
+        <p>
+          The Medicine Pouch is <strong>never assigned</strong>. A child carries it only if they choose to and
+          can decline or pass it on at any time.
+        </p>
+        <p>Signs a child may be ready include:</p>
+        <ul>
+          <li>emerging instinct to help others</li>
+          <li>gentle behavior toward peers, animals, or the environment</li>
+          <li>growing steadiness in their body posture and movements</li>
+          <li>a sense of quiet pride when helping with small tasks</li>
+          <li>a shift in their Weather patterns toward more capacity or curiosity</li>
+        </ul>
+        <p class="inline-note">
+          Readiness is not about age or strength. It is about the child’s relationship to care and their
+          desire to help, in ways that feel safe and supported.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">3</div>
+        <h2>The Moment of Asking</h2>
+        <p>
+          The threshold moment is simple but important. A child might say:
+        </p>
+        <ul>
+          <li>“Can I carry the pouch today?”</li>
+          <li>“I want to help with that bag.”</li>
+          <li>“Could I be the one who watches this?”</li>
+        </ul>
+        <p>
+          An adult or peer might respond:
+        </p>
+        <p class="inline-note">
+          “If you’d like to carry it, we’ll carry it with you. The Pouch is for care.  
+          You can always ask for help, and you can always pass it on.”
+        </p>
+        <p>
+          A brief pause, a breath together, or a small nod from the group can mark the moment as special
+          without making it heavy or dramatic.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">4</div>
+        <h2>Rotation and Rest</h2>
+        <p>
+          No one is meant to carry the Pouch all the time. Rotation keeps the role from becoming a burden
+          and teaches that care is shared.
+        </p>
+        <ul>
+          <li>a child may carry it for a walk, a day, or a specific activity</li>
+          <li>they may then offer it to another child or return it to the adult</li>
+          <li>a child who once carried it may later choose rest and release the role</li>
+        </ul>
+        <p class="inline-note">
+          It is healthy for children to practice both holding responsibility and letting it go.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">5</div>
+        <h2>Weather, Wheel, and the Pouch</h2>
+        <p>
+          The Medicine Pouch is closely connected to the Weather Deck and MedicineWheel:
+        </p>
+        <ul>
+          <li>
+            A carrier may place their current Weather card inside or next to the Pouch to acknowledge the
+            state they are bringing to the role.
+          </li>
+          <li>
+            During an Elephant Circle, the Pouch can rest at the center of the MedicineWheel, as a shared symbol of care.
+          </li>
+          <li>
+            If the Pod notices the Wheel gathering too much in one direction (e.g., many Stone cards), the Pouch might be offered to someone who feels particularly grounded that day.
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="section-label">6</div>
+        <h2>RageDance &amp; the Pouch</h2>
+        <p>
+          RageDance helps children notice what it feels like in their bodies to carry care and responsibility.
+        </p>
+        <ul>
+          <li>Carriers can practice grounding stances and breaths that support their role.</li>
+          <li>Movement games can simulate “passing the weight” gently around the circle.</li>
+          <li>Children learn that it is okay to set down the weight when they need rest.</li>
+        </ul>
+        <p class="inline-note">
+          The Pouch and RageDance together teach that caring for others starts with knowing our own limits and capacities.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">7</div>
+        <h2>Designing the Pouch</h2>
+        <p>
+          Many Pods choose to decorate or design their own Pouch. Possibilities include:
+        </p>
+        <ul>
+          <li>stitching or drawing Weather symbols onto the fabric</li>
+          <li>tying small beads, feathers, or charms representing different roles</li>
+          <li>using colors that feel grounding or comforting to the children</li>
+        </ul>
+        <p class="inline-note">
+          When possible, communities may consult local makers or elders to guide respectful design and use of symbols.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">8</div>
+        <h2>What the Medicine Pouch Teaches Over Time</h2>
+        <p>With care, the Pouch teaches that:</p>
+        <ul>
+          <li>caring is something we can practice and grow into</li>
+          <li>responsibility can be shared, not carried alone</li>
+          <li>it is okay to ask for help even while helping others</li>
+          <li>small acts of care matter as much as big ones</li>
+          <li>children are capable of real, meaningful contribution to group safety and well-being</li>
+        </ul>
+        <p class="footer-note">
+          Some Pods mark significant Pouch moments in a simple logbook: who carried it, when, and what they remember. Over time, this becomes a quiet history of the circle’s care.
+        </p>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
