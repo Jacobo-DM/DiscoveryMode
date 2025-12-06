@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Four Rites • DiscoveryPods</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card-bg: #ffffff;
+      --accent: #2f6f6f;
+      --accent-soft: #e0f0ec;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --max-width: 880px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f0f7f5, #f8f5f2 40%, #f4f2f0);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 16px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 12px 0 24px;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .top-nav a {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      text-decoration: none;
+    }
+
+    .top-nav a span {
+      margin-left: 6px;
+    }
+
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .title-block {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(47,111,111,0.08);
+    }
+
+    h1 {
+      margin: 4px 0 6px;
+      font-size: 1.9rem;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .card h3 {
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-size: 1.02rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 6px 0 10px 1.1rem;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .inline-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 8px 10px;
+      border-radius: var(--radius-md);
+      background: #faf8f5;
+      border: 1px dashed rgba(0,0,0,0.06);
+      margin-top: 4px;
+    }
+
+    .footer-note {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 960px) {
+      .page {
+        padding-top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <div class="top-nav">
+        <a href="../index.html">
+          <span>←</span><span>Back to DiscoveryMode</span>
+        </a>
+        <a href="./index.html">
+          <span>⭯</span><span>DiscoveryPods Hub</span>
+        </a>
+        <a href="./charter.html">
+          <span>✦</span><span>Charter</span>
+        </a>
+      </div>
+
+      <div class="title-block">
+        <div class="pill-label">DiscoveryPods • Core Rhythm</div>
+        <h1>The Four Rites of a DiscoveryPod</h1>
+        <p class="subtitle">
+          Weather • Listening • Carrying • Offering — a spiral, not a ladder.
+        </p>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="card">
+        <div class="section-label">Overview</div>
+        <h2>What are the Four Rites?</h2>
+        <p>
+          The Four Rites describe how experience moves through a DiscoveryPod. They are not steps to be
+          “completed,” but a <strong>spiral</strong> the Pod returns to again and again.
+        </p>
+        <ul>
+          <li><strong>Rite I — Weather:</strong> noticing inner states.</li>
+          <li><strong>Rite II — Listening:</strong> sensing the group and the world.</li>
+          <li><strong>Rite III — Carrying:</strong> holding care and responsibility together.</li>
+          <li><strong>Rite IV — Offering:</strong> giving something back to the circle or the world.</li>
+        </ul>
+        <p class="inline-note">
+          On some days, a Pod may touch all four. On other days, it may rest mostly in one. That is expected and healthy.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">1</div>
+        <h2>Rite I — Weather</h2>
+        <p>
+          Weather is the rite of <strong>inner noticing</strong>. Children learn to sense and express what is
+          happening inside their bodies and minds.
+        </p>
+        <p>Key supports:</p>
+        <ul>
+          <li><strong>Living Weather Deck</strong> — cards, colors, sounds, textures.</li>
+          <li>RageDance warmups that map states like heat, tremble, collapse, and expansion.</li>
+          <li>simple check-ins: hand on chest, hand on belly, breath count, posture awareness.</li>
+        </ul>
+        <p>
+          Weather is where words may be optional. Expression can be quiet, symbolic, or fully nonverbal.
+        </p>
+        <p class="inline-note">
+          Children learn: “My inner weather matters. I can notice it without having to fix it right away.”
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">2</div>
+        <h2>Rite II — Listening</h2>
+        <p>
+          Listening is the rite of <strong>shared attention</strong>. The Pod learns to notice one another and
+          the world around them.
+        </p>
+        <p>Key supports:</p>
+        <ul>
+          <li><strong>Elephant Circle & Outlier Gate</strong> — shared reflection with two anchoring questions.</li>
+          <li>paired or small-group noticing (“What did you see that I didn’t?”).</li>
+          <li>gentle humor to keep disagreement soft and curious.</li>
+        </ul>
+        <p>
+          Listening includes listening to silence, to animals, to land, to buildings, to “the feeling of the room.”
+        </p>
+        <p class="inline-note">
+          Children learn: “Many truths can sit beside each other. We can stay in the circle even when we see differently.”
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">3</div>
+        <h2>Rite III — Carrying</h2>
+        <p>
+          Carrying is the rite of <strong>shared responsibility</strong>. It does not mean carrying everything;
+          it means carrying something with awareness and support.
+        </p>
+        <p>Key supports:</p>
+        <ul>
+          <li><strong>Medicine Pouch</strong> — a physical symbol of care.</li>
+          <li>Turtleback-style roles (first aid beetle, sniffer tracker, grief engineer, story drummer).</li>
+          <li>agreements about when to ask for help and when to rest.</li>
+        </ul>
+        <p>
+          A child who chooses to carry the Pouch has not “graduated” from needing care. They have simply stepped into a new
+          pattern: both held and holding.
+        </p>
+        <p class="inline-note">
+          Children learn: “I can help keep others safe without having to be perfect or alone.”
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">4</div>
+        <h2>Rite IV — Offering</h2>
+        <p>
+          Offering is the rite of <strong>gift</strong>. After noticing weather, listening, and carrying, something
+          returns to the circle or to the wider world.
+        </p>
+        <p>Offerings might be:</p>
+        <ul>
+          <li>a small movement phrase or dance</li>
+          <li>a drawing or symbol placed at the center of the Wheel</li>
+          <li>a sentence or question written on a card</li>
+          <li>a song fragment, rhythm, or soundscape</li>
+          <li>a piece of story from Luna, Maimi, or another character</li>
+          <li>a practical act of care (cleaning, planting, helping someone)</li>
+        </ul>
+        <p class="inline-note">
+          Children learn: “What I carry can become a gift. I have something to offer that is uniquely mine.”
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">5</div>
+        <h2>How the Rites Interweave</h2>
+        <p>
+          In practice, the Rites rarely appear in a clean sequence. A single moment may include all four:
+        </p>
+        <ul>
+          <li>a child feels anxious (Weather)</li>
+          <li>another child notices and sits beside them (Listening)</li>
+          <li>the first aid beetle quietly offers the Pouch (Carrying)</li>
+          <li>later, the anxious child draws a card about the moment and shares it (Offering)</li>
+        </ul>
+        <p>
+          Over days and weeks, the spiral repeats, building a deep sense of belonging and capacity.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">6</div>
+        <h2>RageDance Within the Four Rites</h2>
+        <p>
+          RageDance can be mapped directly onto the Four Rites:
+        </p>
+        <ul>
+          <li><strong>Weather:</strong> feeling heat, collapse, tremble, expansion in the body.</li>
+          <li><strong>Listening:</strong> sensing the room, the perimeter, and the pulse of the group.</li>
+          <li><strong>Carrying:</strong> holding the perimeter, modeling grounding, pacing the practice.</li>
+          <li><strong>Offering:</strong> small dances or grounded gestures shared with the circle afterward.</li>
+        </ul>
+        <p class="inline-note">
+          For some children, movement is the safest doorway into the Rites. Words can come later, or not at all.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">7</div>
+        <h2>Design Notes for Facilitators</h2>
+        <ul>
+          <li>Do not force all four Rites into every session.</li>
+          <li>Notice which Rite the Pod is naturally drawn to on a given day.</li>
+          <li>Return to underused Rites gently over time, not with pressure.</li>
+          <li>Let children name their own experiences of the Rites; adult language is optional.</li>
+        </ul>
+        <p class="footer-note">
+          A simple reflection practice: at the end of a week, invite the Pod to ask,  
+          <em>“Which Rite did we visit most? Which one is calling us next?”</em>
+        </p>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
