@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DiscoveryPod Charter • DiscoveryMode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card-bg: #ffffff;
+      --accent: #2f6f6f;
+      --accent-soft: #e0f0ec;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --border-soft: #dddddd;
+      --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --max-width: 880px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f0f7f5, #f8f5f2 40%, #f4f2f0);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 16px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 12px 0 24px;
+    }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .top-nav a {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      text-decoration: none;
+    }
+
+    .top-nav a span {
+      margin-left: 6px;
+    }
+
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .title-block {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(47,111,111,0.08);
+    }
+
+    h1 {
+      margin: 4px 0 6px;
+      font-size: 1.9rem;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .card h3 {
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-size: 1.02rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 6px 0 10px 1.1rem;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .inline-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 8px 10px;
+      border-radius: var(--radius-md);
+      background: #faf8f5;
+      border: 1px dashed rgba(0,0,0,0.06);
+      margin-top: 4px;
+    }
+
+    .footer-note {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 960px) {
+      .page {
+        padding-top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <div class="top-nav">
+        <a href="../index.html">
+          <span>←</span><span>Back to DiscoveryMode</span>
+        </a>
+      </div>
+
+      <div class="title-block">
+        <div class="pill-label">DiscoveryPods • Charter</div>
+        <h1>DiscoveryPod Charter</h1>
+        <p class="subtitle">
+          A living framework for learning, healing, curiosity, movement, and community.
+        </p>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="card">
+        <div class="section-label">Overview</div>
+        <h2>What is a DiscoveryPod?</h2>
+        <p>
+          A DiscoveryPod is not a school. It is a <strong>circle</strong>, a <strong>garden</strong>, a <strong>movement practice</strong>, a <strong>listening ritual</strong>, and a
+          <strong>shared language of growth</strong> created by the children themselves.
+        </p>
+        <p>
+          This Charter defines the core architecture of a DiscoveryPod: the <strong>Four Rites</strong>, the
+          <strong>Living Weather Deck</strong>, the <strong>Elephant Circle</strong>, the <strong>MedicineWheel</strong>, the
+          <strong>Medicine Pouch</strong>, and the integrated roles of <strong>RageDance</strong>,
+          <strong>MythWear</strong>, and <strong>Turtleback practices</strong>.
+        </p>
+        <p>
+          Everything here is designed to adapt, change, and breathe.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">1</div>
+        <h2>Purpose of the DiscoveryPod</h2>
+        <p>A DiscoveryPod exists to cultivate:</p>
+        <ul>
+          <li>emotional literacy through sensory experience</li>
+          <li>somatic awareness through movement</li>
+          <li>community intelligence through shared attention</li>
+          <li>resilience through gentle responsibility</li>
+          <li>connection through offering</li>
+          <li>humor as medicine</li>
+          <li>learning without coercion</li>
+          <li>identity without isolation</li>
+        </ul>
+        <p>
+          A Pod is not defined by curriculum. A Pod is defined by:
+        </p>
+        <p class="inline-note">
+          <strong>How we listen.</strong>  
+          <strong>How we carry.</strong>  
+          <strong>How we move.</strong>  
+          <strong>How we offer.</strong>  
+          <strong>How we grow.</strong>
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">2</div>
+        <h2>The Living Weather Deck</h2>
+        <p>
+          The first act of every Pod is to co-create its <strong>Living Weather Deck</strong> &mdash;
+          a multisensory emotional language that belongs to the children.
+        </p>
+        <p>Cards may take the form of:</p>
+        <ul>
+          <li>lines and shapes</li>
+          <li>colors and washes</li>
+          <li>sounds, rhythms, and simple patterns</li>
+          <li>flavors and baking ingredients</li>
+          <li>gestures and stances</li>
+          <li>breath patterns and textures</li>
+          <li>T-shirt dyes or fabric marks</li>
+          <li>scent memories and dream fragments</li>
+        </ul>
+        <p>
+          Each card reveals the <strong>weather inside a child’s body</strong>. The Deck evolves as
+          the Pod evolves.
+        </p>
+        <h3>Suites of the Weather Deck</h3>
+        <ul>
+          <li><strong>Pulse</strong> &mdash; heartbeats, activation, vitality</li>
+          <li><strong>Scratch</strong> &mdash; friction, startle, intensity, mischief</li>
+          <li><strong>Drift</strong> &mdash; sadness, confusion, fog, longing</li>
+          <li><strong>Stone</strong> &mdash; endurance, heaviness, stillness</li>
+          <li><strong>Light</strong> &mdash; joy, curiosity, wonder, connection</li>
+        </ul>
+        <p class="inline-note">
+          The Deck is never finished and never owned by adults alone. It is a shared language the Pod creates together.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">3</div>
+        <h2>The Elephant Circle &amp; Outlier Gate</h2>
+        <p>
+          After each activity, movement practice, or trail moment, the Pod gathers in the
+          <strong>Elephant Circle</strong> to reflect and listen.
+        </p>
+        <p>Two guiding questions shape the circle:</p>
+        <ul>
+          <li><strong>&ldquo;What did you notice outside our circle today?&rdquo;</strong></li>
+          <li><strong>&ldquo;What did you notice inside that we almost missed?&rdquo;</strong></li>
+        </ul>
+        <p>
+          This mechanism is the <strong>Outlier Gate</strong>. It ensures:
+        </p>
+        <ul>
+          <li>multi-perspective awareness</li>
+          <li>room for quiet and shy voices</li>
+          <li>gentle negotiation of truth</li>
+          <li>humor as a way of softening tension</li>
+          <li>edges and margins recognized as wisdom places</li>
+        </ul>
+        <p class="inline-note">
+          The circle is not complete until different perceptions have had a chance to appear. Disagreement is welcomed as curiosity, not conflict.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">4</div>
+        <h2>The MedicineWheel</h2>
+        <p>
+          The Living Weather Deck takes form as a <strong>MedicineWheel</strong>, uniquely created by each Pod.
+          It is a relational map for emotional, somatic, and communal states.
+        </p>
+        <p>The Wheel can:</p>
+        <ul>
+          <li><strong>expand</strong> when new emotions or sensory states emerge</li>
+          <li><strong>contract</strong> when safety, focus, or grounding is needed</li>
+          <li><strong>rotate</strong> when understanding shifts</li>
+          <li><strong>center</strong> when someone needs holding or care</li>
+        </ul>
+        <h3>Directional Qualities</h3>
+        <ul>
+          <li><strong>East</strong> &mdash; Light, beginnings, inspiration, offering</li>
+          <li><strong>South</strong> &mdash; Pulse/Scratch, heat, movement, activation</li>
+          <li><strong>West</strong> &mdash; Drift/Stone, depth, grief, processing</li>
+          <li><strong>North</strong> &mdash; clarity, synthesis, resilience</li>
+        </ul>
+        <p class="inline-note">
+          No two Pods have the same MedicineWheel. It is always a living artifact, shifting as the children and community shift.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">5</div>
+        <h2>The Medicine Pouch Threshold</h2>
+        <p>
+          The <strong>Medicine Pouch</strong> (first aid kit plus symbolic items) may only be carried
+          by a child who <em>asks</em> to carry it.
+        </p>
+        <p>
+          This moment is considered a threshold: a sign that a child has moved from
+          <strong>being held</strong> toward <strong>becoming a holder</strong>.
+        </p>
+        <p>The pouch is intentionally slightly heavy. It contains:</p>
+        <ul>
+          <li>basic care supplies</li>
+          <li>a symbolic object (feather, seed, stone, etc.)</li>
+          <li>optionally, a Weather card from a previous carrier</li>
+        </ul>
+        <h3>Signs of Readiness</h3>
+        <ul>
+          <li>emerging gentleness and instinct to help</li>
+          <li>growing steadiness and awareness of others</li>
+          <li>a return of curiosity or presence</li>
+          <li>more grounded or expanding Weather patterns</li>
+          <li>body language that suggests quiet responsibility, not performance</li>
+        </ul>
+        <p class="inline-note">
+          Carrying the pouch is about presence, not heroics. The role may rotate among children who feel ready, and may be declined at any time.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">6</div>
+        <h2>The Four Rites of the Pod</h2>
+        <p>
+          Every DiscoveryPod continually moves through four interconnected rites. They are not a linear curriculum; they form a spiral.
+        </p>
+
+        <h3>Rite I — Weather</h3>
+        <p>
+          Somatic and emotional awareness. Children discover inner states through the Weather Deck, movement, and breath without pressure to explain.
+        </p>
+
+        <h3>Rite II — Listening</h3>
+        <p>
+          The Elephant Circle and Outlier Gate. Children practice awareness of others, listening to differences, and recognizing that truth is shared and negotiated.
+        </p>
+
+        <h3>Rite III — Carrying</h3>
+        <p>
+          The Medicine Pouch and other gentle responsibilities. Children learn grounded care, steady presence, and support for peers and the environment.
+        </p>
+
+        <h3>Rite IV — Offering</h3>
+        <p>
+          A child places something in the center: a Weather card, a rhythm, a drawing, a gesture, a story fragment, a shared snack, a found object.
+          This is where movement and attention become <strong>gift</strong>.
+        </p>
+
+        <p class="inline-note">
+          These four rites are revisited again and again as the Pod grows. Each child may enter them in different ways, at different times.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">7</div>
+        <h2>Integration with RageDance, MythWear &amp; Turtleback Roles</h2>
+        <p>
+          DiscoveryPods naturally integrate movement, tools, and roles. RageDance, MythWear, and Turtleback practices are woven in as everyday
+          languages rather than separate programs.
+        </p>
+
+        <h3>RageDance</h3>
+        <ul>
+          <li>
+            <strong>Rite I — Weather:</strong> somatic mapping of collapse, heat, freeze, tremble, expansion, softening.
+          </li>
+          <li>
+            <strong>Rite II — Listening:</strong> attentional posture, grounded stance, breath that supports listening.
+          </li>
+          <li>
+            <strong>Rite III — Carrying:</strong> soft perimeter-holding, pacing, embodied responsibility.
+          </li>
+          <li>
+            <strong>Rite IV — Offering:</strong> movement as gift, small dances, gestures of grounding shared with the circle.
+          </li>
+        </ul>
+
+        <h3>MythWear</h3>
+        <ul>
+          <li><strong>Listening Glove:</strong> somatic sensing and rhythm-making tool.</li>
+          <li><strong>Mask of Balance:</strong> inner/outer world mapping through art and play.</li>
+          <li><strong>Medicine Pouch:</strong> physical expression of care and readiness.</li>
+        </ul>
+
+        <h3>Turtleback Roles</h3>
+        <ul>
+          <li>first aid beetles</li>
+          <li>grief engineers</li>
+          <li>sniffer-trackers</li>
+          <li>story drummers</li>
+          <li>wander-keepers and perimeter watchers</li>
+        </ul>
+
+        <p class="inline-note">
+          These roles give children agency and belonging without demanding performance or perfection. They are invitations, not assignments.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">8</div>
+        <h2>Pod Ethos (The Seal)</h2>
+        <p>The DiscoveryPod is guided by these principles:</p>
+        <ul>
+          <li><strong>Gentleness is a form of intelligence.</strong></li>
+          <li><strong>Safety comes from shared attention.</strong></li>
+          <li><strong>We track change over time, not moments.</strong></li>
+          <li><strong>No one is asked to reveal more than they choose.</strong></li>
+          <li><strong>The Deck belongs to the Pod.</strong></li>
+          <li><strong>The Wheel grows as the children grow.</strong></li>
+          <li><strong>Healing is circular, not linear.</strong></li>
+          <li><strong>Offerings must be freely given.</strong></li>
+          <li><strong>Humor prevents hierarchy.</strong></li>
+          <li><strong>Everyone carries medicine — but only when ready.</strong></li>
+        </ul>
+        <p class="footer-note">
+          This Charter is a living document. When it changes, the Pod may simply say: <em>&ldquo;Our wheel turned today.&rdquo;</em>
+        </p>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
