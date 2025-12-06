@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Living Weather Deck • DiscoveryPods</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card-bg: #ffffff;
+      --accent: #2f6f6f;
+      --accent-soft: #e0f0ec;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --border-soft: #dddddd;
+      --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --max-width: 880px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f0f7f5, #f8f5f2 40%, #f4f2f0);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 16px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 12px 0 24px;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .top-nav a {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      text-decoration: none;
+    }
+
+    .top-nav a span {
+      margin-left: 6px;
+    }
+
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .title-block {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(47,111,111,0.08);
+    }
+
+    h1 {
+      margin: 4px 0 6px;
+      font-size: 1.9rem;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .card h3 {
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-size: 1.02rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 6px 0 10px 1.1rem;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .inline-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 8px 10px;
+      border-radius: var(--radius-md);
+      background: #faf8f5;
+      border: 1px dashed rgba(0,0,0,0.06);
+      margin-top: 4px;
+    }
+
+    .footer-note {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 960px) {
+      .page {
+        padding-top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <div class="top-nav">
+        <a href="../index.html">
+          <span>←</span><span>Back to DiscoveryMode</span>
+        </a>
+        <a href="./charter.html">
+          <span>⭯</span><span>DiscoveryPod Charter</span>
+        </a>
+      </div>
+
+      <div class="title-block">
+        <div class="pill-label">DiscoveryPods • Weather Language</div>
+        <h1>The Living Weather Deck</h1>
+        <p class="subtitle">
+          A sensory-emotional language created by each DiscoveryPod.
+        </p>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="card">
+        <div class="section-label">Overview</div>
+        <h2>What is the Weather Deck?</h2>
+        <p>
+          The Living Weather Deck is the first act of a DiscoveryPod. It is the Pod’s
+          <strong>shared emotional vocabulary</strong>, created by the children themselves in whatever
+          sensory forms they choose.
+        </p>
+        <p>
+          The Deck is not a curriculum; it is a <strong>language of being</strong>. It teaches:
+        </p>
+        <ul>
+          <li>emotional literacy</li>
+          <li>somatic awareness</li>
+          <li>metaphor and symbol-making</li>
+          <li>community negotiation of meaning</li>
+          <li>pattern recognition</li>
+          <li>gentle self-expression</li>
+          <li>emergent creativity</li>
+        </ul>
+        <p class="inline-note">
+          Children learn that feelings are not “good or bad.” They are weather patterns: dynamic, shifting, and natural.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">1</div>
+        <h2>What the Deck Is Made Of</h2>
+        <p>
+          Weather Cards may appear in many forms, depending on the Pod. They can be:
+        </p>
+        <ul>
+          <li>line drawings and shapes</li>
+          <li>color washes or gradients</li>
+          <li>simple rhythms tapped on a table, knee, or drum</li>
+          <li>hand gestures or small movement phrases</li>
+          <li>breath patterns (short, long, wave-like, held)</li>
+          <li>textures using paper, fabric, clay, or found objects</li>
+          <li>scent memories (spices, herbs, teas)</li>
+          <li>baking ingredients (cinnamon day, stone-bread day, gofu day)</li>
+          <li>T-shirt dye patterns or fabric marks</li>
+          <li>dream fragments or symbolic doodles</li>
+        </ul>
+        <p>
+          Each card says, in its own way:
+        </p>
+        <p class="inline-note">
+          <em>“This is how the world moved inside me today.”</em>
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">2</div>
+        <h2>The Five Core Suites</h2>
+        <p>
+          Each Pod may eventually create its own categories, but five suites appear almost universally
+          across communities:
+        </p>
+        <ul>
+          <li>
+            <strong>Pulse</strong> &mdash; heartbeats, activation, alertness, vitality; the energy that rises.
+          </li>
+          <li>
+            <strong>Scratch</strong> &mdash; friction, startle, surprise, mischief, tension; edges and sparks.
+          </li>
+          <li>
+            <strong>Drift</strong> &mdash; sadness, confusion, fog, longing, surrender; soft collapse and inward tides.
+          </li>
+          <li>
+            <strong>Stone</strong> &mdash; stillness, heaviness, endurance, fatigue; the weight that asks to be noticed.
+          </li>
+          <li>
+            <strong>Light</strong> &mdash; joy, curiosity, wonder, connection; the states that open the circle.
+          </li>
+        </ul>
+        <p>
+          Pods may later add more suites such as <em>Seed</em>, <em>Tide</em>, <em>Shadow</em>, <em>Ember</em>,
+          <em>Moss</em>, or <em>River</em>. Suites evolve as the children evolve.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">3</div>
+        <h2>How Children Use the Deck</h2>
+        <p>
+          At the start of a session, each child chooses a card that reflects their inner weather. There is
+          no requirement to explain or justify their choice.
+        </p>
+        <p>Children may show weather by:</p>
+        <ul>
+          <li>holding or placing the card near them</li>
+          <li>placing it on a shared mat or cloth</li>
+          <li>making the associated gesture</li>
+          <li>tapping the card’s rhythm</li>
+          <li>wearing its color or symbol</li>
+          <li>quietly placing it in the center of the circle</li>
+        </ul>
+        <p class="inline-note">
+          Interpretation emerges over time, through patterns and conversation, not through pressure or interrogation.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">4</div>
+        <h2>Creating the Deck (Protocol)</h2>
+        <p>
+          The Deck must not be pre-designed by adults. It must emerge with the children. Here is a suggested protocol:
+        </p>
+
+        <h3>Step 1 — Invitation</h3>
+        <p>
+          Ask: <em>“What does your inside weather feel like today? Can you show it with color, shape,
+          sound, or movement?”</em>
+        </p>
+
+        <h3>Step 2 — Creation</h3>
+        <p>
+          Offer open materials: paper, markers, stones, fabric, small foods, clay, natural objects from the
+          environment. Children make:
+        </p>
+        <ul>
+          <li>one card per day, or many</li>
+          <li>a series of related cards</li>
+          <li>or simply one mark that means something to them</li>
+        </ul>
+
+        <h3>Step 3 — Naming</h3>
+        <p>
+          Children name their cards. Adults transcribe if needed. Names might be:
+        </p>
+        <ul>
+          <li>“Rain Waiting to Fall”</li>
+          <li>“Shiny Grasshopper”</li>
+          <li>“Blue Hush”</li>
+          <li>“Spicy Thunder”</li>
+          <li>“Sleepy Tiger Spine”</li>
+        </ul>
+
+        <h3>Step 4 — Communal Deck</h3>
+        <p>
+          The Pod’s shared Deck is built from these offerings. Cards live in a box, pouch, or wrapped cloth,
+          accessible to all.
+        </p>
+
+        <h3>Step 5 — Rotation</h3>
+        <p>
+          Over time, older Decks can be archived and newer ones created. Patterns across seasons become visible.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">5</div>
+        <h2>Connections to Other DiscoveryPod Practices</h2>
+        <p>The Weather Deck is deeply connected to other elements of the system:</p>
+        <ul>
+          <li>
+            <strong>Elephant Circle:</strong> children bring their weather into shared reflection; weather becomes a starting point for listening.
+          </li>
+          <li>
+            <strong>MedicineWheel:</strong> cards are placed in directional positions; new states expand or rotate the Wheel.
+          </li>
+          <li>
+            <strong>Medicine Pouch:</strong> a child carrying the pouch may tuck their card inside as a small record of presence.
+          </li>
+          <li>
+            <strong>RageDance:</strong> weather teaches how different states feel in the body (heat, collapse, tremble, expansion, softening).
+          </li>
+          <li>
+            <strong>Turtleback Roles:</strong> roles such as first aid beetles or grief engineers may choose cards that match their current inner capacity.
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="section-label">6</div>
+        <h2>What the Deck Teaches Over Time</h2>
+        <p>With consistent, gentle use, the Weather Deck teaches that:</p>
+        <ul>
+          <li>emotions are natural, not failures</li>
+          <li>bodies communicate in pulses and patterns</li>
+          <li>moods change like seasons, and that is normal</li>
+          <li>every child has a right to their inner weather</li>
+          <li>a community can hold many different states at once</li>
+          <li>difference is expected, not a problem</li>
+        </ul>
+        <p class="footer-note">
+          Over time, children may see their own journey reflected in the Deck: cards that once meant fear may later represent comfort, play, or even wonder.
+        </p>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
