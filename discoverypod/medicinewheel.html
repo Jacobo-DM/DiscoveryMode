@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MedicineWheel • DiscoveryPods</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card-bg: #ffffff;
+      --accent: #2f6f6f;
+      --accent-soft: #e0f0ec;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --border-soft: #dddddd;
+      --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --max-width: 880px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f0f7f5, #f8f5f2 40%, #f4f2f0);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 16px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 12px 0 24px;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .top-nav a {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      text-decoration: none;
+    }
+
+    .top-nav a span {
+      margin-left: 6px;
+    }
+
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47,111,111,0.06);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .title-block {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(47,111,111,0.08);
+    }
+
+    h1 {
+      margin: 4px 0 6px;
+      font-size: 1.9rem;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .card h3 {
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-size: 1.02rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 6px 0 10px 1.1rem;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .inline-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 8px 10px;
+      border-radius: var(--radius-md);
+      background: #faf8f5;
+      border: 1px dashed rgba(0,0,0,0.06);
+      margin-top: 4px;
+    }
+
+    .footer-note {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 960px) {
+      .page {
+        padding-top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <div class="top-nav">
+        <a href="../index.html">
+          <span>←</span><span>Back to DiscoveryMode</span>
+        </a>
+        <a href="./charter.html">
+          <span>⭯</span><span>DiscoveryPod Charter</span>
+        </a>
+        <a href="./weather-deck.html">
+          <span>☁︎</span><span>Living Weather Deck</span>
+        </a>
+        <a href="./elephant-circle.html">
+          <span>🐘</span><span>Elephant Circle</span>
+        </a>
+      </div>
+
+      <div class="title-block">
+        <div class="pill-label">DiscoveryPods • Relational Map</div>
+        <h1>The MedicineWheel</h1>
+        <p class="subtitle">
+          A living map for emotional, somatic, and communal states in the Pod.
+        </p>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="card">
+        <div class="section-label">Overview</div>
+        <h2>What is the MedicineWheel?</h2>
+        <p>
+          The MedicineWheel is a way for a DiscoveryPod to see its shared inner weather as a whole.
+          It takes shapes and colors from the Pod’s own Weather Deck and turns them into a
+          <strong>relational map</strong>.
+        </p>
+        <p>
+          The Wheel is not a fixed symbol. Each Pod creates its own version, informed by:
+        </p>
+        <ul>
+          <li>the land it lives on</li>
+          <li>the cultures and stories of the community</li>
+          <li>the emotional weather of the children</li>
+        </ul>
+        <p class="inline-note">
+          This page offers a four-direction model (East, South, West, North) while leaving space
+          for Pods to add more directions or layers as needed.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">1</div>
+        <h2>Core Functions of the Wheel</h2>
+        <p>The MedicineWheel can:</p>
+        <ul>
+          <li><strong>Expand</strong> &mdash; when new emotions or sensory states arise.</li>
+          <li><strong>Contract</strong> &mdash; when the Pod needs focus, calm, or safety.</li>
+          <li><strong>Rotate</strong> &mdash; when understanding or perspective changes.</li>
+          <li><strong>Center</strong> &mdash; when someone needs holding or the group needs to settle.</li>
+        </ul>
+        <p class="inline-note">
+          Think of the Wheel as a breathing diagram of the Pod. Its shape can change according to what is needed.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">2</div>
+        <h2>The Four Core Directions</h2>
+        <p>
+          Many Wheel traditions use four main directions. DiscoveryPods can use these as a starting point and adapt as appropriate:
+        </p>
+
+        <h3>East — Beginnings &amp; Light</h3>
+        <ul>
+          <li>new ideas, first attempts, curiosity</li>
+          <li>the Light suite of the Weather Deck</li>
+          <li>moments of hope, invitation, and gentle offering</li>
+        </ul>
+
+        <h3>South — Heat &amp; Movement</h3>
+        <ul>
+          <li>energy, activation, play, sometimes conflict</li>
+          <li>Pulse and Scratch suites</li>
+          <li>RageDance warmups, strong emotions, big shifts</li>
+        </ul>
+
+        <h3>West — Depth &amp; Drift</h3>
+        <ul>
+          <li>grief, reflection, processing, tiredness</li>
+          <li>Drift and Stone suites</li>
+          <li>times when the Pod feels slower or quieter</li>
+        </ul>
+
+        <h3>North — Clarity &amp; Return</h3>
+        <ul>
+          <li>integration, understanding, resilience</li>
+          <li>moments when learning settles into the body</li>
+          <li>decisions about what to carry forward</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="section-label">3</div>
+        <h2>Placing Weather on the Wheel</h2>
+        <p>
+          The Wheel becomes real when children place their Weather cards on it. This can be done with:
+        </p>
+        <ul>
+          <li>a large drawn circle on paper or fabric</li>
+          <li>stones or markers representing the four directions</li>
+          <li>a ground-circle outdoors using sticks, shells, or leaves</li>
+        </ul>
+        <p>
+          Children might place their card:
+        </p>
+        <ul>
+          <li>in a direction that matches how their day felt</li>
+          <li>in the center, if they’re unsure or feel “in between”</li>
+          <li>at the edge, if they’re not ready to share but want to be near the map</li>
+        </ul>
+        <p class="inline-note">
+          Over time, the Pod may notice patterns: certain days gather in one direction, while others spread across the Wheel.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">4</div>
+        <h2>Rotations, Expansions, and Contractions</h2>
+        <h3>Rotation</h3>
+        <p>
+          Sometimes a moment that once belonged to West (grief, heaviness) later feels like East (new beginning). When this happens, the Pod may
+          <strong>rotate</strong> cards or re-tell the story from a different direction.
+        </p>
+
+        <h3>Expansion</h3>
+        <p>
+          As new kinds of weather emerge, the Pod may:
+        </p>
+        <ul>
+          <li>add new suites (e.g., Seed, Tide, Ember)</li>
+          <li>create diagonal directions between the main ones</li>
+          <li>add layers (inner circle for personal states, outer circle for community states)</li>
+        </ul>
+
+        <h3>Contraction</h3>
+        <p>
+          On days of overwhelm, the Wheel can be simplified: only two directions, or even just center and one side. This helps restore a sense of safety and clarity.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">5</div>
+        <h2>Center of the Wheel</h2>
+        <p>
+          The center is where offerings, unresolved questions, and shared mysteries can rest.
+        </p>
+        <ul>
+          <li>a question no one can answer yet</li>
+          <li>a feeling that is too mixed to place in one direction</li>
+          <li>a shared object everyone wants to protect</li>
+          <li>a memory the Pod is still processing</li>
+        </ul>
+        <p class="inline-note">
+          The center is not a place of confusion as failure. It is a place of not-yet-knowing that the community agrees to hold together.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">6</div>
+        <h2>Connection to the Four Rites</h2>
+        <p>The MedicineWheel is deeply tied to the Four Rites of the Pod:</p>
+        <ul>
+          <li><strong>Rite I — Weather:</strong> children locate inner states on the Wheel.</li>
+          <li><strong>Rite II — Listening:</strong> the Elephant Circle uses the Wheel to talk about shared moments.</li>
+          <li><strong>Rite III — Carrying:</strong> Medicine Pouch carriers learn to watch the Wheel’s balance.</li>
+          <li><strong>Rite IV — Offering:</strong> children may place offerings or stories at specific directions or in the center.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="section-label">7</div>
+        <h2>Adding New Directions</h2>
+        <p>
+          Some Pods may wish to add directions or layers that match their stories and land. Possibilities include:
+        </p>
+        <ul>
+          <li><strong>River</strong> &mdash; for flow, change, and travel between states</li>
+          <li><strong>Shadow</strong> &mdash; for things that are hard to name</li>
+          <li><strong>Ember</strong> &mdash; for small, persistent sparks of hope</li>
+          <li><strong>Moss</strong> &mdash; for slow, quiet healing</li>
+        </ul>
+        <p class="inline-note">
+          Any additions should come from conversation with the community, and where possible, with respect for local traditions and knowledge keepers.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-label">8</div>
+        <h2>What the MedicineWheel Teaches Over Time</h2>
+        <p>With gentle use, the Wheel teaches that:</p>
+        <ul>
+          <li>no single feeling has to last forever</li>
+          <li>everyone’s state matters to the whole group</li>
+          <li>there are many ways to move from one state to another</li>
+          <li>some things are ready to be understood now, others later</li>
+          <li>healing is not a straight line, but a circle with many paths</li>
+        </ul>
+        <p class="footer-note">
+          When the Wheel shifts, expands, or is renamed, the Pod may simply say:
+          <em>“Our wheel turned today.”</em>
+        </p>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
