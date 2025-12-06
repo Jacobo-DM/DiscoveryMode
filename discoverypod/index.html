@@ -2,201 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DiscoveryPods • Index</title>
+  <title>DiscoveryPod · DiscoveryMode</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <style>
-    :root {
-      --bg: #f7f7f5;
-      --card-bg: #ffffff;
-      --accent: #2f6f6f;
-      --accent-soft: #e0f0ec;
-      --text-main: #222222;
-      --text-muted: #555555;
-      --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --radius-pill: 999px;
-      --max-width: 880px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #f0f7f5, #f8f5f2 40%, #f4f2f0);
-      color: var(--text-main);
+      background: #0d1117;
+      color: #e6edf3;
       line-height: 1.6;
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    header {
+      padding: 1.5rem 1.5rem 0.5rem;
+      border-bottom: 1px solid #30363d;
     }
-    a:hover {
+    header a.home-link {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #7d8590;
+    }
+    header a.home-link:hover {
       text-decoration: underline;
     }
-
-    .page {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 16px 16px 48px;
-    }
-
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin: 12px 0 24px;
-    }
-
-    .top-nav a {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      background: rgba(47,111,111,0.06);
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-right: 8px;
-      text-decoration: none;
-    }
-
-    .title-block {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      padding: 18px 18px 16px;
-      border: 1px solid rgba(47,111,111,0.08);
-    }
-
-    .pill-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      background: rgba(47,111,111,0.06);
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
     h1 {
-      margin: 4px 0 6px;
-      font-size: 1.9rem;
+      margin: 0.5rem 0 0.25rem;
+      font-size: 1.6rem;
     }
-
-    .subtitle {
-      margin: 0;
-      font-size: 0.98rem;
-      color: var(--text-muted);
-    }
-
     main {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 1.5rem;
     }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 16px 18px 20px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,0.03);
+    p.lead {
+      margin-top: 0.75rem;
+      color: #9da7b3;
     }
-
-    .card h2 {
-      margin: 0 0 8px;
+    section {
+      margin-top: 1.75rem;
+      padding: 1.25rem 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #30363d;
+      background: #151b23;
+    }
+    h2 {
+      margin-top: 0;
       font-size: 1.25rem;
     }
-
-    .card p {
-      margin: 0 0 10px;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.75rem 0 0;
     }
-
-    .card a {
+    li + li {
+      margin-top: 0.75rem;
+    }
+    a.card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    a.card-link span.label {
       display: inline-block;
-      margin-top: 4px;
-      font-size: 0.92rem;
-      color: var(--accent);
+      font-weight: 600;
+    }
+    a.card-link span.note {
+      display: block;
+      font-size: 0.9rem;
+      color: #9da7b3;
+      margin-top: 0.15rem;
+    }
+    footer {
+      max-width: 840px;
+      margin: 1rem auto 2rem;
+      padding: 0 1.5rem;
+      font-size: 0.85rem;
+      color: #7d8590;
     }
   </style>
 </head>
-
 <body>
-  <div class="page">
+  <header>
+    <a href="../index.html" class="home-link">← Back to DiscoveryMode home</a>
+    <h1>DiscoveryPod</h1>
+    <p class="lead">
+      Short invitations, each one a small circle of attention. Choose the one that calls to you today.
+    </p>
+  </header>
 
-    <header>
-      <div class="top-nav">
-        <a href="../index.html">← Back to DiscoveryMode</a>
-      </div>
+  <main>
+    <section>
+      <h2>Pod Tickets</h2>
+      <ul>
+        <li>
+          <a class="card-link" href="elephant-circle.html">
+            <span class="label">Elephant Circle</span>
+            <span class="note">A gentle way to notice who’s in the room, who’s quiet, and who might need a steadier rhythm.</span>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="four-rites.html">
+            <span class="label">Four Rites</span>
+            <span class="note">Four small ways to honor space, time, voice, and listening before the day begins.</span>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="medicine-pouch.html">
+            <span class="label">Medicine Pouch</span>
+            <span class="note">A simple practice for gathering objects of comfort, courage, and curiosity.</span>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="medicinewheel.html">
+            <span class="label">Medicine Wheel</span>
+            <span class="note">A flexible circle for mapping energies in the room without labels like “good” or “bad.”</span>
+          </a>
+        </li>
+        <li>
+          <a class="card-link" href="weather-deck.html">
+            <span class="label">Weather Deck</span>
+            <span class="note">A deck for checking the inner and outer weather before you launch into the day.</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
 
-      <div class="title-block">
-        <div class="pill-label">DiscoveryMode • Pods</div>
-        <h1>DiscoveryPods</h1>
-        <p class="subtitle">
-          A small community of learners. A circle of care. A place where noticing becomes learning.
-        </p>
-      </div>
-    </header>
-
-    <main>
-
-      <section class="card">
-        <h2>DiscoveryPod Charter</h2>
-        <p>
-          The foundational agreements and values of a Pod: consent, care, noticing, movement, and shared responsibility.
-        </p>
-        <a href="./charter.html">Read Charter →</a>
-      </section>
-
-      <section class="card">
-        <h2>The Four Rites</h2>
-        <p>
-          Weather, Listening, Carrying, Offering — the core spiral that weaves movement, care, and story through every Pod.
-        </p>
-        <a href="./four-rites.html">Walk the Spiral →</a>
-      </section>
-
-      <section class="card">
-        <h2>Living Weather Deck</h2>
-        <p>
-          A sensory-emotional language created by the Pod. Cards, colors, textures, gestures, and sounds that map inner weather.
-        </p>
-        <a href="./weather-deck.html">Explore the Deck →</a>
-      </section>
-
-      <section class="card">
-        <h2>Elephant Circle &amp; Outlier Gate</h2>
-        <p>
-          The Pod’s shared reflection ritual: listening, humor, disagreements-without-disconnection, and gentle repair.
-        </p>
-        <a href="./elephant-circle.html">Enter the Circle →</a>
-      </section>
-
-      <section class="card">
-        <h2>MedicineWheel</h2>
-        <p>
-          A relational map of the Pod’s emotional and somatic states. Four core directions, with room for Rivers, Embers, Moss.
-        </p>
-        <a href="./medicinewheel.html">View the Wheel →</a>
-      </section>
-
-      <section class="card">
-        <h2>Medicine Pouch Threshold</h2>
-        <p>
-          When a child chooses to carry care for the circle. A role of presence, steadiness, and the right to ask for help.
-        </p>
-        <a href="./medicine-pouch.html">Open the Threshold →</a>
-      </section>
-
-    </main>
-  </div>
+  <footer>
+    DiscoveryMode · A Flower Road primer. These materials are shared for teachers, students, and guardians
+    who are learning how to listen to space, pulse, and one another.
+  </footer>
 </body>
 </html>
