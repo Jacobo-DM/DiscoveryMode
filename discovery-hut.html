@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiscoveryHut • DiscoveryPods</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f0e8;
+      --paper: #faf7f2;
+      --card: #ffffff;
+      --bark: #2c2416;
+      --soil: #5a4a35;
+      --muted: #9a8e7e;
+      --moss: #3d6b4a;
+      --moss-soft: rgba(61,107,74,0.08);
+      --amber: #b5722a;
+      --amber-soft: rgba(181,114,42,0.08);
+      --warm: #e8ddd0;
+      --border: rgba(90,74,53,0.12);
+      --shadow: 0 8px 28px rgba(44,36,22,0.07);
+      --radius: 14px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--bark);
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* grain */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* ── NAV ── */
+    nav {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--moss);
+      text-decoration: none;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    .nav-sep { color: var(--muted); font-size: 0.8rem; }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 5rem;
+    }
+
+    /* ── HERO CARD ── */
+    .hero-card {
+      background: radial-gradient(ellipse at top left, rgba(181,114,42,0.1), rgba(255,255,255,0.6) 60%),
+                  var(--card);
+      border: 1px solid rgba(181,114,42,0.2);
+      border-radius: var(--radius);
+      padding: 2rem 2rem 1.75rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-icon {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      font-weight: 500;
+      color: var(--bark);
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--soil);
+      max-width: 36rem;
+    }
+
+    .tags {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--moss);
+      background: var(--moss-soft);
+      border: 1px solid rgba(61,107,74,0.2);
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+    }
+
+    /* ── SECTION CARDS ── */
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      box-shadow: var(--shadow);
+    }
+
+    .section-number {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--bark);
+      margin-bottom: 0.6rem;
+    }
+
+    p {
+      font-size: 0.97rem;
+      color: var(--soil);
+      margin-bottom: 0.6rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.5rem 0 0.6rem;
+    }
+
+    li {
+      font-size: 0.95rem;
+      color: var(--soil);
+      margin-bottom: 0.3rem;
+      line-height: 1.6;
+    }
+
+    strong { color: var(--bark); font-weight: 500; }
+
+    em { font-style: italic; color: var(--muted); }
+
+    /* quiet note block */
+    .note {
+      background: var(--moss-soft);
+      border-left: 3px solid rgba(61,107,74,0.4);
+      border-radius: 0 8px 8px 0;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0 0.5rem;
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--moss);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 3rem;
+    }
+
+    footer span { color: var(--moss); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html">← Back to DiscoveryMode</a>
+    <span class="nav-sep">·</span>
+    <a href="index.html">DiscoveryPods</a>
+    <span class="nav-sep">·</span>
+    <a href="weather-deck.html">☁︎ WeatherDeck</a>
+    <span class="nav-sep">·</span>
+    <a href="elephant-circle.html">🐘 Elephant Circle</a>
+    <span class="nav-sep">·</span>
+    <a href="weather-wheel.html">🌀 WeatherWheel</a>
+  </nav>
+
+  <main>
+
+    <div class="hero-card">
+      <span class="hero-icon">🛖</span>
+      <div class="hero-eyebrow">DiscoveryPods · Sanctuary</div>
+      <h1>The DiscoveryHut</h1>
+      <p class="hero-sub">A small sheltered space for rest, reflection, and quiet return. Not a reward. Not a punishment. A place to breathe.</p>
+      <div class="tags">
+        <span class="tag">Nervous system</span>
+        <span class="tag">Restoration</span>
+        <span class="tag">All ages</span>
+        <span class="tag">Flexible setup</span>
+        <span class="tag">Sanctuary</span>
+      </div>
+    </div>
+
+    <div class="sections">
+
+      <div class="section-card">
+        <span class="section-number">Overview · 1</span>
+        <h2>What is the DiscoveryHut?</h2>
+        <p>The DiscoveryHut is a small, sheltered space within or beside a learning environment. Its purpose is simple: to offer a place where a person — student or teacher — can slow down, restore, and return to themselves.</p>
+        <p>It can be extremely simple in construction:</p>
+        <ul>
+          <li>a mosquito-net curtain or light fabric hung from a corner or frame</li>
+          <li>soft or fairy lighting — warm, low, unhurried</li>
+          <li>a cushion, mat, or blanket to sit or lie down</li>
+        </ul>
+        <p>The Hut may fit an entire class or just one person. <strong>Nothing is lost when it becomes small.</strong></p>
+        <div class="note">The DiscoveryHut is not a punishment space. It is not where someone goes when they have done something wrong. It is where someone goes when they need to return to themselves.</div>
+      </div>
+
+      <div class="section-card">
+        <span class="section-number">Availability · 2</span>
+        <h2>When is the Hut open?</h2>
+        <p>Each community adapts the Hut to its situation. It may be:</p>
+        <ul>
+          <li><strong>Open all day</strong> — available to anyone who needs it, at any point</li>
+          <li><strong>Open at certain moments</strong> — at the start of the day, during transitions, after a difficult event</li>
+          <li><strong>Used individually</strong> — one person at a time for quiet or stillness</li>
+          <li><strong>Used by groups</strong> — a small circle, a pair, a whole class for a shared pause</li>
+        </ul>
+        <p>The facilitator reads the room. The Hut follows the pulse.</p>
+      </div>
+
+      <div class="section-card">
+        <span class="section-number">Context · 3</span>
+        <h2>The Hut in different environments</h2>
+        <p>The DiscoveryHut is designed to adapt. Its character changes with the community that holds it.</p>
+        <ul>
+          <li><strong>In a calm classroom:</strong> it may function quietly as a reading corner or reflection space — soft, available, unhurried.</li>
+          <li><strong>In a busy or chaotic environment:</strong> it becomes more essential — a reliable anchor when everything else is moving.</li>
+          <li><strong>In high-stress contexts</strong> — a refugee camp, a shelter, a school under pressure — it may remain open continuously as a sanctuary. A place that simply says: <em>you can rest here.</em></li>
+        </ul>
+        <div class="note">The Hut is not a luxury. In the most difficult environments, it may be the most important thing in the room.</div>
+      </div>
+
+      <div class="section-card">
+        <span class="section-number">Practice · 4</span>
+        <h2>Entering and leaving the Hut</h2>
+        <p>There is no formal ritual required, but some Pods develop small threshold moments:</p>
+        <ul>
+          <li>removing shoes at the entrance</li>
+          <li>a single breath before stepping in</li>
+          <li>a quiet nod to the facilitator, or simply leaving a WeatherDeck card to signal "I'm resting"</li>
+        </ul>
+        <p>Leaving is equally simple. The person emerges when they are ready. No explanation is required.</p>
+        <p>Over time, children begin to recognize their own signals for when the Hut is needed — before the overwhelm arrives, not after.</p>
+      </div>
+
+      <div class="section-card">
+        <span class="section-number">Connection · 5</span>
+        <h2>The Hut and the WeatherDeck</h2>
+        <p>The DiscoveryHut works naturally alongside the WeatherDeck. A child might:</p>
+        <ul>
+          <li>place a <em>Stone</em> or <em>Drift</em> card near the entrance to signal their state</li>
+          <li>carry a card into the Hut and emerge with a different one</li>
+          <li>leave a card at the threshold as a quiet message to the group</li>
+        </ul>
+        <p>The WeatherWheel may show when many members of the Pod are in states that suggest the Hut should be opened — not as a crisis response, but as attentive care.</p>
+      </div>
+
+      <div class="section-card">
+        <span class="section-number">Design · 6</span>
+        <h2>Building the Hut</h2>
+        <p>The Hut should feel genuinely sheltered — not clinical, not performative. A few principles:</p>
+        <ul>
+          <li><strong>Soft boundaries:</strong> fabric or netting rather than walls. The shelter is real but not sealed.</li>
+          <li><strong>Warm light:</strong> fairy lights, a small lamp, or natural light from a window if possible.</li>
+          <li><strong>Ground-level comfort:</strong> cushions, mats, blankets. The body should be able to fully rest.</li>
+          <li><strong>A small beauty:</strong> one plant, one stone, one image — something that says this place is cared for.</li>
+        </ul>
+        <p>Some communities invite children to help build or decorate the Hut. This deepens their sense of ownership and belonging within it.</p>
+        <div class="note">The Hut does not need to be elaborate. It needs to feel like someone thought about you when they made it.</div>
+      </div>
+
+      <div class="section-card">
+        <span class="section-number">Over time · 7</span>
+        <h2>What the DiscoveryHut teaches</h2>
+        <p>With gentle use, the Hut teaches that:</p>
+        <ul>
+          <li>rest is not weakness — it is part of the work</li>
+          <li>everyone has a nervous system that needs tending</li>
+          <li>a community that makes space for restoration is a stronger community</li>
+          <li>you can leave a difficult state and return to yourself — and this is a skill that can be practiced</li>
+          <li>sanctuary is not rare; it can be as close as a curtain and a cushion</li>
+        </ul>
+        <div class="note">When a child learns to reach for rest before they break, something important has shifted in them. The Hut is where that shift often begins.</div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    A <span>Flower Road</span> commons practice · DiscoveryMode · Shared in the spirit of learning, reciprocity, and repair
+  </footer>
+
+</body>
+</html>

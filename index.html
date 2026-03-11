@@ -2,133 +2,684 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DiscoveryMode · A Flower Road Primer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiscoveryMode · The Open Gate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --night: #08090f;
+      --deep: #0e1018;
+      --threshold: #121520;
+      --dawn: #f5f0e8;
+      --paper: #faf7f2;
+      --text-dark: #e8e4dc;
+      --text-muted-dark: #6a6d78;
+      --gold: #c9a96e;
+      --gold-soft: rgba(201,169,110,0.12);
+      --moss: #4a7c5f;
+      --moss-soft: rgba(74,124,95,0.15);
+      --border-dark: rgba(255,255,255,0.06);
+      --border-light: rgba(90,74,53,0.12);
+      --bark: #2c2416;
+      --soil: #5a4a35;
+      --muted-light: #9a8e7e;
+      --amber: #b5722a;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0d1117;
-      color: #e6edf3;
-      line-height: 1.6;
+      background: var(--night);
+      color: var(--text-dark);
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-    header {
-      padding: 1.75rem 1.5rem 1rem;
-      border-bottom: 1px solid #30363d;
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.022;
+      pointer-events: none;
+      z-index: 9999;
     }
-    h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    p.lead {
-      margin: 0.6rem 0 0;
-      max-width: 42rem;
-      color: #9da7b3;
-    }
-    main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
-    }
-    .card {
-      border-radius: 0.9rem;
-      border: 1px solid #30363d;
-      background: #151b23;
-      padding: 1.25rem 1.1rem;
+
+    /* ══════════════════════════════
+       THRESHOLD / HERO
+    ══════════════════════════════ */
+    .threshold {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem 6rem;
+      text-align: center;
+      position: relative;
+      background: radial-gradient(ellipse at 50% 35%, rgba(201,169,110,0.05) 0%, transparent 65%);
     }
-    .card h2 {
-      margin: 0 0 0.4rem;
-      font-size: 1.25rem;
+
+    .wordmark {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: riseIn 1s ease forwards 0.3s;
     }
-    .card p {
-      margin: 0.25rem 0 0.75rem;
-      font-size: 0.95rem;
-      color: #9da7b3;
+
+    .gate-mark {
+      font-size: 1.6rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      opacity: 0;
+      animation: riseIn 1s ease forwards 0.6s;
+      margin-bottom: 0.6rem;
     }
-    .card a {
-      margin-top: auto;
-      font-size: 0.95rem;
+
+    .statement {
+      max-width: 33rem;
+      font-size: clamp(1.15rem, 2.2vw, 1.42rem);
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.85;
+      opacity: 0;
+      animation: riseIn 1.2s ease forwards 0.9s;
+    }
+
+    .statement p + p { margin-top: 1.3em; }
+
+    .gate-line {
+      margin-top: 2.5rem;
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      animation: riseIn 1s ease forwards 1.8s;
+    }
+
+    /* glimpse strip — tools visible through the gate */
+    .glimpse-strip {
+      margin-top: 3.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      max-width: 30rem;
+      opacity: 0;
+      animation: riseIn 1s ease forwards 2.2s;
+    }
+
+    .glimpse-pill {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted-dark);
+      background: var(--border-dark);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      transition: color 0.3s, border-color 0.3s;
       text-decoration: none;
-      color: #58a6ff;
     }
-    .card a:hover {
-      text-decoration: underline;
+
+    .glimpse-pill:hover {
+      color: var(--gold);
+      border-color: rgba(201,169,110,0.3);
     }
-    footer {
-      max-width: 960px;
-      margin: 1rem auto 2rem;
-      padding: 0 1.5rem;
+
+    /* start-here block */
+    .start-here {
+      margin-top: 3rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.25rem 1.75rem 1.4rem;
+      background: rgba(255,255,255,0.03);
+      max-width: 26rem;
+      text-align: left;
+      opacity: 0;
+      animation: riseIn 1s ease forwards 2.5s;
+    }
+
+    .start-here-label {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin-bottom: 0.9rem;
+      display: block;
+    }
+
+    .start-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .start-links li {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.82rem;
+      color: var(--text-muted-dark);
+      display: flex;
+      gap: 0.5rem;
+      align-items: baseline;
+    }
+
+    .start-links .feeling {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      flex-shrink: 0;
+    }
+
+    .start-links a {
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+
+    .start-links a:hover { text-decoration: underline; }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: riseIn 1s ease forwards 3.2s;
+    }
+
+    .scroll-hint span {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      color: var(--text-muted-dark);
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+      animation: breathe 2.5s ease-in-out infinite;
+    }
+
+    /* ══════════════════════════════
+       PRACTICE — three minutes
+    ══════════════════════════════ */
+    .practice-zone {
+      background: var(--deep);
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 6rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .practice-inner {
+      max-width: 28rem;
+      text-align: center;
+    }
+
+    .practice-eyebrow {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin-bottom: 2.5rem;
+    }
+
+    .steps { list-style: none; }
+
+    .step {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-style: italic;
+      color: var(--text-dark);
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border-dark);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .step.visible { opacity: 1; transform: translateY(0); }
+
+    .step:last-child {
+      border-bottom: none;
+      color: var(--gold);
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      padding-top: 1.5rem;
+    }
+
+    /* ══════════════════════════════
+       STATE OF ARRIVAL
+    ══════════════════════════════ */
+    .arrival-zone {
+      background: var(--dawn);
+      padding: 6rem 2rem 5rem;
+    }
+
+    .arrival-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .arrival-heading {
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-weight: 500;
+      color: var(--bark);
+      margin-bottom: 0.5rem;
+    }
+
+    .arrival-sub {
+      font-size: 0.97rem;
+      font-style: italic;
+      color: var(--muted-light);
+      margin-bottom: 3rem;
+    }
+
+    .arrival-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .arrival-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 1.5rem 1.6rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+
+    .arrival-card:hover {
+      box-shadow: 0 10px 32px rgba(44,36,22,0.09);
+      transform: translateY(-2px);
+    }
+
+    .arrival-state {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      margin-bottom: 0.25rem;
+    }
+
+    .arrival-feeling {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--bark);
+      font-weight: 400;
+    }
+
+    .arrival-destination {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.78rem;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      margin-top: 0.5rem;
+    }
+
+    .arrival-hint {
       font-size: 0.85rem;
-      color: #7d8590;
+      color: var(--muted-light);
+      line-height: 1.5;
+      margin-top: 0.25rem;
+    }
+
+    /* accent bar on hover */
+    .arrival-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      border-radius: 12px 0 0 12px;
+      background: var(--amber);
+      transform: scaleY(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+    .arrival-card:hover::before { transform: scaleY(1); }
+
+    /* ══════════════════════════════
+       TOOLS — the glimpse made full
+    ══════════════════════════════ */
+    .tools-zone {
+      background: var(--paper);
+      padding: 5rem 2rem 6rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .tools-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .tools-heading {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 500;
+      color: var(--bark);
+      margin-bottom: 0.4rem;
+    }
+
+    .tools-sub {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--muted-light);
+      margin-bottom: 2.5rem;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .tool-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 1.25rem 1.3rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .tool-card:hover {
+      box-shadow: 0 6px 22px rgba(44,36,22,0.08);
+      transform: translateY(-1px);
+    }
+
+    .tool-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    .tool-text {}
+
+    .tool-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--bark);
+      margin-bottom: 0.15rem;
+    }
+
+    .tool-desc {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.78rem;
+      color: var(--muted-light);
+      line-height: 1.45;
+      font-weight: 300;
+    }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer {
+      background: var(--night);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted-dark);
+    }
+
+    footer span { color: var(--gold); }
+    footer a { color: var(--text-muted-dark); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ══════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════ */
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 0.8; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>DiscoveryMode</h1>
-    <p class="lead">
-      A small primer for teachers, students, and guardians who are learning how to read the room, listen for
-      pulse, and make space for breath and curiosity in ordinary days.
-    </p>
-  </header>
 
-  <main>
-    <section class="card">
-      <h2>DiscoveryPod</h2>
-      <p>
-        Short, low-prep invitations you can use at the start of class or in the middle of a rough day. Each one
-        is a tiny circle of attention.
-      </p>
-      <a href="discoverypod/index.html">Open DiscoveryPod →</a>
-    </section>
+  <!-- ── THRESHOLD ── -->
+  <section class="threshold">
+    <div class="wordmark">DiscoveryMode</div>
+    <div class="gate-mark">⌇ ⌇</div>
 
-    <section class="card">
-      <h2>Field Practice · Ticket #1</h2>
-      <p>
-        A gentle, structured walk through your own space. Notice the quiet, the clutter, the corners that feel
-        open or closed, and what your body does as you move.
-      </p>
-      <a href="dm_field_practice_1.html">Begin Field Practice #1 →</a>
-    </section>
+    <div class="statement">
+      <p>The illusion of modern knowledge is that the world can be held entirely in the head. But nothing truly breathes there.</p>
+      <p>Understanding begins when the whole body — senses, instincts, the quiet intelligence of being — enters into conversation with the world.</p>
+      <p>DiscoveryMode is what that conversation looks like in practice. It is a return to the state of wonder from which our most profound questions arise.</p>
+    </div>
 
-    <section class="card">
-      <h2>Field Practice · Ticket #2</h2>
-      <p>
-        A follow-up practice for days when you’re ready to listen a little more deeply to pattern, rhythm, and
-        the way people move through shared space.
-      </p>
-      <a href="field-practice-2.html">Begin Field Practice #2 →</a>
-    </section>
+    <div class="gate-line">There is only the open gate</div>
 
-    <section class="card">
-      <h2>Pulse Page</h2>
-      <p>
-        A simple introduction to “pulse” as a way of noticing: breath, posture, noise level, and the quiet
-        signals that a room is sending before words arrive.
-      </p>
-      <a href="dm_pulse.html">Visit the Pulse Page →</a>
-    </section>
+    <!-- glimpse of what lives inside -->
+    <div class="glimpse-strip">
+      <a class="glimpse-pill" href="discoverypod/index.html">DiscoveryPods</a>
+      <a class="glimpse-pill" href="discoverypod/elephant-circle.html">Elephant Circle</a>
+      <a class="glimpse-pill" href="discoverypod/weather-deck.html">WeatherDeck</a>
+      <a class="glimpse-pill" href="discoverypod/weather-wheel.html">WeatherWheel</a>
+      <a class="glimpse-pill" href="discoverypod/discovery-pouch.html">DiscoveryPouch</a>
+      <a class="glimpse-pill" href="discoverypod/discovery-hut.html">DiscoveryHut</a>
+      <a class="glimpse-pill" href="dm_pulse.html">Pulse</a>
+    </div>
 
-    <section class="card">
-      <h2>License & Stewardship</h2>
-      <p>
-        DiscoveryMode lives in the commons. These materials are shared for learning and care, not for
-        extraction. Read how to credit, adapt, and extend them.
-      </p>
-      <a href="discoverymode-license.html">Read the license →</a>
-    </section>
-  </main>
+    <div class="start-here">
+      <span class="start-here-label">Start here ↓</span>
+      <ul class="start-links">
+        <li><span class="feeling">Feeling curious?</span> &nbsp;→&nbsp; <a href="discoverypod/index.html">DiscoveryPods</a></li>
+        <li><span class="feeling">Feeling overwhelmed?</span> &nbsp;→&nbsp; <a href="dm_pulse.html">Pulse</a></li>
+        <li><span class="feeling">Teaching tomorrow?</span> &nbsp;→&nbsp; <a href="dm_field_practice_1.html">Field Practice</a></li>
+        <li><span class="feeling">Want the philosophy?</span> &nbsp;→&nbsp; <a href="discoverymode-license.html">Feral Garden</a></li>
+      </ul>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Step through</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── THREE-MINUTE PRACTICE ── -->
+  <section class="practice-zone">
+    <div class="practice-inner">
+      <div class="practice-eyebrow">A three-minute practice · Begin here</div>
+      <ul class="steps" id="steps">
+        <li class="step">Step outside.</li>
+        <li class="step">Find something alive.</li>
+        <li class="step">Watch it.</li>
+        <li class="step">Return.</li>
+        <li class="step">What changed?</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── STATE OF ARRIVAL ── -->
+  <section class="arrival-zone">
+    <div class="arrival-inner">
+      <span class="section-eyebrow">Where you are right now</span>
+      <h2 class="arrival-heading">How are you arriving today?</h2>
+      <p class="arrival-sub">You don't need to read everything. Start where you are.</p>
+
+      <div class="arrival-grid">
+
+        <a class="arrival-card" href="discoverypod/index.html">
+          <div class="arrival-state">I'm feeling</div>
+          <div class="arrival-feeling">Curious — I want to try something.</div>
+          <div class="arrival-destination">→ DiscoveryPods</div>
+          <div class="arrival-hint">Short practices. Low prep. A tiny circle of attention you can open right now.</div>
+        </a>
+
+        <a class="arrival-card" href="dm_pulse.html">
+          <div class="arrival-state">I'm feeling</div>
+          <div class="arrival-feeling">Overwhelmed — I need to slow down.</div>
+          <div class="arrival-destination">→ The Pulse</div>
+          <div class="arrival-hint">Breath, posture, noise level. The quiet signals a room sends before words arrive.</div>
+        </a>
+
+        <a class="arrival-card" href="dm_field_practice_1.html">
+          <div class="arrival-state">I'm feeling</div>
+          <div class="arrival-feeling">Prepared — I'm teaching tomorrow.</div>
+          <div class="arrival-destination">→ Field Practices</div>
+          <div class="arrival-hint">A structured walk through your own space. Notice what opens, what closes, what moves.</div>
+        </a>
+
+        <a class="arrival-card" href="discoverymode-license.html">
+          <div class="arrival-state">I'm feeling</div>
+          <div class="arrival-feeling">Skeptical — show me the thinking.</div>
+          <div class="arrival-destination">→ The Feral Garden</div>
+          <div class="arrival-hint">The ethics, origins, and philosophy. Why this is a commons and not a product.</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TOOLS — glimpse made full ── -->
+  <section class="tools-zone">
+    <div class="tools-inner">
+      <span class="section-eyebrow">Inside the garden</span>
+      <h2 class="tools-heading">The tools that live here</h2>
+      <p class="tools-sub">Each one is a doorway. None of them require anything but your attention.</p>
+
+      <div class="tools-grid">
+
+        <a class="tool-card" href="discoverypod/index.html">
+          <div class="tool-icon">◎</div>
+          <div class="tool-text">
+            <div class="tool-name">DiscoveryPods</div>
+            <div class="tool-desc">Short invitations for the start of class or the middle of a rough day.</div>
+          </div>
+        </a>
+
+        <a class="tool-card" href="discoverypod/elephant-circle.html">
+          <div class="tool-icon">🐘</div>
+          <div class="tool-text">
+            <div class="tool-name">Elephant Circle</div>
+            <div class="tool-desc">A listening practice where everyone speaks and everyone is heard.</div>
+          </div>
+        </a>
+
+        <a class="tool-card" href="discoverypod/weather-deck.html">
+          <div class="tool-icon">☁︎</div>
+          <div class="tool-text">
+            <div class="tool-name">WeatherDeck</div>
+            <div class="tool-desc">Express your inner state. Read the room's weather before words arrive.</div>
+          </div>
+        </a>
+
+        <a class="tool-card" href="discoverypod/weather-wheel.html">
+          <div class="tool-icon">🌀</div>
+          <div class="tool-text">
+            <div class="tool-name">WeatherWheel</div>
+            <div class="tool-desc">A living map of inner and outer weather — for the whole Pod.</div>
+          </div>
+        </a>
+
+        <a class="tool-card" href="discoverypod/discovery-pouch.html">
+          <div class="tool-icon">🧶</div>
+          <div class="tool-text">
+            <div class="tool-name">DiscoveryPouch</div>
+            <div class="tool-desc">A small container of care. Carried by choice, never by obligation.</div>
+          </div>
+        </a>
+
+        <a class="tool-card" href="discoverypod/discovery-hut.html">
+          <div class="tool-icon">🛖</div>
+          <div class="tool-text">
+            <div class="tool-name">DiscoveryHut</div>
+            <div class="tool-desc">A sheltered place for rest and return. Not a reward. Not a punishment.</div>
+          </div>
+        </a>
+
+        <a class="tool-card" href="dm_pulse.html">
+          <div class="tool-icon">∿</div>
+          <div class="tool-text">
+            <div class="tool-name">The Pulse</div>
+            <div class="tool-desc">Breath, posture, the hum beneath the noise. Learning to read a room.</div>
+          </div>
+        </a>
+
+        <a class="tool-card" href="discoverypod/four-rites.html">
+          <div class="tool-icon">⊹</div>
+          <div class="tool-text">
+            <div class="tool-name">The Four Rites</div>
+            <div class="tool-desc">Weather, Listening, Carrying, Offering — the rhythms of a Pod.</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
 
   <footer>
-    DiscoveryMode · A Flower Road project. Co-created by Elumannín + Jacobo. Shared in the spirit of
-    learning, reciprocity, and repair.
+    A <span>Flower Road</span> commons practice &nbsp;·&nbsp; Co-created by Elumannín + Jacobo &nbsp;·&nbsp;
+    Shared in the spirit of learning, reciprocity, and repair &nbsp;·&nbsp;
+    <a href="discoverymode-license.html">License</a>
   </footer>
+
+  <script>
+    // Practice steps — cascade reveal on scroll
+    const steps = document.querySelectorAll('.step');
+    let revealed = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !revealed) {
+          revealed = true;
+          steps.forEach((step, i) => {
+            setTimeout(() => step.classList.add('visible'), i * 420);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (steps.length) observer.observe(steps[0]);
+  </script>
+
 </body>
 </html>
