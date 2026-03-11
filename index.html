@@ -108,6 +108,7 @@
       animation: riseIn 1s ease forwards 1.8s;
     }
 
+    /* glimpse strip — tools visible through the gate */
     .glimpse-strip {
       margin-top: 3.5rem;
       display: flex;
@@ -138,6 +139,7 @@
       border-color: rgba(201,169,110,0.3);
     }
 
+    /* start-here block */
     .start-here {
       margin-top: 3rem;
       border: 1px solid rgba(255,255,255,0.08);
@@ -174,7 +176,6 @@
       display: flex;
       gap: 0.5rem;
       align-items: baseline;
-      flex-wrap: wrap;
     }
 
     .start-links .feeling {
@@ -363,6 +364,7 @@
       margin-top: 0.25rem;
     }
 
+    /* accent bar on hover */
     .arrival-card::before {
       content: '';
       position: absolute;
@@ -374,7 +376,6 @@
       transform-origin: center;
       transition: transform 0.3s ease;
     }
-
     .arrival-card:hover::before { transform: scaleY(1); }
 
     /* ══════════════════════════════
@@ -430,6 +431,8 @@
     }
 
     .tool-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    .tool-text {}
 
     .tool-name {
       font-size: 0.95rem;
@@ -493,6 +496,7 @@
 
     <div class="gate-line">There is only the open gate</div>
 
+    <!-- glimpse of what lives inside -->
     <div class="glimpse-strip">
       <a class="glimpse-pill" href="discoverypod/index.html">DiscoveryPods</a>
       <a class="glimpse-pill" href="discoverypod/elephant-circle.html">Elephant Circle</a>
@@ -541,6 +545,7 @@
       <p class="arrival-sub">You don't need to read everything. Start where you are.</p>
 
       <div class="arrival-grid">
+
         <a class="arrival-card" href="discoverypod/index.html">
           <div class="arrival-state">I'm feeling</div>
           <div class="arrival-feeling">Curious — I want to try something.</div>
@@ -568,6 +573,7 @@
           <div class="arrival-destination">→ The Feral Garden</div>
           <div class="arrival-hint">The ethics, origins, and philosophy. Why this is a commons and not a product.</div>
         </a>
+
       </div>
     </div>
   </section>
@@ -656,6 +662,7 @@
   </footer>
 
   <script>
+    // Practice steps — cascade reveal on scroll
     const steps = document.querySelectorAll('.step');
     let revealed = false;
 
