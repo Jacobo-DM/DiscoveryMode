@@ -69,6 +69,12 @@ To calm. To clarity. To each other.
 It is a practice within the Flower Road Commons.
 
 ---
+## Story Seeds
+
+Living starting points for inquiry, adaptation, and local use.
+
+- [Story Seeds](story-seeds/)
+- [Vessels](story-seeds/vessels/)
 
 ## License
 See `discoverymode-license.html` (Creative Commons BY-NC-SA 4.0 + Feral Garden Clause).
