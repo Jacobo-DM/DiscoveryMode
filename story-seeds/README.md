@@ -15,4 +15,6 @@ This folder holds foundational seeds that can grow into lessons, field practices
 
 The first seed cluster here is:
 
-- `vessels/` — clay pots, local forms of holding, weather states, sound, breakage, and return
+## Seed clusters
+
+- `vessels/` — clay pots, local forms of holding, weather states, sound, breakage, warmth, and return
