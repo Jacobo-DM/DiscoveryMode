@@ -106,6 +106,28 @@
       animation: riseIn 1s ease forwards 1.8s;
     }
 
+    .threshold-letter {
+      margin-top: 1.4rem;
+      opacity: 0;
+      animation: riseIn 1s ease forwards 2s;
+    }
+
+    .threshold-letter a {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.98rem;
+      font-style: italic;
+      color: var(--text-muted-dark);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+      padding-bottom: 0.08rem;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .threshold-letter a:hover {
+      color: var(--gold);
+      border-bottom-color: rgba(201,169,110,0.38);
+    }
+
     .glimpse-strip {
       margin-top: 3.5rem;
       display: flex;
@@ -492,6 +514,10 @@
     </div>
 
     <div class="gate-line">There is only the open gate</div>
+
+    <div class="threshold-letter">
+      <a href="dear-one.html">Dear one.</a>
+    </div>
 
     <div class="glimpse-strip">
       <a class="glimpse-pill" href="elephant-circle.html">Elephant Circle</a>
