@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listening Circle | DiscoveryMode</title>
+  <meta
+    name="description"
+    content="Listening Circle is a DiscoveryMode practice for moving through a question together: mapping perspectives, noticing conversational weather, and closing through emergence rather than verdict."
+  />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #151b24;
+      --panel-soft: #1a2230;
+      --line: rgba(210, 220, 245, 0.14);
+      --text: #edf2ff;
+      --muted: #b8c3de;
+      --accent: #d8c88a;
+      --accent-soft: #91b7a5;
+      --max: 780px;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: radial-gradient(circle at top, #141b26 0%, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.72;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 56px 22px 88px;
+    }
+
+    .hero {
+      padding: 34px 30px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      box-shadow: 0 18px 48px rgba(0,0,0,0.22);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      color: var(--accent);
+      margin-top: 0;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+
+    .subhead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 42rem;
+    }
+
+    .quote {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(255,255,255,0.03);
+      border-radius: 0 14px 14px 0;
+      color: var(--text);
+      font-size: 1.06rem;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 28px 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .section p:last-child,
+    .section ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .card {
+      padding: 16px 16px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel);
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    li { margin-bottom: 8px; }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .step {
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--panel-soft);
+    }
+
+    .step strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .line {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 1.02rem;
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 34px 16px 68px; }
+      .hero, .section { padding: 22px 18px; }
+      .quote { padding: 14px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">DiscoveryMode practice</div>
+      <h1>Listening Circle</h1>
+      <p class="subhead">
+        A place where ideas are tested, not people.
+      </p>
+      <div class="quote">
+        A role is not a position to defend. It is a place to look from.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What it is</h2>
+      <p>
+        Listening Circle is a DiscoveryMode practice for moving through a question together.
+      </p>
+      <p>
+        It is not a debate format. It is not about winning. It is not about defending a fixed side.
+        It is a way of entering a living question, identifying the perspectives inside it, and
+        learning how understanding changes when we move through the map together.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>What it is for</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Perspective</h3>
+          <p>Explore a question from more than one point of view.</p>
+        </div>
+        <div class="card">
+          <h3>Weather</h3>
+          <p>Notice tension, calm, confusion, and clarity as they move through a conversation.</p>
+        </div>
+        <div class="card">
+          <h3>Boundaries</h3>
+          <p>Practice listening with structure, protection, and shared attention.</p>
+        </div>
+        <div class="card">
+          <h3>Emergence</h3>
+          <p>Let understanding become art, story, stewardship, or inquiry.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Core principles</h2>
+      <ul>
+        <li><strong>Ideas are tested, not people.</strong></li>
+        <li><strong>A field for noticing, not fixing.</strong></li>
+        <li><strong>No single role holds the whole truth.</strong></li>
+        <li><strong>We do not stay in one place. We move through the map.</strong></li>
+        <li><strong>The circle closes through emergence, not verdict.</strong></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>First doorway: The Beaver and the Tree</h2>
+      <p>
+        A beaver is negotiating with a tree about the need to remove it so that...
+      </p>
+      <p>
+        The children create the rest. They identify the context, name the stakeholders,
+        enter the roles, and explore what happens.
+      </p>
+      <p>
+        The beaver is not wrong. The tree is not wrong.
+      </p>
+      <p>
+        The question is not who wins. The question is:
+        <strong>what becomes visible when we stay with the situation longer?</strong>
+      </p>
+      <ul>
+        <li>the tree</li>
+        <li>the beaver</li>
+        <li>the river</li>
+        <li>birds in the canopy</li>
+        <li>the beaver’s kits</li>
+        <li>downstream life</li>
+        <li>nearby human communities</li>
+        <li>the bank, the soil, the coming winter</li>
+        <li>later, perhaps even AI or other witness perspectives</li>
+      </ul>
+      <p>
+        The original binary is rarely enough. The map grows as the circle listens.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <strong>1. Enter the question</strong>
+          Begin with a scenario, image, conflict, or living tension.
+        </div>
+        <div class="step">
+          <strong>2. Identify stakeholders</strong>
+          Ask who is affected, who depends on what, and who belongs in the circle even if they cannot speak in the usual way.
+        </div>
+        <div class="step">
+          <strong>3. Assign roles</strong>
+          Use a visible random method such as shuffled cards so roles are perspectives, not possessions.
+        </div>
+        <div class="step">
+          <strong>4. Enter the circle</strong>
+          Students speak, listen, respond, and stay with the question.
+        </div>
+        <div class="step">
+          <strong>5. Notice the weather</strong>
+          After the exchange, reflect on where it got tense, softened, tangled, or clearer.
+        </div>
+        <div class="step">
+          <strong>6. Rotate through the map</strong>
+          Students do not remain in one stakeholder role. They move through different places in the question.
+        </div>
+        <div class="step">
+          <strong>7. Close through emergence</strong>
+          Ask what now wants to be made, explored, visited, researched, or expressed.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Map and weather</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>The map</h3>
+          <p>
+            The map is what the group makes together: stakeholders, relationships, tensions,
+            missing perspectives, and the larger system around the question.
+          </p>
+        </div>
+        <div class="card">
+          <h3>The weather</h3>
+          <p>
+            The weather is what the group is inside while making the map: pressure, calm,
+            defensiveness, confusion, openness, insight, drift, and return.
+          </p>
+        </div>
+      </div>
+      <p class="line">
+        The map helps us see the question. The weather helps us notice how we are meeting it.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Possible support roles</h2>
+      <p>
+        In addition to stakeholder roles, students may rotate support roles such as:
+      </p>
+      <ul>
+        <li>speaker</li>
+        <li>listener</li>
+        <li>researcher</li>
+        <li>note-taker</li>
+        <li>weather-watcher</li>
+        <li>map-keeper</li>
+      </ul>
+      <p>
+        These roles help distribute attention, reduce dominance, and give the conversation structure and memory.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>What it is not</h2>
+      <ul>
+        <li>a conventional debate</li>
+        <li>a performance of intelligence</li>
+        <li>a place to correct “bad thinkers”</li>
+        <li>a forced march toward agreement</li>
+        <li>a demand that students publicly revise before they are ready</li>
+      </ul>
+      <p>
+        The practice collapses when it becomes about display, domination, or correction.
+        It strengthens when it remains a place where even flawed ideas can be seen clearly enough to transform.
+      </p>
+    </section>
+
+    <p class="footer">
+      DiscoveryMode · Listening Circle
+    </p>
+  </main>
+</body>
+</html>
