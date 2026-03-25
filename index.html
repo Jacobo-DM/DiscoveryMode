@@ -1,782 +1,280 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DiscoveryMode · The Open Gate</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Forge</title>
+  <meta
+    name="description"
+    content="The Forge is a living archive within the Flower Road commons: tools, practices, story fragments, ethical ground layers, and prototypes that are still becoming."
+  />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --night: #08090f;
-      --deep: #0e1018;
-      --threshold: #121520;
-      --dawn: #f5f0e8;
-      --paper: #faf7f2;
-      --text-dark: #e8e4dc;
-      --text-muted-dark: #6a6d78;
-      --gold: #c9a96e;
-      --gold-soft: rgba(201,169,110,0.12);
-      --moss: #4a7c5f;
-      --moss-soft: rgba(74,124,95,0.15);
-      --border-dark: rgba(255,255,255,0.06);
-      --border-light: rgba(90,74,53,0.12);
-      --bark: #2c2416;
-      --soil: #5a4a35;
-      --muted-light: #9a8e7e;
-      --amber: #b5722a;
+      --bg: #0b1020;
+      --bg-soft: #121933;
+      --panel: #151d3a;
+      --panel-2: #0f1730;
+      --line: rgba(190, 210, 255, 0.14);
+      --text: #e8eefc;
+      --muted: #b7c3e6;
+      --soft: #8ea0cf;
+      --accent: #9dd0ff;
+      --accent-2: #d8e9ff;
+      --shadow: rgba(0, 0, 0, 0.28);
+      --max: 1080px;
+      --radius: 18px;
     }
+
+    * { box-sizing: border-box; }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--night);
-      color: var(--text-dark);
-      font-family: 'Lora', Georgia, serif;
-      font-weight: 400;
-      line-height: 1.75;
-      min-height: 100vh;
-      overflow-x: hidden;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(157, 208, 255, 0.08), transparent 28%),
+        linear-gradient(180deg, #09101d 0%, #0b1020 100%);
+      line-height: 1.65;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.022;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    .threshold {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem 6rem;
-      text-align: center;
-      position: relative;
-      background: radial-gradient(ellipse at 50% 35%, rgba(201,169,110,0.05) 0%, transparent 65%);
-    }
-
-    .wordmark {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.42em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 3.5rem;
-      opacity: 0;
-      animation: riseIn 1s ease forwards 0.3s;
-    }
-
-    .gate-mark {
-      font-size: 1.6rem;
-      letter-spacing: 0.4em;
-      color: var(--gold);
-      opacity: 0;
-      animation: riseIn 1s ease forwards 0.6s;
-      margin-bottom: 0.6rem;
-    }
-
-    .statement {
-      max-width: 33rem;
-      font-size: clamp(1.15rem, 2.2vw, 1.42rem);
-      font-style: italic;
-      color: var(--text-dark);
-      line-height: 1.85;
-      opacity: 0;
-      animation: riseIn 1.2s ease forwards 0.9s;
-    }
-
-    .statement p + p { margin-top: 1.3em; }
-
-    .gate-line {
-      margin-top: 2.5rem;
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0;
-      animation: riseIn 1s ease forwards 1.8s;
-    }
-
-    .threshold-letter {
-      margin-top: 1.4rem;
-      opacity: 0;
-      animation: riseIn 1s ease forwards 2s;
-    }
-
-    .threshold-letter a {
-      font-family: 'Lora', Georgia, serif;
-      font-size: 0.98rem;
-      font-style: italic;
-      color: var(--text-muted-dark);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.14);
-      padding-bottom: 0.08rem;
-      transition: color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .threshold-letter a:hover {
-      color: var(--gold);
-      border-bottom-color: rgba(201,169,110,0.38);
-    }
-
-    .glimpse-strip {
-      margin-top: 3.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem;
-      max-width: 42rem;
-      opacity: 0;
-      animation: riseIn 1s ease forwards 2.2s;
-    }
-
-    .glimpse-pill {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted-dark);
-      background: var(--border-dark);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 999px;
-      padding: 0.25rem 0.75rem;
-      transition: color 0.3s, border-color 0.3s;
+    a {
+      color: var(--accent);
       text-decoration: none;
     }
 
-    .glimpse-pill:hover {
-      color: var(--gold);
-      border-color: rgba(201,169,110,0.3);
+    a:hover { color: var(--accent-2); }
+
+    .wrap {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
     }
 
-    .start-here {
-      margin-top: 3rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 1.25rem 1.75rem 1.4rem;
-      background: rgba(255,255,255,0.03);
-      max-width: 31rem;
-      text-align: left;
-      opacity: 0;
-      animation: riseIn 1s ease forwards 2.5s;
-    }
+    .hero { padding: 5rem 0 2rem; }
 
-    .start-here-label {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--moss);
-      margin-bottom: 0.9rem;
-      display: block;
-    }
-
-    .start-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .start-links li {
-      font-family: 'Inconsolata', monospace;
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: var(--soft);
       font-size: 0.82rem;
-      color: var(--text-muted-dark);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      max-width: 48rem;
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 40px var(--shadow);
+    }
+
+    .card-pad { padding: 1.35rem; }
+
+    .card h2,
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+      line-height: 1.15;
+    }
+
+    .card p {
+      margin: 0.75rem 0;
+      color: var(--muted);
+    }
+
+    .link-list,
+    .plain-list {
+      margin: 1rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    .link-list li,
+    .plain-list li {
+      margin: 0.55rem 0;
+      color: var(--muted);
+    }
+
+    .button-row {
       display: flex;
-      gap: 0.5rem;
-      align-items: baseline;
       flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.1rem;
     }
 
-    .start-links .feeling {
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 0.88rem;
-      color: var(--text-dark);
-      flex-shrink: 0;
-    }
-
-    .start-links a {
-      color: var(--gold);
-      text-decoration: none;
-      letter-spacing: 0.06em;
-    }
-
-    .start-links a:hover { text-decoration: underline; }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
+    .button {
+      display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      opacity: 0;
-      animation: riseIn 1s ease forwards 3.2s;
+      gap: 0.45rem;
+      padding: 0.82rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(157, 208, 255, 0.08);
+      color: var(--accent-2);
+      font-weight: 600;
+      transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
     }
 
-    .scroll-hint span {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.28em;
-      color: var(--text-muted-dark);
-      text-transform: uppercase;
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
-      animation: breathe 2.5s ease-in-out infinite;
-    }
-
-    .practice-zone {
-      background: var(--deep);
-      border-top: 1px solid var(--border-dark);
-      border-bottom: 1px solid var(--border-dark);
-      padding: 6rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .practice-inner {
-      max-width: 32rem;
-      text-align: center;
-    }
-
-    .practice-eyebrow {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--moss);
-      margin-bottom: 2.5rem;
-    }
-
-    .steps { list-style: none; }
-
-    .step {
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      font-style: italic;
-      color: var(--text-dark);
-      padding: 0.85rem 0;
-      border-bottom: 1px solid var(--border-dark);
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .step.visible { opacity: 1; transform: translateY(0); }
-
-    .step:last-child {
-      border-bottom: none;
-      color: var(--gold);
-      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-      padding-top: 1.5rem;
-    }
-
-    .arrival-zone {
-      background: var(--dawn);
-      padding: 6rem 2rem 5rem;
-    }
-
-    .arrival-inner {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .section-eyebrow {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--muted-light);
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .arrival-heading {
-      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-      font-weight: 500;
-      color: var(--bark);
-      margin-bottom: 0.5rem;
-    }
-
-    .arrival-sub {
-      font-size: 0.97rem;
-      font-style: italic;
-      color: var(--muted-light);
-      margin-bottom: 3rem;
-    }
-
-    .arrival-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-
-    .arrival-card {
-      background: #ffffff;
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 1.5rem 1.6rem;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-      position: relative;
-    }
-
-    .arrival-card:hover {
-      box-shadow: 0 10px 32px rgba(44,36,22,0.09);
-      transform: translateY(-2px);
-    }
-
-    .arrival-state {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted-light);
-      margin-bottom: 0.25rem;
-    }
-
-    .arrival-feeling {
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--bark);
-      font-weight: 400;
-    }
-
-    .arrival-destination {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.78rem;
-      color: var(--amber);
-      letter-spacing: 0.08em;
-      margin-top: 0.5rem;
-    }
-
-    .arrival-hint {
-      font-size: 0.85rem;
-      color: var(--muted-light);
-      line-height: 1.5;
-      margin-top: 0.25rem;
-    }
-
-    .arrival-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      border-radius: 12px 0 0 12px;
-      background: var(--amber);
-      transform: scaleY(0);
-      transform-origin: center;
-      transition: transform 0.3s ease;
-    }
-
-    .arrival-card:hover::before { transform: scaleY(1); }
-
-    .tools-zone {
-      background: var(--paper);
-      padding: 5rem 2rem 6rem;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .tools-inner {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .tools-heading {
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      font-weight: 500;
-      color: var(--bark);
-      margin-bottom: 0.4rem;
-    }
-
-    .tools-sub {
-      font-size: 0.95rem;
-      font-style: italic;
-      color: var(--muted-light);
-      margin-bottom: 2.5rem;
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.85rem;
-    }
-
-    .tool-card {
-      background: #ffffff;
-      border: 1px solid var(--border-light);
-      border-radius: 10px;
-      padding: 1.25rem 1.3rem;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-
-    .tool-card:hover {
-      box-shadow: 0 6px 22px rgba(44,36,22,0.08);
+    .button:hover {
       transform: translateY(-1px);
+      border-color: rgba(216, 233, 255, 0.28);
+      background: rgba(157, 208, 255, 0.14);
     }
 
-    .tool-icon {
-      font-size: 1.4rem;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
+    .button.secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
     }
 
-    .tool-name {
+    section { padding: 1rem 0 0; }
+
+    .section-head {
+      margin: 0 0 1rem;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 1.25rem;
+    }
+
+    .module-paths {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .path-box {
+      padding: 1rem;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+    }
+
+    .footer {
+      padding: 2.5rem 0 4rem;
+      color: var(--soft);
       font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--bark);
-      margin-bottom: 0.15rem;
     }
 
-    .tool-desc {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.78rem;
-      color: var(--muted-light);
-      line-height: 1.45;
-      font-weight: 300;
-    }
-
-    .root-note {
-      margin-top: 3.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-light);
-      max-width: 42rem;
-    }
-
-    .root-note-text {
-      font-size: 0.98rem;
-      font-style: italic;
-      color: var(--muted-light);
-      margin-bottom: 0.9rem;
-    }
-
-    .root-note-link {
-      font-size: 1rem;
-      font-style: italic;
-      color: var(--amber);
-      text-decoration: none;
-    }
-
-    .root-note-link:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background: var(--night);
-      text-align: center;
-      padding: 3rem 2rem;
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-muted-dark);
-    }
-
-    footer span { color: var(--gold); }
-    footer a { color: var(--text-muted-dark); text-decoration: none; }
-    footer a:hover { color: var(--gold); }
-
-    @keyframes riseIn {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes breathe {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.8; }
-    }
-
-    @media (max-width: 640px) {
-      .threshold,
-      .practice-zone,
-      .arrival-zone,
-      .tools-zone {
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
+    @media (max-width: 860px) {
+      .hero-grid,
+      .modules-grid {
+        grid-template-columns: 1fr;
       }
 
-      .start-here {
-        padding: 1rem 1.1rem 1.15rem;
-      }
+      .hero { padding-top: 3.25rem; }
     }
   </style>
 </head>
+
 <body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="eyebrow">Flower Road Commons</p>
+      <h1>The Forge</h1>
+      <p class="lead">
+        A living archive within the commons. The Forge holds tools, practices,
+        story fragments, ethical ground layers, and prototypes that are still becoming.
+      </p>
 
-  <section class="threshold">
-    <div class="wordmark">DiscoveryMode</div>
-    <div class="gate-mark">⌇ ⌇</div>
+      <div class="hero-grid">
+        <article class="card card-pad">
+          <h2>Start here</h2>
+          <p>The Forge is small by design. It is meant to be entered gently.</p>
+          <ul class="link-list">
+            <li><a href="#modules">Go to current modules</a></li>
+            <li><a href="README.md">Read the Forge README</a></li>
+            <li><a href="./threshold.html">Threshold</a></li>
+            <li><a href="living-systems-ai-covenant.html">Read the Living Systems AI Covenant</a></li>
+            <li><a href="modules/bellows.html">Visit Bellows</a></li>
+          </ul>
+        </article>
 
-    <div class="statement">
-      <p>The illusion of modern knowledge is that the world can be held entirely in the head. But nothing truly breathes there.</p>
-      <p>Understanding begins when the whole body — senses, instincts, the quiet intelligence of being — enters into conversation with the world.</p>
-      <p>DiscoveryMode is what that conversation looks like in practice. It is a return to the state of wonder from which our most profound questions arise.</p>
-    </div>
-
-    <div class="gate-line">There is only the open gate</div>
-
-    <div class="threshold-letter">
-      <a href="dear-one.html">Dear one.</a>
-    </div>
-
-    <div class="glimpse-strip">
-      <a class="glimpse-pill" href="elephant-circle.html">Elephant Circle</a>
-      <a class="glimpse-pill" href="weather-deck.html">WeatherDeck</a>
-      <a class="glimpse-pill" href="weather-wheel.html">WeatherWheel</a>
-      <a class="glimpse-pill" href="discovery-pouch.html">DiscoveryPouch</a>
-      <a class="glimpse-pill" href="discovery-hut.html">DiscoveryHut</a>
-      <a class="glimpse-pill" href="dm_pulse.html">Pulse</a>
-      <a class="glimpse-pill" href="mosquito-mode.html">Mosquito Mode</a>
-      <a class="glimpse-pill" href="listening-circle-repo/">Listening Circle</a>
-      <a class="glimpse-pill" href="commons/">Commons</a>
-    </div>
-
-    <div class="start-here">
-      <span class="start-here-label">Start here ↓</span>
-      <ul class="start-links">
-        <li><span class="feeling">Feeling curious?</span> &nbsp;→&nbsp; <a href="elephant-circle.html">Elephant Circle</a></li>
-        <li><span class="feeling">Feeling activated?</span> &nbsp;→&nbsp; <a href="mosquito-mode.html">Mosquito Mode</a></li>
-        <li><span class="feeling">Feeling overwhelmed?</span> &nbsp;→&nbsp; <a href="dm_pulse.html">Pulse</a></li>
-        <li><span class="feeling">Ready to follow a question?</span> &nbsp;→&nbsp; <a href="listening-circle-repo/">Listening Circle</a></li>
-        <li><span class="feeling">Teaching tomorrow?</span> &nbsp;→&nbsp; <a href="dm_field_practice_1.html">Field Practice</a></li>
-        <li><span class="feeling">Want the philosophy?</span> &nbsp;→&nbsp; <a href="discoverymode-license.html">Feral Garden</a></li>
-        <li><span class="feeling">Want real examples?</span> &nbsp;→&nbsp; <a href="commons/">The Commons</a></li>
-      </ul>
-    </div>
-
-    <div class="scroll-hint">
-      <span>Step through</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <section class="practice-zone">
-    <div class="practice-inner">
-      <div class="practice-eyebrow">A three-minute practice · Begin here</div>
-      <ul class="steps" id="steps">
-        <li class="step">Step outside.</li>
-        <li class="step">Find something alive.</li>
-        <li class="step">Watch it.</li>
-        <li class="step">Return.</li>
-        <li class="step">What changed?</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="arrival-zone">
-    <div class="arrival-inner">
-      <span class="section-eyebrow">Where you are right now</span>
-      <h2 class="arrival-heading">How are you arriving today?</h2>
-      <p class="arrival-sub">You don't need to read everything. Start where you are.</p>
-
-      <div class="arrival-grid">
-        <a class="arrival-card" href="elephant-circle.html">
-          <div class="arrival-state">I'm feeling</div>
-          <div class="arrival-feeling">Curious — I want to try something.</div>
-          <div class="arrival-destination">→ Elephant Circle</div>
-          <div class="arrival-hint">Short practices. Low prep. A tiny circle of attention you can open right now.</div>
-        </a>
-
-        <a class="arrival-card" href="mosquito-mode.html">
-          <div class="arrival-state">I'm feeling</div>
-          <div class="arrival-feeling">Restless — the room needs to wake up.</div>
-          <div class="arrival-destination">→ Mosquito Mode</div>
-          <div class="arrival-hint">Movement, laughter, pulse, and a fast bridge into shared rhythm.</div>
-        </a>
-
-        <a class="arrival-card" href="dm_pulse.html">
-          <div class="arrival-state">I'm feeling</div>
-          <div class="arrival-feeling">Overwhelmed — I need to slow down.</div>
-          <div class="arrival-destination">→ The Pulse</div>
-          <div class="arrival-hint">Breath, posture, noise level. The quiet signals a room sends before words arrive.</div>
-        </a>
-
-        <a class="arrival-card" href="listening-circle-repo/">
-          <div class="arrival-state">I'm feeling</div>
-          <div class="arrival-feeling">Drawn to a question — I want to follow it together.</div>
-          <div class="arrival-destination">→ Listening Circle</div>
-          <div class="arrival-hint">Move through a living question, rotate perspectives, and notice the weather of the conversation.</div>
-        </a>
-
-        <a class="arrival-card" href="dm_field_practice_1.html">
-          <div class="arrival-state">I'm feeling</div>
-          <div class="arrival-feeling">Prepared — I'm teaching tomorrow.</div>
-          <div class="arrival-destination">→ Field Practices</div>
-          <div class="arrival-hint">A structured walk through your own space. Notice what opens, what closes, what moves.</div>
-        </a>
-
-        <a class="arrival-card" href="discoverymode-license.html">
-          <div class="arrival-state">I'm feeling</div>
-          <div class="arrival-feeling">Skeptical — show me the thinking.</div>
-          <div class="arrival-destination">→ The Feral Garden</div>
-          <div class="arrival-hint">The ethics, origins, and philosophy. Why this is a commons and not a product.</div>
-        </a>
-
-        <a class="arrival-card" href="commons/">
-          <div class="arrival-state">I'm feeling</div>
-          <div class="arrival-feeling">Grounded — show me what worked in real rooms.</div>
-          <div class="arrival-destination">→ The Commons</div>
-          <div class="arrival-hint">Shared field notes, signals, misfires, and recoveries from lived practice.</div>
-        </a>
+        <article class="card card-pad">
+          <h2>Current focus</h2>
+          <p>
+            <strong>Desert Rain</strong> is now a quiet reading practice inside the Forge.
+            It is not a MythGear shelter module.
+          </p>
+          <div class="button-row">
+            <a class="button" href="modules/desert-rain/demo.html">Enter the Desert Rain demo</a>
+            <a class="button secondary" href="modules/desert-rain/README.md">Read the Desert Rain seed</a>
+          </div>
+        </article>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="tools-zone">
-    <div class="tools-inner">
-      <span class="section-eyebrow">Inside the garden</span>
-      <h2 class="tools-heading">The tools that live here</h2>
-      <p class="tools-sub">Each one is a doorway. Some are practices. Some are lived experiences shared from the field.</p>
+    <!-- 🌿 Symbol threshold -->
+    <section style="text-align: center; padding: 3rem 1rem;">
+      <img src="mondramantala.png"
+           alt="Mondramantala — maker's mark of the Flower Road"
+           style="max-width: 220px; width: 60%; opacity: 0.85; filter: invert(1) brightness(0.75);">
+    </section>
 
-      <div class="tools-grid">
-        <a class="tool-card" href="dm_field_practice_1.html">
-          <div class="tool-icon">◎</div>
-          <div class="tool-text">
-            <div class="tool-name">Field Practice</div>
-            <div class="tool-desc">A simple, structured way to notice a room, a place, or a threshold before teaching begins.</div>
+    <section id="modules">
+      <h2 class="section-head">Modules</h2>
+
+      <div class="modules-grid">
+        <article class="card card-pad">
+          <h3>Desert Rain</h3>
+          <p>
+            A quiet reading practice inside the Forge. Desert Rain works with
+            attention, rhythm, and the slow return of language after silence.
+          </p>
+          <div class="button-row">
+            <a class="button" href="modules/desert-rain/demo.html">Enter the demo</a>
+            <a class="button secondary" href="modules/desert-rain/README.md">Read the seed</a>
           </div>
-        </a>
+        </article>
 
-        <a class="tool-card" href="elephant-circle.html">
-          <div class="tool-icon">🐘</div>
-          <div class="tool-text">
-            <div class="tool-name">Elephant Circle</div>
-            <div class="tool-desc">A listening practice where everyone speaks and everyone is heard.</div>
+        <div class="module-paths">
+          <div class="path-box">
+            <h3 style="margin:0 0 0.4rem; font-size:1rem;">Bellows</h3>
+            <p style="margin:0; font-size:0.9rem; color:var(--muted);">
+              A MythWear breathing pattern for RageDance, DiscoveryMode, and quiet walks.
+            </p>
+            <a href="modules/bellows.html" style="display:inline-block; margin-top:0.6rem; font-size:0.9rem;">Open Bellows →</a>
           </div>
-        </a>
 
-        <a class="tool-card" href="listening-circle-repo/">
-          <div class="tool-icon">◌</div>
-          <div class="tool-text">
-            <div class="tool-name">Listening Circle</div>
-            <div class="tool-desc">A shared inquiry practice for mapping perspectives, rotating roles, and noticing conversational weather.</div>
+          <div class="path-box">
+            <h3 style="margin:0 0 0.4rem; font-size:1rem;">Threshold</h3>
+            <p style="margin:0; font-size:0.9rem; color:var(--muted);">
+              A gentle way of entering the Forge without needing to understand everything at once.
+            </p>
+            <a href="threshold.html" style="display:inline-block; margin-top:0.6rem; font-size:0.9rem;">Enter the Threshold →</a>
           </div>
-        </a>
-
-        <a class="tool-card" href="weather-deck.html">
-          <div class="tool-icon">☁︎</div>
-          <div class="tool-text">
-            <div class="tool-name">WeatherDeck</div>
-            <div class="tool-desc">Express your inner state. Read the room's weather before words arrive.</div>
-          </div>
-        </a>
-
-        <a class="tool-card" href="weather-wheel.html">
-          <div class="tool-icon">🌀</div>
-          <div class="tool-text">
-            <div class="tool-name">WeatherWheel</div>
-            <div class="tool-desc">A living map of inner and outer weather — for the whole Pod.</div>
-          </div>
-        </a>
-
-        <a class="tool-card" href="discovery-pouch.html">
-          <div class="tool-icon">🧶</div>
-          <div class="tool-text">
-            <div class="tool-name">DiscoveryPouch</div>
-            <div class="tool-desc">A small container of care. Carried by choice, never by obligation.</div>
-          </div>
-        </a>
-
-        <a class="tool-card" href="discovery-hut.html">
-          <div class="tool-icon">🛖</div>
-          <div class="tool-text">
-            <div class="tool-name">DiscoveryHut</div>
-            <div class="tool-desc">A sheltered place for rest and return. Not a reward. Not a punishment.</div>
-          </div>
-        </a>
-
-        <a class="tool-card" href="dm_pulse.html">
-          <div class="tool-icon">∿</div>
-          <div class="tool-text">
-            <div class="tool-name">The Pulse</div>
-            <div class="tool-desc">Breath, posture, the hum beneath the noise. Learning to read a room.</div>
-          </div>
-        </a>
-
-        <a class="tool-card" href="mosquito-mode.html">
-          <div class="tool-icon">🦟</div>
-          <div class="tool-text">
-            <div class="tool-name">Mosquito Mode</div>
-            <div class="tool-desc">A gateway practice for laughter, movement, pulse, and shared rhythm.</div>
-          </div>
-        </a>
-
-        <a class="tool-card" href="four-rites.html">
-          <div class="tool-icon">⊹</div>
-          <div class="tool-text">
-            <div class="tool-name">The Four Rites</div>
-            <div class="tool-desc">Weather, Listening, Carrying, Offering — the rhythms of a Pod.</div>
-          </div>
-        </a>
-
-        <a class="tool-card" href="commons/">
-          <div class="tool-icon">🌐</div>
-          <div class="tool-text">
-            <div class="tool-name">The Commons</div>
-            <div class="tool-desc">Real moments from the field — what teachers saw, tried, and what shifted.</div>
-          </div>
-        </a>
+        </div>
       </div>
+    </section>
 
-      <div class="root-note">
-        <span class="section-eyebrow">On beginning</span>
-        <p class="root-note-text">Some entries are small enough to hold in the hand, but deep enough to walk into for years.</p>
-        <p><a class="root-note-link" href="threshold-entries.html">What these entries are, and how they work →</a></p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    A <span>Flower Road</span> commons practice &nbsp;·&nbsp; Co-created by Elumannín + Jacobo &nbsp;·&nbsp;
-    Shared in the spirit of learning, reciprocity, and repair &nbsp;·&nbsp;
-    <a href="discoverymode-license.html">License</a>
-  </footer>
-
-  <script>
-    const steps = document.querySelectorAll('.step');
-    let revealed = false;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !revealed) {
-          revealed = true;
-          steps.forEach((step, i) => {
-            setTimeout(() => step.classList.add('visible'), i * 420);
-          });
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    if (steps.length) observer.observe(steps[0]);
-  </script>
-
+    <footer class="footer">
+      <p>
+        The Forge is guided by the Covenant of the Flower Road and kept alive through the Bellows.
+      </p>
+    </footer>
+  </main>
 </body>
-</html>
-```
+</html> 
