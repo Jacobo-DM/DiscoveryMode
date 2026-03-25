@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -461,6 +462,31 @@
       font-weight: 300;
     }
 
+    .root-note {
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-light);
+      max-width: 42rem;
+    }
+
+    .root-note-text {
+      font-size: 0.98rem;
+      font-style: italic;
+      color: var(--muted-light);
+      margin-bottom: 0.9rem;
+    }
+
+    .root-note-link {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--amber);
+      text-decoration: none;
+    }
+
+    .root-note-link:hover {
+      text-decoration: underline;
+    }
+
     footer {
       background: var(--night);
       text-align: center;
@@ -717,6 +743,12 @@
           </div>
         </a>
       </div>
+
+      <div class="root-note">
+        <span class="section-eyebrow">On beginning</span>
+        <p class="root-note-text">Some entries are small enough to hold in the hand, but deep enough to walk into for years.</p>
+        <p><a class="root-note-link" href="threshold-entries.html">What these entries are, and how they work →</a></p>
+      </div>
     </div>
   </section>
 
@@ -747,3 +779,4 @@
 
 </body>
 </html>
+```
