@@ -439,6 +439,26 @@
       font-weight: 300;
     }
 
+    .whisper-note {
+      background: var(--paper);
+      padding: 0 2rem 3rem;
+      text-align: center;
+    }
+
+    .whisper-note a {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--muted-light);
+      text-decoration: none;
+      opacity: 0.72;
+      transition: opacity 0.25s ease, color 0.25s ease;
+    }
+
+    .whisper-note a:hover {
+      opacity: 1;
+      color: var(--soil);
+    }
+
     footer {
       background: var(--night);
       text-align: center;
@@ -468,7 +488,8 @@
       .threshold,
       .practice-zone,
       .arrival-zone,
-      .tools-zone {
+      .tools-zone,
+      .whisper-note {
         padding-left: 1.2rem;
         padding-right: 1.2rem;
       }
@@ -493,20 +514,19 @@
 
     <div class="gate-line">There is only the open gate</div>
 
- <div class="glimpse-strip">
-  <a class="glimpse-pill" href="elephant-circle.html">Elephant Circle</a>
-  <a class="glimpse-pill" href="listening-circle.html">Listening Circle</a>
-  <a class="glimpse-pill" href="resonance-tracking.html">Resonance Tracking</a>
-  <a class="glimpse-pill" href="threshold-entries.html">Threshold Entries</a>
-  <a class="glimpse-pill" href="dear-one.html">Dear One</a>
-  <a class="glimpse-pill" href="weather-deck.html">WeatherDeck</a>
-  <a class="glimpse-pill" href="weather-wheel.html">WeatherWheel</a>
-  <a class="glimpse-pill" href="discovery-pouch.html">DiscoveryPouch</a>
-  <a class="glimpse-pill" href="discovery-hut.html">DiscoveryHut</a>
-  <a class="glimpse-pill" href="dm_pulse.html">Pulse</a>
-  <a class="glimpse-pill" href="mosquito-mode.html">Mosquito Mode</a>
-  <a class="glimpse-pill" href="commons/">Commons</a>
-</div>
+    <div class="glimpse-strip">
+      <a class="glimpse-pill" href="elephant-circle.html">Elephant Circle</a>
+      <a class="glimpse-pill" href="listening-circle.html">Listening Circle</a>
+      <a class="glimpse-pill" href="resonance-tracking.html">Resonance Tracking</a>
+      <a class="glimpse-pill" href="threshold-entries.html">Threshold Entries</a>
+      <a class="glimpse-pill" href="weather-deck.html">WeatherDeck</a>
+      <a class="glimpse-pill" href="weather-wheel.html">WeatherWheel</a>
+      <a class="glimpse-pill" href="discovery-pouch.html">DiscoveryPouch</a>
+      <a class="glimpse-pill" href="discovery-hut.html">DiscoveryHut</a>
+      <a class="glimpse-pill" href="dm_pulse.html">Pulse</a>
+      <a class="glimpse-pill" href="mosquito-mode.html">Mosquito Mode</a>
+      <a class="glimpse-pill" href="commons/">Commons</a>
+    </div>
 
     <div class="start-here">
       <span class="start-here-label">Start here ↓</span>
@@ -514,7 +534,6 @@
         <li><span class="feeling">Feeling curious?</span> &nbsp;&nbsp; <a href="elephant-circle.html">Elephant Circle</a></li>
         <li><span class="feeling">Feeling activated?</span> &nbsp;→&nbsp; <a href="mosquito-mode.html">Mosquito Mode</a></li>
         <li><span class="feeling">Feeling overwhelmed?</span> &nbsp;→&nbsp; <a href="dm_pulse.html">Pulse</a></li>
-        <li><span class="feeling">Need something gentle?</span> &nbsp;→&nbsp; <a href="dear-one.html">Dear One</a></li>
         <li><span class="feeling">Teaching tomorrow?</span> &nbsp;→&nbsp; <a href="dm_field_practice_1.html">Field Practice</a></li>
         <li><span class="feeling">Want the philosophy?</span> &nbsp;→&nbsp; <a href="discoverymode-license.html">Feral Garden</a></li>
         <li><span class="feeling">Want real examples?</span> &nbsp;→&nbsp; <a href="commons/">The Commons</a></li>
@@ -645,14 +664,6 @@
           </div>
         </a>
 
-        <a class="tool-card" href="dear-one.html">
-          <div class="tool-icon">✉</div>
-          <div class="tool-text">
-            <div class="tool-name">Dear One</div>
-            <div class="tool-desc">A quiet letter for those who thought they were wrong. A threshold text of belonging.</div>
-          </div>
-        </a>
-
         <a class="tool-card" href="weather-deck.html">
           <div class="tool-icon">☁︎</div>
           <div class="tool-text">
@@ -720,6 +731,10 @@
     </div>
   </section>
 
+  <div class="whisper-note">
+    <a href="dear-one.html">for those who need it</a>
+  </div>
+
   <footer>
     A <span>Flower Road</span> commons practice &nbsp;·&nbsp; Co-created by Jacobo + Elumannin &nbsp;·&nbsp;
     Shared in the spirit of learning, reciprocity, and repair &nbsp;·&nbsp;
@@ -747,4 +762,3 @@
 
 </body>
 </html>
-```
