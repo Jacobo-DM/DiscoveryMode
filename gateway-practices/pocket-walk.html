@@ -1,136 +1,395 @@
-# Pocket Walk
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DiscoveryMode · Pocket Walk</title>
+  <meta name="description" content="A field practice for noticing subtle shifts: warmth, coolness, dampness, airflow, light, hush, and change." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inconsolata:wght@300;400;500&display=swap" rel="stylesheet">
 
-*Do not hunt for the line. Learn the field.*
+  <style>
+    * { box-sizing: border-box; }
 
-Pocket Walk is a simple field practice for noticing subtle shifts in the world around you.
+    :root {
+      --night: #0b0d12;
+      --deep: #11141c;
+      --threshold: #171b24;
+      --dawn: #f4efe6;
+      --paper: #f8f4ec;
+      --text: #e8e2d8;
+      --muted: #a6a29b;
+      --line: rgba(255,255,255,0.10);
+      --soft-line: rgba(255,255,255,0.06);
+      --accent: #c9b07a;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
 
-Walk slowly.
+    html {
+      scroll-behavior: smooth;
+    }
 
-Try your palms **outward**, **downward**, and **upward**.
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(201,176,122,0.08), transparent 32%),
+        linear-gradient(180deg, var(--night) 0%, #0e1118 40%, var(--deep) 100%);
+      color: var(--text);
+      font-family: "Lora", serif;
+      line-height: 1.75;
+    }
 
-When something changes, stop.
+    a {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-color: rgba(201,176,122,0.45);
+      text-underline-offset: 0.18em;
+    }
 
-Do not rush to explain it.
+    a:hover {
+      text-decoration-color: rgba(201,176,122,0.9);
+    }
 
-Notice what shifted:
-warmth, coolness, dampness, dryness, mist, airflow, stillness, brightness, scent, hush.
+    .wrap {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
 
-Ask:
+    .topnote {
+      font-family: "Inconsolata", monospace;
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
 
-**Did the pocket stay with us, or did it pass through?**
+    .hero {
+      padding: 4.5rem 0 3rem;
+    }
 
----
+    .eyebrow {
+      font-family: "Inconsolata", monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
 
-## The Sequence
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--dawn);
+    }
 
-**Feel → Compare → Read the Field → Measure → Wonder Again**
+    .tagline {
+      margin: 0;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      color: var(--accent);
+      max-width: 34rem;
+    }
 
-### 1. Feel
-Notice the change before naming it too quickly.
+    .lead {
+      margin-top: 2.2rem;
+      max-width: 38rem;
+      color: var(--text);
+      font-size: 1.08rem;
+    }
 
-What shifted?
+    .hero-card {
+      margin-top: 2.4rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: var(--shadow);
+    }
 
-Did it feel warmer, cooler, wetter, drier, softer, sharper, quieter, more open?
+    .hero-card p {
+      margin: 0.3rem 0;
+    }
 
-### 2. Compare
-Ask others:
+    .hero-card strong {
+      color: var(--dawn);
+    }
 
-**Did you feel that?**
+    .section {
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--soft-line);
+    }
 
-Did they notice it too?
-Did they notice the same thing, or something different?
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--dawn);
+    }
 
-Difference is not failure. It is part of the inquiry.
+    h3 {
+      margin: 1.6rem 0 0.4rem;
+      font-size: 1.02rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
 
-### 3. Read the Field
-Look around before reaching for tools.
+    p {
+      margin: 0.8rem 0;
+    }
 
-What in this place has been noticing longer than you have?
+    .sequence {
+      display: inline-block;
+      margin: 0.4rem 0 1rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      font-family: "Inconsolata", monospace;
+      font-size: 0.95rem;
+      color: var(--dawn);
+    }
 
-Shade, slope, wind, dampness, soil, moss, bark, insects, plants, water, exposure, canopy.
+    .question {
+      margin: 1.4rem 0;
+      padding: 1rem 1.1rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(255,255,255,0.025);
+      border-radius: 0 14px 14px 0;
+      color: var(--dawn);
+      font-size: 1.02rem;
+    }
 
-What clues does the place offer?
+    .triad,
+    .steps,
+    .notes {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
 
-### 4. Measure
-If useful, use tools.
+    .card {
+      background: rgba(255,255,255,0.028);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem 1rem 0.95rem;
+    }
 
-A thermometer, hygrometer, notebook, or pH strip can help sharpen the question.
+    .card p:first-child {
+      margin-top: 0;
+    }
 
-Tools do not replace sensing.
-They help refine it.
+    .label {
+      font-family: "Inconsolata", monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
 
-### 5. Wonder Again
-After feeling, comparing, reading, and measuring, ask again:
+    ul {
+      margin: 0.6rem 0 0.2rem 1.1rem;
+      padding: 0;
+    }
 
-What do we think happened here?
+    li {
+      margin: 0.35rem 0;
+    }
 
-What remains unclear?
+    .quiet {
+      color: var(--muted);
+    }
 
-What changed when we stopped to notice?
+    .closing {
+      margin-top: 3.5rem;
+      padding: 1.5rem 1.2rem;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.02));
+      color: var(--dawn);
+      box-shadow: var(--shadow);
+    }
 
----
+    .closing p:last-child {
+      margin-bottom: 0;
+    }
 
-## Palm Orientations
+    .small-link {
+      font-family: "Inconsolata", monospace;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
-### Palms outward
-What is moving across me?
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--soft-line);
+      color: var(--muted);
+      font-family: "Inconsolata", monospace;
+      font-size: 0.9rem;
+    }
 
-Air, temperature, drift, dampness, fluctuation.
+    @media (min-width: 720px) {
+      .triad,
+      .steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
-### Palms downward
-What is rising from below?
+      .notes {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topnote">DiscoveryMode / gateway practice</div>
 
-Stored heat, coolness, ground moisture, terrain presence.
+    <section class="hero">
+      <div class="eyebrow">A field practice</div>
+      <h1>Pocket Walk</h1>
+      <p class="tagline"><em>Do not hunt for the line. Learn the field.</em></p>
 
-### Palms upward
-What is arriving from above?
+      <p class="lead">
+        Pocket Walk is a simple practice for noticing subtle shifts in the world around you:
+        warmth, coolness, dampness, airflow, mist, light, hush, and change.
+      </p>
 
-Sun, mist, shade, brightness, falling cool, canopy openings.
+      <div class="hero-card">
+        <p>Walk slowly.</p>
+        <p>Try your palms <strong>outward</strong>, <strong>downward</strong>, and <strong>upward</strong>.</p>
+        <p>When something changes, stop.</p>
+        <p>Do not rush to explain it.</p>
+      </div>
 
----
+      <div class="question">
+        <strong>Did you feel that?</strong>
+      </div>
+    </section>
 
-## Try This
+    <section class="section" aria-labelledby="sequence">
+      <h2 id="sequence">The sequence</h2>
+      <div class="sequence">Feel → Compare → Read the Field → Measure → Wonder Again</div>
 
-Walk slowly.
+      <div class="steps">
+        <article class="card">
+          <div class="label">1 · Feel</div>
+          <p>Notice the change before naming it too quickly.</p>
+          <p class="quiet">Warmer, cooler, wetter, drier, softer, sharper, quieter, brighter, stranger.</p>
+        </article>
 
-Anyone in the group may call a stop.
+        <article class="card">
+          <div class="label">2 · Compare</div>
+          <p>Ask others what they noticed.</p>
+          <p class="quiet">Difference is not failure. It is part of the inquiry.</p>
+        </article>
 
-When someone notices a shift, pause together.
+        <article class="card">
+          <div class="label">3 · Read the field</div>
+          <p>Look around before reaching for tools.</p>
+          <p class="quiet">Shade, slope, wind, bark, moss, dampness, insects, soil, water, exposure.</p>
+        </article>
 
-Ask:
+        <article class="card">
+          <div class="label">4 · Measure</div>
+          <p>If useful, use tools to sharpen the question.</p>
+          <p class="quiet">Thermometer, hygrometer, notebook, pH strip.</p>
+        </article>
 
-**Did you feel that?**
+        <article class="card">
+          <div class="label">5 · Wonder again</div>
+          <p>Ask what happened here, what remains unclear, and what changed when you stopped to notice.</p>
+        </article>
+      </div>
+    </section>
 
-Then continue through the sequence:
+    <section class="section" aria-labelledby="palms">
+      <h2 id="palms">Palm orientations</h2>
+      <div class="triad">
+        <article class="card">
+          <div class="label">Outward</div>
+          <p><strong>What is moving across me?</strong></p>
+          <p class="quiet">Air, temperature, drift, dampness, fluctuation.</p>
+        </article>
 
-**Feel → Compare → Read the Field → Measure → Wonder Again**
+        <article class="card">
+          <div class="label">Downward</div>
+          <p><strong>What is rising from below?</strong></p>
+          <p class="quiet">Stored heat, coolness, ground moisture, terrain presence.</p>
+        </article>
 
-If you want to test further, return to the spot and ask again:
+        <article class="card">
+          <div class="label">Upward</div>
+          <p><strong>What is arriving from above?</strong></p>
+          <p class="quiet">Sun, mist, shade, brightness, falling cool, canopy openings.</p>
+        </article>
+      </div>
+    </section>
 
-**Did the pocket stay with us, or did it pass through?**
+    <section class="section" aria-labelledby="group-form">
+      <h2 id="group-form">Group form</h2>
+      <p>
+        Anyone in the group may call a stop.
+        When someone notices a change, pause together and ask:
+      </p>
 
----
+      <div class="question">
+        <strong>Did you feel that?</strong>
+      </div>
 
-## Notes for Practice
+      <p>
+        Then move through the sequence:
+        <strong>Feel → Compare → Read the Field → Measure → Wonder Again</strong>
+      </p>
 
-Some pockets stay in place.
+      <p>
+        If you want to test further, return to the spot and ask:
+      </p>
 
-Some pass through.
+      <div class="question">
+        <strong>Did the pocket stay with us, or did it pass through?</strong>
+      </div>
+    </section>
 
-Some are carried by the body:
-cooling sweat, exertion, contrast from the place just before.
+    <section class="section" aria-labelledby="notes">
+      <h2 id="notes">Notes for practice</h2>
 
-Some are mixed.
+      <div class="notes">
+        <article class="card">
+          <p>Some pockets stay in place.</p>
+          <p>Some pass through.</p>
+          <p>Some are carried by the body.</p>
+          <p>Some are mixed.</p>
+        </article>
 
-Not every pocket resolves into a clear answer.
+        <article class="card">
+          <p>Not every pocket resolves into a clear answer.</p>
+          <p>Some become findings.</p>
+          <p>Some remain questions.</p>
+          <p>Both matter.</p>
+        </article>
+      </div>
 
-Some become findings.
-Some remain questions.
+      <p class="small-link">
+        A quiet reminder: the body is also part of the field.
+      </p>
+    </section>
 
-Both matter.
+    <div class="closing">
+      <p>
+        The world is made of pockets, not partitions.
+      </p>
+    </div>
 
----
-
-## A quiet reminder
-
-The world is made of pockets, not partitions.
+    <footer>
+      DiscoveryMode / Pocket Walk
+    </footer>
+  </main>
+</body>
+</html>
