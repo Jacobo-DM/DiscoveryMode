@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DiscoveryMode · The Open Gate</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      --serif: Georgia, "Times New Roman", Times, serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       --night: #08090f;
       --deep: #0e1018;
       --threshold: #121520;
@@ -34,7 +34,7 @@
     body {
       background: var(--night);
       color: var(--text-dark);
-      font-family: 'Lora', Georgia, serif;
+      font-family: var(--serif);
       font-weight: 400;
       line-height: 1.75;
       min-height: 100vh;
@@ -64,7 +64,7 @@
     }
 
     .wordmark {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.68rem;
       letter-spacing: 0.42em;
       text-transform: uppercase;
@@ -97,7 +97,7 @@
 
     .gate-line {
       margin-top: 2.5rem;
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.68rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
@@ -118,7 +118,7 @@
     }
 
     .glimpse-pill {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -149,7 +149,7 @@
     }
 
     .start-here-label {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.62rem;
       letter-spacing: 0.35em;
       text-transform: uppercase;
@@ -166,7 +166,7 @@
     }
 
     .start-links li {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.82rem;
       color: var(--text-muted-dark);
       display: flex;
@@ -176,7 +176,7 @@
     }
 
     .start-links .feeling {
-      font-family: 'Lora', serif;
+      font-family: var(--serif);
       font-style: italic;
       font-size: 0.88rem;
       color: var(--text-dark);
@@ -205,7 +205,7 @@
     }
 
     .scroll-hint span {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.6rem;
       letter-spacing: 0.28em;
       color: var(--text-muted-dark);
@@ -235,7 +235,7 @@
     }
 
     .practice-eyebrow {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.62rem;
       letter-spacing: 0.35em;
       text-transform: uppercase;
@@ -276,7 +276,7 @@
     }
 
     .section-eyebrow {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.62rem;
       letter-spacing: 0.35em;
       text-transform: uppercase;
@@ -325,7 +325,7 @@
     }
 
     .arrival-state {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.68rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -341,7 +341,7 @@
     }
 
     .arrival-destination {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.78rem;
       color: var(--amber);
       letter-spacing: 0.08em;
@@ -432,11 +432,117 @@
     }
 
     .tool-desc {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.78rem;
       color: var(--muted-light);
       line-height: 1.45;
       font-weight: 300;
+    }
+
+
+    .lantern-zone {
+      background: var(--deep);
+      padding: 5.5rem 2rem 6rem;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .lantern-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .lantern-frame {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(201,169,110,0.08), transparent 30%),
+        radial-gradient(circle at 82% 70%, rgba(74,124,95,0.10), transparent 28%),
+        linear-gradient(135deg, #08090f 0%, #121520 55%, #070807 100%);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.24);
+      isolation: isolate;
+    }
+
+    .lantern-copy {
+      position: relative;
+      z-index: 1;
+      padding: clamp(1.6rem, 5vw, 3rem);
+      max-width: 34rem;
+    }
+
+    .lantern-title {
+      color: var(--text-dark);
+      font-size: clamp(1.6rem, 4vw, 2.55rem);
+      font-weight: 500;
+      line-height: 1.18;
+      margin-bottom: 0.75rem;
+    }
+
+    .lantern-lede {
+      color: rgba(232,228,220,0.78);
+      font-style: italic;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .lantern-law {
+      border-left: 3px solid var(--gold);
+      padding-left: 1rem;
+      color: var(--gold);
+      font-size: 0.95rem;
+      font-style: italic;
+      line-height: 1.65;
+    }
+
+    .lantern-traces {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .lantern-traces span {
+      position: absolute;
+      max-width: 13rem;
+      color: rgba(245,240,232,0.92);
+      font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+      font-style: italic;
+      line-height: 1.45;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.45);
+    }
+
+    .trace-one { left: 12%; top: 56%; }
+    .trace-two { left: 58%; top: 22%; }
+    .trace-three { left: 67%; top: 64%; }
+    .trace-four { left: 28%; top: 78%; }
+    .trace-five { left: 43%; top: 45%; }
+
+    .lantern-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: radial-gradient(
+        circle 190px at var(--mx, 50%) var(--my, 50%),
+        transparent 0%,
+        rgba(8,9,15,0.22) 42%,
+        rgba(8,9,15,0.90) 100%
+      );
+      transition: background 80ms linear;
+    }
+
+    .lantern-note {
+      margin-top: 1rem;
+      color: var(--text-muted-dark);
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      line-height: 1.55;
+      text-align: center;
     }
 
     .whisper-note {
@@ -463,7 +569,7 @@
       background: var(--night);
       text-align: center;
       padding: 3rem 2rem;
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.62rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -489,13 +595,169 @@
       .practice-zone,
       .arrival-zone,
       .tools-zone,
-      .whisper-note {
+  
+    .lantern-zone {
+      background: var(--deep);
+      padding: 5.5rem 2rem 6rem;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .lantern-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .lantern-frame {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(201,169,110,0.08), transparent 30%),
+        radial-gradient(circle at 82% 70%, rgba(74,124,95,0.10), transparent 28%),
+        linear-gradient(135deg, #08090f 0%, #121520 55%, #070807 100%);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.24);
+      isolation: isolate;
+    }
+
+    .lantern-copy {
+      position: relative;
+      z-index: 1;
+      padding: clamp(1.6rem, 5vw, 3rem);
+      max-width: 34rem;
+    }
+
+    .lantern-title {
+      color: var(--text-dark);
+      font-size: clamp(1.6rem, 4vw, 2.55rem);
+      font-weight: 500;
+      line-height: 1.18;
+      margin-bottom: 0.75rem;
+    }
+
+    .lantern-lede {
+      color: rgba(232,228,220,0.78);
+      font-style: italic;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .lantern-law {
+      border-left: 3px solid var(--gold);
+      padding-left: 1rem;
+      color: var(--gold);
+      font-size: 0.95rem;
+      font-style: italic;
+      line-height: 1.65;
+    }
+
+    .lantern-traces {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .lantern-traces span {
+      position: absolute;
+      max-width: 13rem;
+      color: rgba(245,240,232,0.92);
+      font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+      font-style: italic;
+      line-height: 1.45;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.45);
+    }
+
+    .trace-one { left: 12%; top: 56%; }
+    .trace-two { left: 58%; top: 22%; }
+    .trace-three { left: 67%; top: 64%; }
+    .trace-four { left: 28%; top: 78%; }
+    .trace-five { left: 43%; top: 45%; }
+
+    .lantern-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: radial-gradient(
+        circle 190px at var(--mx, 50%) var(--my, 50%),
+        transparent 0%,
+        rgba(8,9,15,0.22) 42%,
+        rgba(8,9,15,0.90) 100%
+      );
+      transition: background 80ms linear;
+    }
+
+    .lantern-note {
+      margin-top: 1rem;
+      color: var(--text-muted-dark);
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .whisper-note {
         padding-left: 1.2rem;
         padding-right: 1.2rem;
       }
 
       .start-here {
         padding: 1rem 1.1rem 1.15rem;
+      }
+
+      .lantern-frame {
+        min-height: 620px;
+      }
+
+      .lantern-traces span {
+        max-width: 10rem;
+      }
+
+      .trace-one { left: 10%; top: 50%; }
+      .trace-two { left: 42%; top: 34%; }
+      .trace-three { left: 52%; top: 68%; }
+      .trace-four { left: 12%; top: 84%; }
+      .trace-five { left: 22%; top: 62%; }
+    }
+
+    @media (hover: none) {
+      .lantern-overlay {
+        background: radial-gradient(
+          circle 240px at 50% 50%,
+          transparent 0%,
+          rgba(8,9,15,0.25) 45%,
+          rgba(8,9,15,0.84) 100%
+        );
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .wordmark,
+      .gate-mark,
+      .statement,
+      .gate-line,
+      .glimpse-strip,
+      .start-here,
+      .scroll-hint {
+        animation: none;
+        opacity: 1;
+      }
+
+      .scroll-line {
+        animation: none;
+      }
+
+      .lantern-overlay {
+        transition: none;
       }
     }
   </style>
@@ -526,6 +788,7 @@
       <a class="glimpse-pill" href="discovery-hut.html">DiscoveryHut</a>
       <a class="glimpse-pill" href="dm_pulse.html">Pulse</a>
       <a class="glimpse-pill" href="mosquito-mode.html">Mosquito Mode</a>
+      <a class="glimpse-pill" href="#racoon-lantern">Racoon Lantern</a>
       <a class="glimpse-pill" href="commons/">Commons</a>
     </div>
 
@@ -539,6 +802,7 @@
         <li><span class="feeling">Teaching tomorrow?</span> &nbsp;→&nbsp; <a href="dm_field_practice_1.html">Field Practice</a></li>
         <li><span class="feeling">Want the philosophy?</span> &nbsp;→&nbsp; <a href="discoverymode-license.html">Feral Garden</a></li>
         <li><span class="feeling">Want real examples?</span> &nbsp;→&nbsp; <a href="commons/">The Commons</a></li>
+        <li><span class="feeling">Want a quiet discovery pattern?</span> &nbsp;→&nbsp; <a href="#racoon-lantern">Racoon Lantern</a></li>
       </ul>
     </div>
 
@@ -558,6 +822,35 @@
         <li class="step">Return.</li>
         <li class="step">What changed?</li>
       </ul>
+    </div>
+  </section>
+
+
+  <section class="lantern-zone" id="racoon-lantern">
+    <div class="lantern-inner">
+      <span class="section-eyebrow">Interface pattern · Gentle attention</span>
+      <h2 class="tools-heading">Racoon Lantern</h2>
+      <p class="tools-sub">A quiet discovery pattern. Move slowly through the dark field. The page waits; attention reveals.</p>
+
+      <div class="lantern-frame" data-lantern tabindex="0" aria-label="Racoon Lantern demonstration: a dim field with quiet phrases revealed by a moving spotlight.">
+        <div class="lantern-copy">
+          <h3 class="lantern-title">The lantern follows the paw.</h3>
+          <p class="lantern-lede">This is not a digital firework. It is a small way to make attention tactile again — useful for hidden questions, field prompts, story crumbs, and gentle discovery.</p>
+          <p class="lantern-law">The lantern must reward noticing, not addiction. It must never hide essential content.</p>
+        </div>
+
+        <div class="lantern-traces" aria-hidden="true">
+          <span class="trace-one">Notice what was already here.</span>
+          <span class="trace-two">Move slowly.</span>
+          <span class="trace-three">What changes when you look with your whole body?</span>
+          <span class="trace-four">The page does not shout. It waits.</span>
+          <span class="trace-five">A small question can be a doorway.</span>
+        </div>
+
+        <div class="lantern-overlay" aria-hidden="true"></div>
+      </div>
+
+      <p class="lantern-note">Use sparingly. Keep the full meaning available without the effect. Let the lantern deepen discovery, not block access.</p>
     </div>
   </section>
 
@@ -729,6 +1022,15 @@
           </div>
         </a>
 
+
+        <a class="tool-card" href="#racoon-lantern">
+          <div class="tool-icon">🦝</div>
+          <div class="tool-text">
+            <div class="tool-name">Racoon Lantern</div>
+            <div class="tool-desc">A quiet spotlight pattern for slow noticing, hidden questions, and non-addictive discovery.</div>
+          </div>
+        </a>
+
         <a class="tool-card" href="commons/">
           <div class="tool-icon">🌐</div>
           <div class="tool-text">
@@ -767,6 +1069,28 @@
     }, { threshold: 0.3 });
 
     if (steps.length) observer.observe(steps[0]);
+
+
+    document.querySelectorAll('[data-lantern]').forEach((field) => {
+      const setLanternPosition = (clientX, clientY) => {
+        const rect = field.getBoundingClientRect();
+        const x = ((clientX - rect.left) / rect.width) * 100;
+        const y = ((clientY - rect.top) / rect.height) * 100;
+
+        field.style.setProperty('--mx', `${x}%`);
+        field.style.setProperty('--my', `${y}%`);
+      };
+
+      field.addEventListener('pointermove', (event) => {
+        setLanternPosition(event.clientX, event.clientY);
+      });
+
+      field.addEventListener('focus', () => {
+        field.style.setProperty('--mx', '50%');
+        field.style.setProperty('--my', '50%');
+      });
+    });
+
   </script>
 
 </body>
